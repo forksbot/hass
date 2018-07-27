@@ -1,0 +1,80 @@
+media_player.roku_yh00e9423945:
+  friendly_name: Office TV
+input_text.dummy_office_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.office_home
+input_text.dummy_kitchen_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.kitchen_home
+input_text.dummy_livingroom_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.living_room_home
+input_text.dummy_girls_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.girls_home
+input_text.dummy_basement_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.basement_home
+input_text.dummy_bathroom_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.bathroom_home
+input_text.dummy_livingroom_speakers:
+  icon: mdi:google-chrome
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.living_room_speakers
+input_text.dummy_master_home:
+  icon: mdi:google-home
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.master_home
+input_text.dummy_basement_tv:
+  icon: mdi:television
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.basement_roku
+input_text.dummy_bedroom_tv:
+  icon: mdi:television
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.bedroom
+input_text.dummy_office_tv:
+  icon: mdi:television
+  custom_ui_state_card: state-card-mini-media-player
+  config:
+    player: media_player.roku_yh00e9423945
+media_player.bedroom:
+  friendly_name: Master TV
+media_player.basement_roku:
+  friendly_name: Basement TV
+switch.switch:
+  friendly_name: Office Lights
+  icon: mdi:lightbulb
+weather.yweather:
+  friendly_name: Weather Forecast
+device_tracker.ian_ians_phone:
+  icon: mdi:human-handsdown
+device_tracker.chelsea_chelseas_phone:
+  icon: mdi:human-female
+sensor.speedtest_download:
+  icon: mdi:arrow-down
+sensor.speedtest_upload:
+  icon: mdi:arrow-up
+sensor.speedtest_ping:
+  icon: mdi:clock
+sensor.processor_use:
+  icon: mdi:speedometer
+sensor.since_last_boot:
+  icon: mdi:clock-start

@@ -1,0 +1,244 @@
+  #SPEEDTEST
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  #TWITCH
+  - platform: twitch
+    channels:
+      - TimTheTatman
+      - MOONMOON_OW
+  #TRAVEL TIME
+  - platform: waze_travel_time
+    region: 'US'
+    name: Chelsea's Phone To Home
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Home
+  - platform: waze_travel_time
+    region: 'US'
+    name: Chelsea's Phone To Daycare
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Daycare
+  - platform: waze_travel_time
+    region: 'US'
+    name: Chelsea's Phone To Bancroft
+    origin: device_tracker.chelsea_chelseas_phone
+    destination: zone.Bancroft
+  - platform: waze_travel_time
+    region: 'US'
+    name: Ian's Phone To Home
+    origin: device_tracker.ian_ians_phone
+    destination: zone.Home
+  - platform: waze_travel_time
+    region: 'US'
+    name: Ian's Phone To Daycare
+    origin: device_tracker.ian_ians_phone
+    destination: zone.Daycare
+  #SYSTEM MONITOR
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: since_last_boot
+  - platform: pi_hole
+    monitored_conditions: 
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - queries_cached
+      - queries_forwarded
+      - unique_clients
+      - unique_domains
+      - clients_ever_seen
+  # - platform: google_geocode
+  #   name: ian_address
+  #   origin: device_tracker.ian_ians_phone
+    # options: street_number, street, city
+    # api_key: !secret geocoding_key
+  # - platform: google_geocode
+  #   name: chelsea_address
+  #   origin: device_tracker.chelsea_chelseas_phone
+  #   options: street_number, street, city
+  #   api_key: !secret geocoding_key
+  # - platform: rest
+  #   name: office_home_alarms
+  #   resource: http://192.168.1.203:8008/setup/assistant/alarms
+  #   json_attributes:
+  #     - alarm
+  #     - timer
+  - platform: rest
+    name: office_home_eq
+    resource: http://192.168.1.203:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: kitchen_home_eq
+    resource: http://192.168.1.204:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: basement_home_eq
+    resource: http://192.168.1.201:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: livingroom_home_eq
+    resource: http://192.168.1.207:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: girls_home_eq
+    resource: http://192.168.1.206:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: bedroom_home_eq
+    resource: http://192.168.1.202:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: rest
+    name: bathroom_home_eq
+    resource: http://192.168.1.200:8008/setup/eureka_info?params=user_eq&options=detail
+    json_attributes:
+      - user_eq
+  - platform: template
+    sensors:
+      # office_home_alarm:
+      #   friendly_name: 'Next Office Home Alarm'
+      #   value_template: '{{ states.sensor.office_home_alarms.attributes.alarm[0]["fire_time"] }}'
+      # office_home_alarm_time:
+      #   friendly_name: 'Next Office Home Alarm Time'
+      #   value_template: '{{ states.sensor.office_home_alarms.attributes.alarm[0]["fire_time"] | timestamp_local }}'
+      # office_home_timer:
+      #   friendly_name: 'Next Office Home Timer'
+      #   value_template: '{{ states.sensor.office_home_alarms.attributes.timer[0]["fire_time"] }}'
+      office_home_bass:
+        friendly_name: 'Office Home Bass'
+        value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      office_home_treble:
+        friendly_name: 'Office Home Treble'
+        value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      kitchen_home_bass:
+        friendly_name: 'Kitchen Home Bass'
+        value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      kitchen_home_treble:
+        friendly_name: 'Kitchen Home Treble'
+        value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      basement_home_bass:
+        friendly_name: 'Basement Home Bass'
+        value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      basement_home_treble:
+        friendly_name: 'Basement Home Treble'
+        value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      livingroom_home_bass:
+        friendly_name: 'Livingroom Home Bass'
+        value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      livingroom_home_treble:
+        friendly_name: 'Livingroom Home Treble'
+        value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      girls_home_bass:
+        friendly_name: 'Girls Home Bass'
+        value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      girls_home_treble:
+        friendly_name: 'Girls Home Treble'
+        value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      bedroom_home_bass:
+        friendly_name: 'Bedroom Home Bass'
+        value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      bedroom_home_treble:
+        friendly_name: 'Bedroom Home Treble'
+        value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      bathroom_home_bass:
+        friendly_name: 'Bathroom Home Bass'
+        value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      batchroom_home_treble:
+        friendly_name: 'Bathroom Home Treble'
+        value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+  - platform: zestimate
+    api_key: !secret zillow_api
+    zpid:
+      - !secret zillow_pid
+  - platform: alpha_vantage
+    api_key: !secret vantage_api
+    symbols:
+    - symbol: UNP
+      name: Union Pacific
+  - platform: template
+    sensors:
+      climate_current:
+        friendly_name: 'Indoor Temperature'
+        value_template: '{{ states.climate.thermostat.attributes.current_temperature }}'
+      climate_target:
+        friendly_name: 'Target Temperature'
+        value_template: '{{ states.climate.thermostat.attributes.temperature }}'
+        unit_of_measurement: '°F'
+      climate_mode:
+        friendly_name: 'Mode'
+        value_template: '{{ states.climate.thermostat.attributes.operation_mode }}'
+      uptime:
+        friendly_name: 'Uptime'
+        value_template: "{{ states.sensor.since_last_boot.state.split('.')[0] }}"
+      office_tv_source:
+        friendly_name: 'Playing'
+        value_template: "{{ states.media_player.roku_yh00e9423945.attributes.app_name }}"
+      basement_tv_source:
+        friendly_name: 'Playing'
+        value_template: "{{ states.media_player.basement_tv.attributes.app_name }}"
+      bedroom_tv_source:
+        friendly_name: 'Playing'
+        value_template: "{{ states.media_player.bedroom_tv.attributes.app_name }}"
+      fitbit_minutes_active:
+        friendly_name: 'Minutes Active'
+        value_template: "{{ ((states.sensor.minutes_fairly_active.state | int) + (states.sensor.minutes_very_active.state | int)) }}"
+        unit_of_measurement: 'mins'
+  - platform: fitbit
+    clock_format: 12H
+    monitored_resources:
+      - "activities/activityCalories"
+      - "activities/calories"
+      - "activities/caloriesBMR"
+      - "activities/distance"
+      - "activities/elevation"
+      - "activities/floors"
+      - "activities/heart"
+      - "activities/minutesFairlyActive"
+      - "activities/minutesLightlyActive"
+      - "activities/minutesSedentary"
+      - "activities/minutesVeryActive"
+      - "activities/steps"
+      - "activities/tracker/activityCalories"
+      - "activities/tracker/calories"
+      - "activities/tracker/distance"
+      - "activities/tracker/elevation"
+      - "activities/tracker/floors"
+      - "activities/tracker/minutesFairlyActive"
+      - "activities/tracker/minutesLightlyActive"
+      - "activities/tracker/minutesSedentary"
+      - "activities/tracker/minutesVeryActive"
+      - "activities/tracker/steps"
+      - "body/bmi"
+      - "body/fat"
+      - "body/weight"
+      - "devices/battery"
+      - "sleep/awakeningsCount"
+      - "sleep/efficiency"
+      - "sleep/minutesAfterWakeup"
+      - "sleep/minutesAsleep"
+      - "sleep/minutesAwake"
+      - "sleep/minutesToFallAsleep"
+      - "sleep/startTime"
+      - "sleep/timeInBed"
+  - platform: season
+    type: astronomical
+  - platform: airvisual
+    api_key: !secret airvisual_key
+    monitored_conditions:
+      - us
+    show_on_map: false
+    # Configure by latitude/longitude:
+    latitude: !secret home_lat
+    longitude: !secret home_lon

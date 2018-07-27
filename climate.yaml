@@ -1,0 +1,5 @@
+  - platform: honeywell
+    username: !secret email
+    password:  !secret honewell_pwd
+    region: us
+    scan_interval: 600

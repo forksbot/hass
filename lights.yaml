@@ -1,0 +1,6 @@
+  - platform: yeelight
+    devices:
+      192.168.1.5:
+        name: Front Porch
+        transition: 1000
+        use_music_mode: True #(defaults to False)

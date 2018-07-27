@@ -1,0 +1,60 @@
+  - name: Bancroft
+    latitude: !secret chelsea_work_lat
+    longitude: !secret chelsea_work_lon
+    radius: 200
+    icon: mdi:school
+  - name: Union Pacific
+    latitude: !secret ian_work_lat
+    longitude: !secret ian_work_lon
+    radius: 150
+    icon: mdi:train
+  - name: Home
+    latitude: !secret home_lat
+    longitude: !secret home_lon
+    radius: 100
+    icon: mdi:account-multiple
+  - name: Daycare
+    latitude: !secret daycare_lat
+    longitude: !secret daycare_lon
+    radius: 100
+    icon: mdi:baby
+  - name: Aldi North
+    latitude: !secret aldi_north_lat
+    longitude: !secret aldi_north_lon
+    radius: 100
+    icon: mdi:basket
+  - name: Aldi South
+    latitude: !secret aldi_south_lat
+    longitude: !secret aldi_south_lon
+    radius: 100
+    icon: mdi:basket
+  - name: Target
+    latitude: !secret target_lat
+    longitude: !secret target_lon
+    radius: 150
+    icon: mdi:bullseye
+  - name: Menards North
+    latitude: !secret menards_north_lat
+    longitude: !secret menards_north_lon
+    radius: 150
+    icon: mdi:wrench
+  - name: Menards South
+    latitude: !secret menards_south_lat
+    longitude: !secret menards_south_lon
+    radius: 150
+    icon: mdi:wrench
+  - name: Lowes
+    latitude: !secret lowes_lat
+    longitude: !secret lowes_lon
+    radius: 150
+    icon: mdi:wrench
+  - name: Home Depot
+    latitude: !secret home_depot_lat
+    longitude: !secret home_depot_lon
+    radius: 150
+    icon: mdi:wrench
+  - name: Westroads Mall
+    latitude: !secret westroads_lat
+    longitude: !secret westroads_lon
+    radius: 200
+    icon: mdi:store

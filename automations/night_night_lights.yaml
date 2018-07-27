@@ -1,0 +1,30 @@
+  - alias: Weekday Lights Out
+    trigger:
+      platform: time
+      at: '22:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.switch
+  - alias: Weekend Lights Out
+    trigger:
+      platform: time
+      at: '00:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - sat
+          - sun
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.switch
+          # TODO Change to send telegram message with option to turn off lights or remind me in 30 minutes or 1 hour

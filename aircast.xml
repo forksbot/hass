@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<aircast>
+<common>
+<enabled>1</enabled>
+<stop_receiver>0</stop_receiver>
+<media_volume>1.0000</media_volume>
+<latency></latency>
+<codec>flac</codec>
+<artwork></artwork>
+</common>
+<main_log>info</main_log>
+<cast_log>info</cast_log>
+<util_log>warn</util_log>
+<log_limit>-1</log_limit>
+<device>
+<udn>c22d9a769564987afcb890b97dc1b8e3</udn>
+<name>Living Room Home+</name>
+<mac>cc:cc:a0:b9:31:ec</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>C63C2ADE-6688-43EE-9011-4F5F8B7EB340</udn>
+<name>Main Floor+</name>
+<mac>cc:cc:80:26:8b:30</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>6f98008fc328641589962ed8effe72e0</udn>
+<name>Office Home+</name>
+<mac>cc:cc:27:ed:b2:f6</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>27700200-C3F0-4366-B387-5F1CFFC035DB</udn>
+<name>Upstairs+</name>
+<mac>cc:cc:ca:69:24:88</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>a81e07ec7d86488831b9459befc71b5d</udn>
+<name>Basement Home+</name>
+<mac>cc:cc:9c:19:dd:e4</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>8bc11ad41df76adecd89bb231c878975</udn>
+<name>Kitchen Home+</name>
+<mac>cc:cc:b0:db:01:f8</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>c3607ef183bee3aed1c830fe8756700d</udn>
+<name>Bathroom Home+</name>
+<mac>cc:cc:f7:86:7d:34</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>094af91a4e03c7352e85867cf3e76f0b</udn>
+<name>Living Room Speakers+</name>
+<mac>cc:cc:41:b1:af:3e</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>929bf6bc-461b-44f2-be8f-93a3ef865e53</udn>
+<name>Upper Main Floor+</name>
+<mac>cc:cc:3d:ee:93:22</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>AD58E439-5100-4D63-9DC7-13ABBD566BF9</udn>
+<name>Whole House+</name>
+<mac>cc:cc:9d:ce:d0:cf</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>2fef898c1337253ed799b4c58e232612</udn>
+<name>Girl&apos;s Home+</name>
+<mac>cc:cc:a9:65:6a:52</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>faeca97f50cd55309dae56ce8d860215</udn>
+<name>Master Home+</name>
+<mac>cc:cc:6c:ba:16:5d</mac>
+<enabled>1</enabled>
+</device>
+</aircast>

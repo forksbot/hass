@@ -1,0 +1,95 @@
+#
+# Main arguments, all optional
+#
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+
+clock:
+    widget_type: clock
+weather:
+  widget_type: weather_summary
+temperature:
+    title: Outside
+    widget_type: sensor
+    units: "&deg;F"
+    entity: sensor.dark_sky_temperature
+    sub_entity: sensor.dark_sky_apparent_temperature
+ian_presence:
+    widget_type: device_tracker
+    title: Ian
+    device: ian_ians_phone
+chelsea_presence:
+    widget_type: device_tracker
+    title: Chelsea
+    device: chelsea_chelseas_phone
+left_garage:
+    widget_type: cover
+    title: Left Garage
+    entity: cover.left_garage_door
+    icon_on: fa-car
+    icon_off: fa-car
+    warn: 1
+right_garage:
+    widget_type: cover
+    title: Right Garage
+    entity: cover.right_garage_door
+    icon_on: fa-car
+    icon_off: fa-car
+    warn: 1
+thermostat:
+    title: Inside
+    widget_type: climate
+    entity: climate.thermostat
+office_light:
+    widget_type: light
+    title: Office Lights
+    device: switch.switch
+office_home:
+    title: Office Home
+    widget_type: media_player
+    entity: media_player.office_home
+kitchen_home:
+    title: Kitchen Home
+    widget_type: media_player
+    entity: media_player.kitchen_home
+living_room_home:
+    title: Living Room Home
+    widget_type: media_player
+    entity: media_player.living_room_home
+girls_room_camera:
+    title: Girl's Room
+    widget_type: camera
+    entity_picture: http://192.168.1.99:8123/api/camera_proxy/camera.girls_room?api_password=akabond007
+    refresh: 10
+livingroom_camera:
+    title: Main Floor
+    widget_type: camera
+    entity_picture: http://192.168.1.99:8123/api/camera_proxy/camera.livingroom?api_password=akabond007
+    refresh: 10
+omaha_weather:
+    title: Omaha Weather
+    widget_type: camera
+    entity_picture: http://192.168.1.99:8123/api/camera_proxy/camera.omaha?api_password=akabond007
+    refresh: 10
+speedtest:
+    widget_type: sensor
+    entity: sensor.speedtest_download
+    sub_entity: sensor.speedtest_upload
+    units: Mbit/s
+    
+    
+layout:
+    - clock (2x1), ian_presence, chelsea_presence, thermostat, temperature, omaha_weather (2x2)
+    - left_garage, right_garage, switch.switch, speedtest, spacer
+    - kitchen_home (2x2), living_room_home (2x2), girls_room_camera (4x2)

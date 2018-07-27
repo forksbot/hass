@@ -1,0 +1,24 @@
+  # - chelsea_location:
+  #     sequence:
+  #       - service: tts.google_say
+  #         data_template:
+  #           entity_id: media_player.office_home
+  #           message: >
+  #             {% if is_state('sensor.chelsea_address', 'Awaiting Update') %}
+  #               "I don't currently have a location for Chelsea"
+  #             {% else %}
+  #               "Chelsea is at {{ states.sensor.chelsea_address.state }}"
+  #             {% endif %}
+  #             # TODO Send notifcation to Ian's phone with a map
+  # - ian_location:
+  #     sequence:
+  #       - service: tts.google_say
+  #         data_template:
+  #           entity_id: media_player.office_home
+  #           message: >
+  #             {% if is_state('sensor.ian_address', 'Awaiting Update') %}
+  #               "I don't currently have a location for Ian"
+  #             {% else %}
+  #               "Ian is at {{ states.sensor.ian_address.state }}"
+  #             {% endif %}
+  #             # TODO Send notifcation to Chelsea's phone with a map

@@ -1,0 +1,2 @@
+  username: hass
+  password: !secret influxdb_pwd

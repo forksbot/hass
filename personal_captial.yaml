@@ -1,0 +1,2 @@
+  - email: !secret email
+  - password: !secret pc_password

@@ -1,0 +1,603 @@
+ian_ians_phone:
+  hide_if_away: false
+  icon:
+  mac: 98:9E:63:73:EA:A0
+  name: Ian
+  picture: /local/lovelace/icons/ian.jpg
+  track: true
+  vendor: Apple, Inc.
+
+chelsea_chelseas_phone:
+  hide_if_away: false
+  icon:
+  mac: 80:58:F8:1A:3F:B6
+  name: Chelsea
+  picture: /local/lovelace/icons/chelsea.jpg
+  track: true
+  vendor: Motorola Mobility LLC, a Lenovo Company
+amazondd61d883d:
+  hide_if_away: false
+  icon:
+  mac: 50:DC:E7:BD:1F:71
+  name: AMAZON-DD61D883D
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.
+
+unknown_2:
+  hide_if_away: false
+  icon:
+  mac: 00:21:CC:4B:D9:09
+  name: Unknown
+  picture:
+  track: false
+  vendor: Flextronics International
+
+chromecastaudio:
+  hide_if_away: false
+  icon:
+  mac: 54:60:09:F2:91:92
+  name: CHROMECAST-AUDIO
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+googlehome_5:
+  hide_if_away: false
+  icon:
+  mac: F4:F5:D8:A1:DE:DA
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+googlehome:
+  hide_if_away: false
+  icon:
+  mac: E4:F0:42:31:B0:33
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+obi200:
+  hide_if_away: false
+  icon:
+  mac: 80:3F:5D:95:92:2D
+  name: OBI200
+  picture:
+  track: false
+  vendor: Winstars Technology Ltd
+
+roku_streaming_stickplus__783:
+  hide_if_away: false
+  icon:
+  mac: C8:3A:6B:58:35:38
+  name: ROKU STREAMING STICKPLUS - 783
+  picture:
+  track: false
+  vendor: Roku, Inc
+
+googlehome_2:
+  hide_if_away: false
+  icon:
+  mac: 48:D6:D5:80:A8:3C
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+gateway548b92:
+  hide_if_away: false
+  icon:
+  mac: 00:D0:2D:54:8B:92
+  name: GATEWAY548B92
+  picture:
+  track: false
+  vendor: ADEMCO
+
+unknown_4:
+  hide_if_away: false
+  icon:
+  mac: 64:52:99:69:E5:8F
+  name: Unknown
+  picture:
+  track: false
+  vendor: The Chamberlain Group, Inc
+
+brw3c77e6b136dd:
+  hide_if_away: false
+  icon:
+  mac: 3C:77:E6:B1:36:DD
+  name: BRW3C77E6B136DD
+  picture:
+  track: false
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+chromecast:
+  hide_if_away: false
+  icon:
+  mac: 6C:AD:F8:2C:70:02
+  name: CHROMECAST
+  picture:
+  track: false
+  vendor: AzureWave Technology Inc.
+
+amazon8edcbb4bb:
+  hide_if_away: false
+  icon:
+  mac: 44:65:0D:BC:70:DD
+  name: AMAZON-8EDCBB4BB
+  picture:
+  track: false
+  vendor: unknown
+
+amc01684_2hn573:
+  hide_if_away: false
+  icon:
+  mac: 9C:8E:CD:02:8C:3F
+  name: AMC01684 2HN573
+  picture:
+  track: false
+  vendor: unknown
+
+amazonecc9a57bf:
+  hide_if_away: false
+  icon:
+  mac: 88:71:E5:5D:93:CF
+  name: AMAZON-ECC9A57BF
+  picture:
+  track: false
+  vendor: unknown
+
+unknown:
+  hide_if_away: false
+  icon:
+  mac: E8:AB:FA:69:17:94
+  name: Unknown
+  picture:
+  track: false
+  vendor: unknown
+
+hassio:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:37:8D:4C
+  name: HASSIO
+  picture:
+  track: false
+  vendor: unknown
+
+yeelinklightcolor1_miio53851417:
+  hide_if_away: false
+  icon:
+  mac: 28:6C:07:B1:36:8F
+  name: YEELINK-LIGHT-COLOR1 MIIO53851417
+  picture:
+  track: false
+  vendor: unknown
+
+googlehome_3:
+  hide_if_away: false
+  icon:
+  mac: 20:DF:B9:3B:89:DA
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: unknown
+
+googlehome_4:
+  hide_if_away: false
+  icon:
+  mac: 20:DF:B9:3A:17:6C
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: unknown
+
+unknown_3:
+  hide_if_away: false
+  icon:
+  mac: 60:38:E0:5D:44:E9
+  name: Unknown
+  picture:
+  track: false
+  vendor: unknown
+
+desktop2v4dnum:
+  hide_if_away: false
+  icon:
+  mac: 54:04:A6:13:BA:40
+  name: DESKTOP-2V4DNUM
+  picture:
+  track: false
+  vendor: unknown
+
+googlehome_6:
+  hide_if_away: false
+  icon:
+  mac: F4:F5:D8:B5:19:52
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+amazon7dbe5db34:
+  hide_if_away: false
+  icon:
+  mac: 88:71:E5:32:0C:D3
+  name: AMAZON-7DBE5DB34
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.
+
+googlehome_7:
+  hide_if_away: false
+  icon:
+  mac: 48:D6:D5:97:65:A6
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+googlehome_8:
+  hide_if_away: false
+  icon:
+  mac: 48:D6:D5:E7:2A:EC
+  name: GOOGLE-HOME
+  picture:
+  track: false
+  vendor: unknown
+
+laptopchreios3:
+  hide_if_away: false
+  icon:
+  mac: 64:6E:69:F8:DE:B1
+  name: LAPTOP-CHREIOS3
+  picture:
+  track: false
+  vendor: unknown
+
+basement_camera:
+  hide_if_away: false
+  icon:
+  mac: C4:D6:55:40:AA:83
+  name: Basement Camera
+  picture:
+  track: false
+
+wink_hub:
+  hide_if_away: false
+  icon:
+  mac: D8:C4:6A:5E:1D:45
+  name: Wink Hub
+  picture:
+  track: false
+
+ubuntu:
+  hide_if_away: false
+  icon:
+  mac: 00:1E:67:26:B3:19
+  name: UBUNTU
+  picture:
+  track: false
+
+living_room_camera:
+  hide_if_away: false
+  icon:
+  mac: 9C:8E:CD:12:9A:71
+  name: Living Room Camera
+  picture:
+  track: false
+
+basement_roku:
+  hide_if_away: false
+  icon:
+  mac: 3C:59:1E:D7:21:17
+  name: BASEMENT ROKU
+  picture:
+  track: false
+
+roku_streaming_stickplus__945:
+  hide_if_away: false
+  icon:
+  mac: C8:3A:6B:5A:0F:5A
+  name: ROKU STREAMING STICKPLUS - 945
+  picture:
+  track: false
+
+unknown_5:
+  hide_if_away: false
+  icon:
+  mac: 0C:47:C9:EB:7B:61
+  name: Unknown
+  picture:
+  track: false
+
+orbi_router:
+  hide_if_away: false
+  icon:
+  mac: 2.4G
+  name: Orbi Router
+  picture:
+  track: false
+
+'2':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:6-----'
+  name: '2'
+  picture:
+  track: false
+
+'24':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:7-----'
+  name: '24'
+  picture:
+  track: false
+
+'19':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:8-----'
+  name: '19'
+  picture:
+  track: false
+
+'19_2':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:9-----'
+  name: '19'
+  picture:
+  track: false
+
+'19_3':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:10-----'
+  name: '19'
+  picture:
+  track: false
+
+'24_2':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:11-----'
+  name: '24'
+  picture:
+  track: false
+
+'17':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:12-----'
+  name: '17'
+  picture:
+  track: false
+
+'24_3':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:13-----'
+  name: '24'
+  picture:
+  track: false
+
+'19_4':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:14-----'
+  name: '19'
+  picture:
+  track: false
+
+'0':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:15-----'
+  name: '0'
+  picture:
+  track: false
+
+'19_5':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:16-----'
+  name: '19'
+  picture:
+  track: false
+
+'24_4':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:17-----'
+  name: '24'
+  picture:
+  track: false
+
+'24_5':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:18-----'
+  name: '24'
+  picture:
+  track: false
+
+'24_6':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:19-----'
+  name: '24'
+  picture:
+  track: false
+
+'19_6':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:20-----'
+  name: '19'
+  picture:
+  track: false
+
+'38':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:21-----'
+  name: '38'
+  picture:
+  track: false
+
+'24_7':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:22-----'
+  name: '24'
+  picture:
+  track: false
+
+'24_8':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:23-----'
+  name: '24'
+  picture:
+  track: false
+
+'2_2':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:24-----'
+  name: '2'
+  picture:
+  track: false
+
+'24_9':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:25-----'
+  name: '24'
+  picture:
+  track: false
+
+'24_10':
+  hide_if_away: false
+  icon:
+  mac: '-----DEVICE:26-----'
+  name: '24'
+  picture:
+  track: false
+
+orbi_router_2:
+  hide_if_away: false
+  icon:
+  mac: WIRED
+  name: Orbi Router
+  picture:
+  track: false
+
+orbi_router_3:
+  hide_if_away: false
+  icon:
+  mac: 5G
+  name: Orbi Router
+  picture:
+  track: false
+
+infols0063403:
+  hide_if_away: false
+  icon:
+  mac: F4:96:34:06:96:40
+  name: INFO-LS0063403
+  picture:
+  track: false
+
+rbs50:
+  hide_if_away: false
+  icon:
+  mac: 08:02:8E:91:56:F8
+  name: RBS50
+  picture:
+  track: false
+
+rbs50_2:
+  hide_if_away: false
+  icon:
+  mac: 0E:02:8E:91:56:FB
+  name: RBS50
+  picture:
+  track: false
+
+androidf04fe1847cef23ce:
+  hide_if_away: false
+  icon:
+  mac: 0C:72:D9:29:9F:61
+  name: ANDROID-F04FE1847CEF23CE
+  picture:
+  track: false
+
+android58cbd00b8ead37fa:
+  hide_if_away: false
+  icon:
+  mac: 0C:72:D9:18:B4:E8
+  name: ANDROID-58CBD00B8EAD37FA
+  picture:
+  track: false
+
+ionic:
+  hide_if_away: false
+  icon:
+  mac: 18:00:DB:1F:DC:EC
+  name: IONIC
+  picture:
+  track: false
+
+basement_tv:
+  hide_if_away: false
+  icon:
+  mac: 1C:1E:E3:C7:6F:A1
+  name: Basement TV
+  picture:
+  track: false
+
+android4e46b498a5548463:
+  hide_if_away: false
+  icon:
+  mac: 0C:72:D9:18:E6:EE
+  name: ANDROID-4E46B498A5548463
+  picture:
+  track: false
+
+desktop2imdf54:
+  hide_if_away: false
+  icon:
+  mac: 1C:4D:70:7C:EB:60
+  name: DESKTOP-2IMDF54
+  picture:
+  track: false
+
+iphone:
+  hide_if_away: false
+  icon:
+  mac: 70:81:EB:E2:AB:9D
+  name: IPHONE
+  picture:
+  track: false
+
+ios_ian:
+  hide_if_away: false
+  icon:
+  mac: 98:9E:63:73:EA:A0
+  name: ios ian
+  picture:
+  track: false
+
+unknown_6:
+  hide_if_away: false
+  icon:
+  mac: 01:01:00:00:00:00
+  name: Unknown
+  picture:
+  track: false

@@ -1,0 +1,100 @@
+  - alias: Chelsea left home
+    trigger:
+      - platform: state
+        entity_id: device_tracker.chelsea_chelseas_phone
+        from: 'home'
+        to: 'not_home'
+        for:
+          minutes: 1
+    condition:
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+    action:
+      - service: notify.hass_rich
+        data:
+          message: "Chelsea just left home at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+#   - alias: Chelsea arrived home
+#     trigger:
+#       - platform: state
+#         entity_id: device_tracker.chelsea_chelseas_phone
+#         from: 'not_home'
+#         to: 'home'
+#         for:
+#           minutes: 1
+#     condition:
+#       - condition: time
+#         after: '07:00:00'
+#         before: '22:00:00'
+#     action:
+#       - service: notify.hass_rich
+#         data:
+#           message: "Chelsea just arrived home at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+#       - service: notify.google_assistant_broadcast
+#         data_template:
+#           message: 'Chelsea has arrived home'
+  - alias: Ian left home
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ian_ians_phone
+        from: 'home'
+        to: 'not_home'
+        for:
+          minutes: 1
+    condition:
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+    action:
+      - service: notify.hass_rich
+        data:
+          message: "Ian just left home at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+  - alias: Ian arrived home
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ian_ians_phone
+        from: 'not_home'
+        to: 'home'
+        for:
+          minutes: 1
+    condition:
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+    action:
+      - service: notify.hass_rich
+        data:
+          message: "Ian just arrived home at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+  - alias: Ian left work
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ian_ians_phone
+        from: 'Union Pacific'
+        to: 'not_home'
+        for:
+          minutes: 1
+    condition:
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+    action:
+      - service: notify.hass_rich
+        data:
+          message: "Ian just left work at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+  - alias: Ian arrived at work
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ian_ians_phone
+        from: 'not_home'
+        to: 'Union Pacific'
+        for:
+          minutes: 1
+    condition:
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+    action:
+      - service: notify.hass_rich
+        data:
+          message: "Ian just arrived at work at {{ as_timestamp(now()) | timestamp_custom('%I:%M %p') }}"
+ 

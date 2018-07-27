@@ -1,0 +1,38 @@
+  - platform: rest
+    name: Google Assistant Broadcast
+    resource: http://192.168.1.99:5000/broadcast_message
+  - platform: rest
+    name: Google Assistant Command
+    resource: http://192.168.1.99:5000/command
+  - platform: discord
+    name: hass
+    token: !secret discord_token
+  - platform: group
+    name: hass_rich
+    services:
+      - service: hass
+        data:
+          target: 443079237608669195
+  - platform: telegram
+    name: telegram
+    chat_id: !secret telegram_group_id
+  - platform: group
+    name: alert_left_garage
+    services:
+      - service: telegram
+        data:
+          title: '*Left Garage Open*'
+          message: 'The left garage has been open for too long'
+          data:
+            inline_keyboard:
+              - 'Close Garage:/closeleft'
+  - platform: group
+    name: alert_right_garage
+    services:
+      - service: telegram
+        data:
+          title: '*Right Garage Open*'
+          message: 'The right garage has been open for too long'
+          data:
+            inline_keyboard:
+              - 'Close Garage:/closeright'

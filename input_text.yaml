@@ -1,0 +1,24 @@
+  dummy_office_home:
+    name: Office Home
+  dummy_livingroom_home:
+    name: Livingroom Home
+  dummy_kitchen_home:
+    name: Kitchen Home
+  dummy_girls_home:
+    name: Girl's Home
+  dummy_master_home:
+    name: Master Home
+  dummy_basement_home:
+    name: Basement Home
+  dummy_bathroom_home:
+    name: Bathroom Home
+  dummy_livingroom_speakers:
+    name: Livingroom Speakers
+  dummy_basement_tv:
+    name: Basement TV
+  dummy_bedroom_tv:
+    name: Bedroom TV
+  dummy_office_tv:
+    name: Office TV
+  message:
+    name: Broadcast

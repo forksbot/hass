@@ -1,0 +1,231 @@
+  # lights:
+  #   name: Controls
+  #   view: yes
+  #   entities:
+  #     - device_tracker.ian_ians_phone
+  #     - device_tracker.chelsea_chelseas_phone
+  #     - group.weather
+  #     - group.livingroom
+  #     - group.garage
+  #     - group.office
+  #     - group.basement
+  #     - group.master
+  #     - group.shop
+  #     - group.kitchen
+  #     - group.girls_room
+  #     - climate.thermostat
+  # current:
+  #   name: Current
+  #   view: yes
+  #   entities:
+  #     - device_tracker.ian_ians_phone
+  #     - device_tracker.chelsea_chelseas_phone
+  #     - group.weather
+  #     - camera.girls_room
+  #     - camera.livingroom
+  #     - group.twitch
+  #     - group.internet
+  #     - group.automatic
+  #     - climate.thermostat
+  #     - group.travel
+  #     - group.calendar
+  # system:
+  #   name: System
+  #   view: yes
+  #   entities:
+  #     - device_tracker.ian_ians_phone
+  #     - device_tracker.chelsea_chelseas_phone
+  #     - group.weather
+  #     - group.system_sensors
+  #     - group.pihole
+  #     - group.wink
+  # media:
+  #   name: Media
+  #   view: yes
+  #   entities:
+  #     - device_tracker.ian_ians_phone
+  #     - device_tracker.chelsea_chelseas_phone
+  #     - group.weather
+  #     - group.google_music
+  #     - group.basement_tv
+  #     - group.chromecast_radio
+  #     - group.chromecasts
+  # chromecasts:
+  #   name: Chromecasts
+  #   entities:
+  #     - media_player.master_home
+  #     - media_player.kitchen_home
+  #     - media_player.main_floor
+  #     - media_player.office_home
+  #     - media_player.whole_house
+  #     - media_player.basement_home
+  #     - media_player.living_room_home
+  #     - media_player.shop_home
+  #     - media_player.girls_home
+  # system_sensors:
+  #   entities:
+  #     - sensor.disk_used_home
+  #     - sensor.ram_available
+  # wake_up_alarm:
+  #   name: Wakeup Light with Radio
+  #   control: hidden
+  #   entities:
+  #     - input_boolean.alarm_clock
+  #     - sensor.alarmtime
+  #     - sensor.time_until_alarm
+  #     - input_number.alarm_hour
+  #     - input_number.alarm_minutes
+  #     - input_boolean.lullaby
+  #     - input_select.lullaby
+  #     - input_select.radio_wakeup
+  # living_room_view:
+  #   name: Living Room
+  #   view: yes
+  #   entities:
+  #     - group.living_room_view_group
+  # living_room_view_group:
+  #   name: Living Room
+  #   control: hidden
+  #   entities:
+  #     - input_text.dummy_livingroom_home
+  #     - input_text.dummy_livingroom_speakers
+  # livingroom:
+  #   name: Living Room
+  #   entities:
+  #     - input_text.dummy_livingroom_home
+  #     - input_text.dummy_livingroom_speakers
+  # basement_view:
+  #   name: Basement
+  #   view: yes
+  #   entities:
+  #     - group.basement_view_group
+  # basement_view_group:
+  #   name: Basement
+  #   control: hidden
+  #   entities:
+  #     - input_text.dummy_basement_home
+  #     - input_text.dummy_basement_tv
+  # basement:
+  #   name: Basement 
+  #   entities:
+  #     - input_text.dummy_basement_home
+  #     - input_text.dummy_basement_tv
+  # office_view:
+  #   name: Office
+  #   view: yes
+  #   entities:
+  #     - group.office_view_group
+  # office_view_group:
+  #   name: Office
+  #   control: hidden
+  #   entities:
+  #     - input_text.dummy_office_tile
+  #     - input_text.dummy_office_home
+  #     - input_text.dummy_office_tv
+  #     - switch.switch
+  # office:
+  #   name: Office
+  #   entities:
+  #     - switch.switch
+  #     - input_text.dummy_office_home
+  #     - input_text.dummy_office_tv
+  # garage:
+  #   name: Garage
+  #   entities:
+  #     - cover.left_garage_door
+  #     - cover.right_garage_door
+  # master:
+  #   name: Master Bedroom
+  #   entities:
+  #     - input_text.dummy_master_home
+  #     - input_text.dummy_bedroom_tv
+  #     - input_text.dummy_bathroom_home
+  # kitchen:
+  #   name: Kitchen
+  #   entities:
+  #     - input_text.dummy_kitchen_home
+  # girls_room:
+  #   name: Girl's Room
+  #   entities:
+  #     - input_text.dummy_girls_home
+  # twitch:
+  #   name: Twitch
+  #   entities:
+  #     - sensor.timthetatman
+  #     - sensor.moonmoon_ow
+  # internet:
+  #   name: Internet
+  #   entities:
+  #     - sensor.speedtest_ping
+  #     - sensor.speedtest_download
+  #     - sensor.speedtest_upload
+  # weather:
+  #   name: Weather
+  #   entities:
+  #     - input_boolean.weather
+  #     - camera.omaha
+  # automatic:
+  #   name: Vehicles
+  #   entities:
+  #     - device_tracker.c_e67e6ca7b400bbe2
+  #     # - camera.van
+  # hvac:
+  #   name: HVAC
+  #   entities:
+  #     - input_select.hvac_operation_mode
+  #     - input_select.hvac_fan_mode
+  #     - input_number.hvac_target_temp
+  # travel:
+  #   name: Travel Times
+  #   entities:
+  #     - sensor.ians_phone_to_home
+  #     - sensor.chelseas_phone_to_home
+  #     - sensor.ians_phone_to_daycare
+  #     - sensor.chelseas_phone_to_daycare
+  #     - sensor.chelseas_phone_to_bancroft
+  #     - sensor.ian_address
+  #     - sensor.chelsea_address
+  # calendar:
+  #   name: Calendars
+  #   entities:
+  #     - calendar.contacts
+  #     - calendar.cswehlagmailcom
+  #     - calendar.holidays_in_united_states
+  #     - calendar.iantrichgmailcom
+  # wink:
+  #   name: Wink Hub
+  #   entities:
+  #     - binary_sensor.wink_hub
+  # chromecast_radio:
+  #   name: Chromecast Radio
+  #   entities:
+  #     - input_select.radio_station
+  #     - input_select.chromecast_radio
+  #     - input_number.chromecast_volume
+  #     - script.radio_stop
+  # google_music:
+  #   name: Google Music 
+  #   entities:
+  #     - input_select.gpm_playlist
+  #     - input_select.chromecast_radio
+  #     - input_number.chromecast_volume
+  #     - switch.google_music
+  # pihole:
+  #   name: Pi-Hole
+  #   entities:
+  #     - sensor.pihole_ads_blocked_today
+  #     - sensor.pihole_ads_percentage_blocked_today
+  # finance:
+  #   name: Finance
+  #   entities:
+  #     - sensor.zestimate
+  #     - sensor.viking_therapeutics_inc
+  #     - sensor.union_pacific
+  #     - sensor.sprint_corp
+  #     - sensor.sirius_xm_holdings_inc
+  #     - sensor.polymet_mining_corp
+  #     - sensor.htg_molecular_diagnostics_inc
+  #     - sensor.histogenics_corp
+  #     - sensor.groupon_inc
+  #     - sensor.chesapeake_energy_corp
+  #     - sensor.advanced_micro_devices_inc

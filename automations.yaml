@@ -1,0 +1,4 @@
+!include automations/connected_bulb_remotes.yaml
+!include automations/morning_routine.yaml
+!include automations/grandfather_clock.yaml
+!include automations/presence_notify.yaml

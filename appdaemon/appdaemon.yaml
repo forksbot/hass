@@ -1,0 +1,19 @@
+secrets: /config/secrets.yaml
+log:
+  accessfile: /config/appdaemon/logs/access.log
+  errorfile: /config/appdaemon/logs/error.log
+  logfile: /config/appdaemon/logs/appdaemon.log
+  log_generations: 3
+  log_size: 1000000
+appdaemon:
+  threads: 10
+  app_dir: /config/appdaemon/apps
+  api_key: !secret appdaemon_api_key
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://192.168.1.99:8123
+      ha_key: !secret home_assistant_key
+hadashboard:
+  dash_url: http://192.1681.99:5050
+  dash_dir: /config/appdaemon/dashboards

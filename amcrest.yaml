@@ -1,0 +1,10 @@
+  - host: http://192.168.1.221/
+    name: Livingroom
+    username: !secret camera_user
+    password: !secret camera_pass
+    stream_source: rtsp
+  - host: http://192.168.1.220/
+    name: Girls Room
+    username: !secret camera_user
+    password: !secret camera_pass
+    stream_source: rtsp

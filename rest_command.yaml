@@ -1,0 +1,9 @@
+  office_home_eq:
+    url: 'http://192.168.1.203:8008/setup/user_eq/set_equalizer'
+    method: post
+    content_type : application/json
+    payload: >
+          {
+             "low_shelf": {"gain_db": {{ states('input_number.office_home_bass') | int }} },
+             "high_shelf": {"gain_db": {{ states('input_number.office_home_treble') | int }} }
+          }

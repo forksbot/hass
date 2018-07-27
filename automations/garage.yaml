@@ -1,0 +1,74 @@
+  - alias: 'Telegram callback to close left garage'
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        data: '/closeleft'
+    action:
+      - service: telegram_bot.answer_callback_query
+        data_template:
+          callback_query_id: '{{ trigger.event.data.id }}'
+          message: 'OK. Closing left garage door.'
+          show_alert: true
+      - service: telegram_bot.edit_replymarkup
+        data_template:
+          message_id: '{{ trigger.event.data.message.message_id }}'
+          chat_id: '{{ trigger.event.data.chat_id }}'
+          inline_keyboard: []
+      - service: cover.close_cover
+        entity_id:
+          - cover.left_garage_door
+  - alias: 'Telegram callback to close right garage'
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        data: '/closeright'
+    action:
+      - service: telegram_bot.answer_callback_query
+        data_template:
+          callback_query_id: '{{ trigger.event.data.id }}'
+          message: 'OK. Closing right garage door.'
+          show_alert: true
+      - service: telegram_bot.edit_replymarkup
+        data_template:
+          message_id: '{{ trigger.event.data.message.message_id }}'
+          chat_id: '{{ trigger.event.data.chat_id }}'
+          inline_keyboard: []
+      - service: cover.close_cover
+        entity_id:
+          - cover.right_garage_door
+  - alias: 'Telegram bot reply to start'
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/start'                             
+    action:
+      - service: telegram_bot.send_message
+        data_template:
+          target: '{{ trigger.event.data.user_id }}'  
+          message: 'Commands:'
+          inline_keyboard: 
+            - 'Ping:/ping, Restart:/rst, Status:/status'
+            - 'AC_on:/acon, AC_off:/acoff, Photo:/photo'
+  - alias: 'Telegram bot reply pong to ping'
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        data: '/ping'            
+    action:
+      - service: telegram_bot.answer_callback_query
+        data_template:
+          callback_query_id: '{{ trigger.event.data.id }}'
+          message: >-
+            Callback received from {{ trigger.event.data.from_first }}.
+            Message id: {{ trigger.event.data.message.message_id }}.
+            Data: {{ trigger.event.data.data }}
+            {{now().strftime("%H:%M:%S %Y-%m-%d")}} Pong, Message from {{ trigger.event.data["user_id"] }}.
+          show_alert: true

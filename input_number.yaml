@@ -1,0 +1,112 @@
+  office_home_bass:
+    name: Office Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  office_home_treble:
+    name: Office Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  kitchen_home_bass:
+    name: Kitchen Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  kitchen_home_treble:
+    name: Kitchen Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  livingroom_home_bass:
+    name: Livingroom Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  livingroom_home_treble:
+    name: Livingroom Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  basement_home_bass:
+    name: Basement Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  basement_home_treble:
+    name: Basement Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  shop_home_bass:
+    name: Shop Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  shop_home_treble:
+    name: Shop Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  girls_home_bass:
+    name: Girls Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  girls_home_treble:
+    name: Girls Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  bathroom_home_bass:
+    name: Bathroom Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  bathroom_home_treble:
+    name: Bathroom Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  master_home_bass:
+    name: Bedroom Home Bass
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB
+  master_home_treble:
+    name: Bedroom Home Treble
+    initial: 0
+    min: -6
+    max: 6
+    step: 0.5
+    unit_of_measurement: dB

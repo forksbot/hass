@@ -1,0 +1,14 @@
+  - platform: owntracks_http
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+  - platform: netgear
+    host: 192.168.1.1
+    username: admin
+    password: !secret netgear_pass
+    consider_home: 1200
+    home_interval: 10
+    port: 80
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false

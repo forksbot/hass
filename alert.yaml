@@ -1,0 +1,18 @@
+  left_garage_door:
+    name: Left garage door has been left open for too long
+    entity_id: cover.left_garage_door
+    state: 'open'
+    repeat: 15
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - alert_left_garage
+  right_garage_door:
+    name: Right garage door has been left open for too long
+    entity_id: cover.right_garage_door
+    state: 'open'
+    repeat: 15
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - alert_right_garage

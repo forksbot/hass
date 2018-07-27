@@ -1,0 +1,59 @@
+  - alias: Play NPR in the morning
+    trigger:
+      platform: time
+      at: '06:30:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: device_tracker.ian_ians_phone
+          state: 'home'
+        - condition: time
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+    action:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.upper_main_floor
+      - service: media_player.volume_set 
+        data:
+          entity_id: media_player.upper_main_floor
+          volume_level: .20
+      - delay: '00:00:30'
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.upper_main_floor
+          media_content_id: http://18243.live.streamtheworld.com:3690/KIOSFM_SC
+          media_content_type: audio/mp3
+  - alias: Play NPR in the morning on weekends
+    trigger:
+      platform: time
+      at: '08:00:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: device_tracker.ian_ians_phone
+          state: 'home'
+        - condition: time
+          weekday:
+            - sat
+            - sun
+    action:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.upper_main_floor
+      - service: media_player.volume_set 
+        data:
+          entity_id: media_player.upper_main_floor
+          volume_level: .20
+      - delay: '00:00:30'
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.upper_main_floor
+          media_content_id: http://18243.live.streamtheworld.com:3690/KIOSFM_SC
+          media_content_type: audio/mp3
