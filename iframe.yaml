@@ -6,6 +6,9 @@
     title: 'IDE'
     icon: mdi:code-braces
     url: 'http://192.168.1.99:8321'
+  influxdb:
+    title: 'InfluxDB'
+    url: 'http://192.168.1.99:8888'
   pihole:
     title: 'Pi-hole'
     icon: mdi:block-helper
