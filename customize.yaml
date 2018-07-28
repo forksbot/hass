@@ -78,3 +78,7 @@ sensor.processor_use:
   icon: mdi:speedometer
 sensor.since_last_boot:
   icon: mdi:clock-start
+sensor.ionic_battery:
+  templates:
+    # icon: "if (state === '8') return 'mdi:run-fast'; else return 'mdi:walk';"
+    rgb_color: "if (state === 'Full') return [0, 255, 0]; else if (state === 'Medium' return [255, 255, 0]; else return [255, 0, 0];"
