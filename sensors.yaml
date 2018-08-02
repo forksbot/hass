@@ -184,13 +184,34 @@
         value_template: "{{ states.sensor.since_last_boot.state.split('.')[0] }}"
       office_tv_source:
         friendly_name: 'Playing'
-        value_template: "{{ states.media_player.roku_yh00e9423945.attributes.app_name }}"
+        value_template: >-
+          {% if states.media_player.roku_yh00e9423945.attributes.app_name %}
+            {% if is_state_attr("media_player.roku_yh00e9423945", "app_name", "City Stroll: Movie Magic") %}
+              
+            {% elif is_state_attr("media_player.roku_yh00e9423945", "app_name", "Roku") %}
+              
+            {% else %}
+              {{ states.media_player.roku_yh00e9423945.attributes.app_name }}
+            {% endif %}
+          {% else %}
+            
+          {% endif %}
       basement_tv_source:
         friendly_name: 'Playing'
-        value_template: "{{ states.media_player.basement_tv.attributes.app_name }}"
+        value_template: >-
+          {% if states.media_player.basement_tv.attributes.app_name %}
+            {{ states.media_player.basement_tv.attributes.app_name }}
+          {% else %}
+            ' '
+          {% endif %}
       bedroom_tv_source:
         friendly_name: 'Playing'
-        value_template: "{{ states.media_player.bedroom_tv.attributes.app_name }}"
+        value_template: >-
+          {% if states.media_player.bedroom_tv.attributes.app_name %}
+            {{ states.media_player.bedroom_tv.attributes.app_name }}
+          {% else %}
+            ' '
+          {% endif %}
       fitbit_minutes_active:
         friendly_name: 'Minutes Active'
         value_template: "{{ ((states.sensor.minutes_fairly_active.state | int) + (states.sensor.minutes_very_active.state | int)) }}"
@@ -239,6 +260,9 @@
     monitored_conditions:
       - us
     show_on_map: false
-    # Configure by latitude/longitude:
     latitude: !secret home_lat
     longitude: !secret home_lon
+  - platform: untappd
+    id: !secret untappd_id
+    secret: !secret untappd_secret
+    username: !secret username

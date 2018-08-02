@@ -1,3 +1,3 @@
   - platform: broadlink
-    host: 192.168.0.124
-    mac: 'B4:43:0D:EF:B6:70'
+    host: 192.168.1.234
+    mac: !secret r3_mac
