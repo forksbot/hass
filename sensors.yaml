@@ -183,7 +183,7 @@
         friendly_name: 'Uptime'
         value_template: "{{ states.sensor.since_last_boot.state.split('.')[0] }}"
       office_tv_source:
-        friendly_name: 'Playing'
+        friendly_name: 'Office Playing'
         value_template: >-
           {% if states.media_player.roku_yh00e9423945.attributes.app_name %}
             {% if is_state_attr("media_player.roku_yh00e9423945", "app_name", "City Stroll: Movie Magic") %}
@@ -197,27 +197,48 @@
             
           {% endif %}
       basement_tv_source:
-        friendly_name: 'Playing'
+        friendly_name: 'Basement Playing'
         value_template: >-
-          {% if states.media_player.basement_tv.attributes.app_name %}
-            {{ states.media_player.basement_tv.attributes.app_name }}
+          {% if states.media_player.basement_roku.attributes.app_name %}
+            {% if is_state_attr("media_player.basement_roku", "app_name", "City Stroll: Movie Magic") %}
+              
+            {% elif is_state_attr("media_player.basement_roku", "app_name", "Roku") %}
+              
+            {% else %}
+              {{ states.media_player.basement_roku.attributes.app_name }}
+            {% endif %}
           {% else %}
-            ' '
+            
           {% endif %}
       bedroom_tv_source:
-        friendly_name: 'Playing'
+        friendly_name: 'Bedroom Playing'
         value_template: >-
           {% if states.media_player.bedroom_tv.attributes.app_name %}
-            {{ states.media_player.bedroom_tv.attributes.app_name }}
+            {% if is_state_attr("media_player.bedroom_tv", "app_name", "City Stroll: Movie Magic") %}
+              
+            {% elif is_state_attr("media_player.bedroom_tv", "app_name", "Roku") %}
+              
+            {% else %}
+              {{ states.media_player.bedroom_tv.attributes.app_name }}
+            {% endif %}
           {% else %}
-            ' '
+            
           {% endif %}
       fitbit_minutes_active:
         friendly_name: 'Minutes Active'
         value_template: "{{ ((states.sensor.minutes_fairly_active.state | int) + (states.sensor.minutes_very_active.state | int)) }}"
         unit_of_measurement: 'mins'
+      weight_loss:
+        friendly_name: 'Weight Loss'
+        value_template: "{{ '%.1f' | format(245.0 - (states.sensor.weight.state | float)) }}"
+        unit_of_measurement: 'lbs'
+      testing_dummy_template:
+        friendly_name: 'Dummy Sensor'
+        value_template: " "
+        unit_of_measurement: 'mins'
   - platform: fitbit
     clock_format: 12H
+    unit_system: metric
     monitored_resources:
       - "activities/activityCalories"
       - "activities/calories"
@@ -266,3 +287,6 @@
     id: !secret untappd_id
     secret: !secret untappd_secret
     username: !secret username
+  - platform: weatheralerts
+    sameid: !secret sameid
+  - platform: brewdog

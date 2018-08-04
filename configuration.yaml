@@ -21,7 +21,7 @@ config:
 conversation:
 cover: !include covers.yaml
 custom_updater:
-device_tracker: !include trackers.yaml
+device_tracker: !include device_tracker.yaml
 discovery:
 # google: !include google.yaml
 group: !include groups.yaml
