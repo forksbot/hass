@@ -9,6 +9,8 @@
     channels:
       - TimTheTatman
       - MOONMOON_OW
+      - InternetOfThings
+      - Jared779
   #TRAVEL TIME
   - platform: waze_travel_time
     region: 'US'
@@ -228,17 +230,30 @@
         friendly_name: 'Minutes Active'
         value_template: "{{ ((states.sensor.minutes_fairly_active.state | int) + (states.sensor.minutes_very_active.state | int)) }}"
         unit_of_measurement: 'mins'
+      fitbit_steps:
+        friendly_name: 'Steps'
+        value_template: >
+          {{ states.sensor.steps.state | replace(",","") }}
+        unit_of_measurement: 'steps'
+      fitbit_calories:
+        friendly_name: 'Calories'
+        value_template: >
+          {{ states.sensor.calories.state | replace(",","") }}
+        unit_of_measurement: 'calories'
       weight_loss:
         friendly_name: 'Weight Loss'
         value_template: "{{ '%.1f' | format(245.0 - (states.sensor.weight.state | float)) }}"
         unit_of_measurement: 'lbs'
+      untappd_last_checkin_score:
+        friendly_name: 'Last Checkin Score'
+        value_template: "{{ states.sensor.untappd_last_checkin.attributes.score }}"
+        unit_of_measurement: 'score'
       testing_dummy_template:
         friendly_name: 'Dummy Sensor'
         value_template: " "
         unit_of_measurement: 'mins'
   - platform: fitbit
     clock_format: 12H
-    unit_system: metric
     monitored_resources:
       - "activities/activityCalories"
       - "activities/calories"
@@ -290,3 +305,9 @@
   - platform: weatheralerts
     sameid: !secret sameid
   - platform: brewdog
+  - platform: trakt
+    id: !secret trakt_id
+    secret: !secret trakt_secret
+  - platform: pocketcasts
+    username: !secret email
+    password: !secret pocketcasts_password
