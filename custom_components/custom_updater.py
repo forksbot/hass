@@ -15,11 +15,12 @@ import voluptuous as vol
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.event import track_time_interval
 
-__version__ = '1.2.0'
+__version__ = '1.3.0'
 
 _LOGGER = logging.getLogger(__name__)
 
 CONF_TRACK = 'track'
+CONF_HIDE_SENSOR = 'hide_sensor'
 
 DOMAIN = 'custom_updater'
 CARD_DATA = 'custom_card_data'
@@ -33,6 +34,7 @@ CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
         vol.Required(CONF_TRACK, default=None):
             vol.All(cv.ensure_list, [cv.string]),
+        vol.Optional(CONF_HIDE_SENSOR, default=False): cv.boolean,
     })
 }, extra=vol.ALLOW_EXTRA)
 
@@ -42,15 +44,16 @@ COMPS_JSON = 'https://raw.githubusercontent.com/custom-components/information/ma
 def setup(hass, config):
     """Set up this component."""
     conf_track = config[DOMAIN][CONF_TRACK]
+    conf_hide_sensor = config[DOMAIN][CONF_HIDE_SENSOR]
     _LOGGER.info('version %s is starting, if you have ANY issues with this, please report'
                  ' them here: https://github.com/custom-components/custom_updater', __version__)
 
     ha_conf_dir = str(hass.config.path())
     if not conf_track or 'cards' in conf_track:
-        card_controller = CustomCards(hass, ha_conf_dir)
+        card_controller = CustomCards(hass, ha_conf_dir, conf_hide_sensor)
         track_time_interval(hass, card_controller.cache_versions, INTERVAL)
     if not conf_track or 'components' in conf_track:
-        components_controller = CustomComponents(hass, ha_conf_dir)
+        components_controller = CustomComponents(hass, ha_conf_dir, conf_hide_sensor)
         track_time_interval(hass, components_controller.cache_versions, INTERVAL)
 
     def check_all_service(call):
@@ -86,9 +89,10 @@ def setup(hass, config):
 
 class CustomCards:
     """Custom cards controller."""
-    def __init__(self, hass, ha_conf_dir):
+    def __init__(self, hass, ha_conf_dir, conf_hide_sensor):
         self.hass = hass
         self.cards = None
+        self._hide_sensor = conf_hide_sensor
         self.ha_conf_dir = ha_conf_dir
         self.hass.data[CARD_DATA] = {}
         self.cache_versions('now')
@@ -113,8 +117,10 @@ class CustomCards:
                         "repo": remoteinfo[3],
                         "change_log": remoteinfo[4],
                     }
-                    self.hass.data[CARD_DATA]['domain'] = DOMAIN
+                    self.hass.data[CARD_DATA]['domain'] = 'custom_cards'
                     self.hass.data[CARD_DATA]['repo'] = '#'
+                    if self._hide_sensor:
+                        self.hass.data[CARD_DATA]['hidden'] = True
             self.hass.states.set('sensor.custom_card_tracker', time.time(), self.hass.data[CARD_DATA])
 
     def update_all(self):
@@ -221,9 +227,10 @@ class CustomCards:
 
 class CustomComponents:
     """Custom components controller."""
-    def __init__(self, hass, ha_conf_dir):
+    def __init__(self, hass, ha_conf_dir, conf_hide_sensor):
         self.hass = hass
         self.components = None
+        self._hide_sensor = conf_hide_sensor
         self.ha_conf_dir = ha_conf_dir
         self.hass.data[COMPONENT_DATA] = {}
         self.cache_versions('now')
@@ -248,8 +255,10 @@ class CustomComponents:
                         "repo": remoteinfo[4],
                         "change_log": remoteinfo[5],
                     }
-                    self.hass.data[COMPONENT_DATA]['domain'] = DOMAIN
+                    self.hass.data[COMPONENT_DATA]['domain'] = 'custom_components'
                     self.hass.data[COMPONENT_DATA]['repo'] = '#'
+                    if self._hide_sensor:
+                        self.hass.data[COMPONENT_DATA]['hidden'] = True
             self.hass.states.set('sensor.custom_component_tracker', time.time(), self.hass.data[COMPONENT_DATA])
 
     def update_all(self):

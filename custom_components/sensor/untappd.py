@@ -24,7 +24,6 @@ ATTR_BEER = 'beer'
 ATTR_SCORE = 'score'
 ATTR_TOTAL_BEERS = 'total beers'
 ATTR_TOTAL_CHECKINS = 'total checkins'
-ATTR_BEER_LIST = 'beer_list'
 
 SCAN_INTERVAL = timedelta(seconds=120)
 
@@ -54,6 +53,8 @@ class UntappdCheckinSensor(Entity):
         self._total_beers = None
         self._total_checkins = None
         self._state = None
+        self._picture = None
+        self._icon = 'mdi:beer'
         self.update()
 
 
@@ -65,10 +66,17 @@ class UntappdCheckinSensor(Entity):
             return False
         else:
             checkin_date = parser.parse(result['created_at']).replace(tzinfo=None)
-            relative_checkin_date = str((current_date - checkin_date).days) + " days ago."
+            if (current_date - checkin_date).days > 0:
+                relative_checkin_date = str((current_date - checkin_date).days) + " days ago."
+            elif (current_date - checkin_date).days == 0:
+                relative_checkin_date = 'yesterday'
+            else:
+                relative_checkin_date = 'today'
+                
             self._state = relative_checkin_date
             self._beer = result['beer']['beer_name']
             self._score = str(result['rating_score'])
+            self._picture = result['beer']['beer_label']
         
         result = self._untappd.get_info(self._apiid, 
             self._apisecret, self._username)
@@ -81,6 +89,10 @@ class UntappdCheckinSensor(Entity):
     @property
     def name(self):
         return 'Untappd Last Check-in'
+
+    @property
+    def entity_picture(self):
+        return self._picture
 
     @property
     def state(self):
@@ -140,9 +152,8 @@ class UntappdWishlistSensor(Entity):
     @property
     def icon(self):
         return ICON
-        
+
     @property
     def device_state_attributes(self):
-        return {
-            ATTR_BEER_LIST: self.hass.data[WISHLIST_DATA]
-        }
+        return self.hass.data[WISHLIST_DATA]
+        
