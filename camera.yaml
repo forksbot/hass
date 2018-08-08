@@ -10,8 +10,11 @@
     name: Basement
     username: !secret username
     password: !secret camera_pass
-  - platform: foscam
-    ip: http://192.168.1.223
-    port: 82
-    username: !secret username
-    password: !secret camera_pass
+  - platform: ffmpeg
+    name: Front
+    input: !secret camera_front_stream
+  - platform: combined
+    base_address: http://iantrich.duckdns.org:8123
+    entities:
+      - camera.livingroom
+      - camera.girls_room
