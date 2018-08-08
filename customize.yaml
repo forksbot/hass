@@ -80,3 +80,5 @@ sensor.since_last_boot:
   icon: mdi:clock-start
 sensor.untappd_last_checkin:
   friendly_name: ' '
+sensor.untappd_last_badge:
+  friendly_name: ' '

@@ -215,13 +215,13 @@
       bedroom_tv_source:
         friendly_name: 'Bedroom Playing'
         value_template: >-
-          {% if states.media_player.bedroom_tv.attributes.app_name %}
-            {% if is_state_attr("media_player.bedroom_tv", "app_name", "City Stroll: Movie Magic") %}
+          {% if states.media_player.bedroom.attributes.app_name %}
+            {% if is_state_attr("media_player.bedroom", "app_name", "City Stroll: Movie Magic") %}
               
-            {% elif is_state_attr("media_player.bedroom_tv", "app_name", "Roku") %}
+            {% elif is_state_attr("media_player.bedroom", "app_name", "Roku") %}
               
             {% else %}
-              {{ states.media_player.bedroom_tv.attributes.app_name }}
+              {{ states.media_player.bedroom.attributes.app_name }}
             {% endif %}
           {% else %}
             

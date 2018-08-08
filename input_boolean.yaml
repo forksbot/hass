@@ -1,3 +1,4 @@
+  show_office_remote:
   office_tv_home:
   office_tv_rewind:
   office_tv_forward:
@@ -18,6 +19,7 @@
   office_tv_lower:
   office_tv_raise:
 
+  show_basement_remote:
   basement_tv_home:
   basement_tv_rewind:
   basement_tv_forward:
@@ -38,6 +40,7 @@
   basement_tv_lower:
   basement_tv_raise:
 
+  show_bedroom_remote:
   bedroom_tv_home:
   bedroom_tv_rewind:
   bedroom_tv_forward:
