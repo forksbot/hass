@@ -76,7 +76,7 @@ class CircleSensorCard extends LitElement {
               ${config.attribute ? state.attributes[config.attribute] : state.state}
             </span>
             <span class="unit">
-              ${config.show_total
+              ${config.show_max
                 ? html`&nbsp/ ${config.attribute_max ? state.attributes[config.attribute_max] : config.max}`
                 : (config.units ? config.units : state.attributes.unit_of_measurement)}
             </span>
