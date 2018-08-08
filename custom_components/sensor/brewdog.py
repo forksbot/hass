@@ -16,7 +16,7 @@ ATTR_COMPONENT_VERSION = 'component_version'
 ATTR_DESCRIPTION = 'description'
 ATTR_FIRSTBREWED = 'first brewed'
 
-SCAN_INTERVAL = timedelta(seconds=120)
+SCAN_INTERVAL = timedelta(seconds=500)
 
 ICON = 'mdi:beer'
 
