@@ -1,0 +1,11 @@
+        type: entity-filter
+        entities:
+          - sensor.internetofthings
+          - sensor.jared779
+          - sensor.moonmoon_ow
+          - sensor.timthetatman
+        state_filter:
+          - streaming
+        card: 
+          type: glance
+          title: Twitch

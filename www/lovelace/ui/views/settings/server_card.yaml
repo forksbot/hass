@@ -1,0 +1,117 @@
+        type: picture-elements
+        image: /local/lovelace/icons/xeon.jpg
+        elements:
+        - type: state-icon
+          entity: sensor.speedtest_ping
+          style:
+            top: 60%
+            left: 1%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.speedtest_ping
+          style:
+            top: 63%
+            left: 8%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.speedtest_upload
+          style:
+            top: 30%
+            left: 1%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.speedtest_upload
+          style:
+            top: 33%
+            left: 8%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.speedtest_download
+          style:
+            top: 30%
+            left: 30%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.speedtest_download
+          style:
+            top: 33%
+            left: 37%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.processor_use
+          style:
+            top: 58%
+            left: 80%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.processor_use
+          style:
+            top: 62%
+            left: 88%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.disk_use_percent_home
+          style:
+            top: 1%
+            left: 80%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.disk_use_percent_home
+          style:
+            top: 5%
+            left: 87%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.since_last_boot
+          style:
+            top: 1%
+            left: 1%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.uptime
+          style:
+            top: 2%
+            left: 8%
+            transform: none
+            color: white
+        - type: state-icon
+          entity: sensor.memory_use_percent
+          style:
+            top: 30%
+            left: 80%
+            transform: none
+            "--paper-item-icon-color": white
+        - type: state-label
+          entity: sensor.memory_use_percent
+          style:
+            top: 34%
+            left: 87%
+            transform: none
+            color: white
+        # - type: state-icon
+        #   entity: sensor.pihole_domains_blocked
+        #   style:
+        #     top: 70%
+        #     left: 5%
+        #     "--paper-item-icon-color": white
+        # - type: state-label
+        #   entity: sensor.pihole_domains_blocked
+        #   style:
+        #     top: 70%
+        #     left: 20%
+        # - type: state-label
+        #   entity: custom:input_text.message
+        #   style:
+        #     top: 50%
+        #     left: 20%

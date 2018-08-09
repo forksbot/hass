@@ -1,0 +1,4 @@
+                    type: picture-glance
+                    camera_image: camera.girls_room
+                    entities:
+                      - media_player.girls_home

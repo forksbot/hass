@@ -1,0 +1,11 @@
+                    type: picture-glance
+                    image: /local/lovelace/icons/office_on.jpg
+                    entity: switch.switch
+                    state_image:
+                      on: /local/lovelace/icons/office_on.jpg
+                      off: /local/lovelace/icons/office_off.jpg
+                    entities:
+                      - switch.switch
+                      - media_player.office_home
+                      - entity: input_boolean.show_office_remote
+                        icon: mdi:youtube-tv

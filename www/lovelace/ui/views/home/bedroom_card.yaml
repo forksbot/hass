@@ -1,0 +1,7 @@
+                    type: picture-glance
+                    image: /local/lovelace/icons/bedroom.jpg
+                    entities:
+                      - media_player.master_home
+                      - media_player.bathroom_home
+                      - entity: input_boolean.show_bedroom_remote
+                        icon: mdi:youtube-tv

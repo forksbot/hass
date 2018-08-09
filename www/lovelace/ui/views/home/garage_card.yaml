@@ -1,0 +1,5 @@
+                    type: picture-glance
+                    image: /local/lovelace/icons/garage.jpg
+                    entities:
+                      - cover.left_garage_door
+                      - cover.right_garage_door

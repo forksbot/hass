@@ -29,22 +29,24 @@
             - type: horizontal-stack
                 cards:
                   - !include garage_card.yaml
-                  - !include weather_card.yaml
+                  - !include girls_card.yaml
+            - type: weather-forecast
+              entity: weather.yweather
       - type: conditional
         conditions:
           - entity: input_boolean.show_office_remote
             state: "on"
         card:
-          - !include ../remotes/office_remote_card.yaml
+          !include ../remotes/office_remote_card.yaml
       - type: conditional
         conditions:
           - entity: input_boolean.show_basement_remote
             state: "on"
         card:
-          - !include ../remotes/basement_remote_card.yaml
+          !include ../remotes/basement_remote_card.yaml
       - type: conditional
         conditions:
           - entity: input_boolean.show_bedroom_remote
             state: "on"
         card:
-          - !include ../remotes/bedroom_remote_card.yaml
+          !include ../remotes/bedroom_remote_card.yaml

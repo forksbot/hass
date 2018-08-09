@@ -1,0 +1,7 @@
+                    type: picture-glance
+                    camera_image: camera.front
+                    entity: group.all_switches
+                    entities:
+                      - device_tracker.ian_ians_phone
+                      - device_tracker.chelsea_chelseas_phone
+                      - climate.thermostat
