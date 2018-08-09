@@ -1,0 +1,12 @@
+    title: Floorplan
+    id: floorplan
+    icon: mdi:floorplan
+    panel: true
+    badges:
+      - device_tracker.ian_ians_phone
+      - device_tracker.chelsea_chelseas_phone
+    cards:
+      # TODO Vertical-stack
+      - !include 1st_floorplan_card.yaml
+      - !include 2nd_floorplan_card.yaml
+      - !include basement_floorplan_card.yaml

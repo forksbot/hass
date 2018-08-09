@@ -1,0 +1,9 @@
+    title: Ian
+    id: ian
+    icon: mdi:beer
+    panel: true
+    cards:
+      - !include server_card.yaml
+      - !include updater_card.yaml
+      - !include broken_card.yaml
+      - !include home_setter_card.yaml

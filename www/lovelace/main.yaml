@@ -1,0 +1,14 @@
+title: House Swichardson
+views:
+  - !include ui/views/home_view.yaml
+  - !include ui/views/floorplan_view.yaml
+  - !include ui/views/ian_view.yaml
+  - !include ui/views/chelsea_view.yaml
+  - !include ui/views/settings_view.yaml
+
+# Copy resources from anywhere to www/lovelace and include them
+resources:
+  - url: !resource monster-card/monster-card.js
+    type: js
+  - url: !resource /home/hass/tracker-card/tracker-card.js?v=0.1.4
+    type: js

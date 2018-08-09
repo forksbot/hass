@@ -18,3 +18,5 @@
     entities:
       - camera.livingroom
       - camera.girls_room
+  - platform: unsplash
+    api_key: !secret unsplash_api
