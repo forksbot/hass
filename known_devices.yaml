@@ -589,7 +589,6 @@ iphone:
 ios_ian:
   hide_if_away: false
   icon:
-  mac: 98:9E:63:73:EA:A0
   name: ios ian
   picture:
   track: false
@@ -599,5 +598,77 @@ unknown_6:
   icon:
   mac: 01:01:00:00:00:00
   name: Unknown
+  picture:
+  track: false
+
+broadlink_rmminiefb670:
+  hide_if_away: false
+  icon:
+  mac: B4:43:0D:EF:B6:70
+  name: BROADLINK RMMINI-EF-B6-70
+  picture:
+  track: false
+
+2011_chrysler_town__country:
+  hide_if_away: false
+  icon:
+  mac: C_E67E6CA7B400BBE2
+  name: 2011 Chrysler Town & Country
+  picture:
+  track: false
+
+shannonsiphone:
+  hide_if_away: false
+  icon:
+  mac: 90:B0:ED:C0:CF:3C
+  name: SHANNONS-IPHONE
+  picture:
+  track: false
+
+ashlynsiphone6:
+  hide_if_away: false
+  icon:
+  mac: 40:33:1A:EF:F1:FB
+  name: ASHLYNSIPHONE6
+  picture:
+  track: false
+
+40fcsipobrownb2:
+  hide_if_away: false
+  icon:
+  mac: 7C:01:91:0E:03:7A
+  name: 40FCSIPOBROWNB2
+  picture:
+  track: false
+
+ashlynsplewatch:
+  hide_if_away: false
+  icon:
+  mac: 30:63:6B:2A:D4:56
+  name: ASHLYNSPLEWATCH
+  picture:
+  track: false
+
+ipad3:
+  hide_if_away: false
+  icon:
+  mac: 34:A3:95:41:D2:C4
+  name: IPAD-3
+  picture:
+  track: false
+
+ashlynsipad:
+  hide_if_away: false
+  icon:
+  mac: 50:32:37:35:6C:D8
+  name: ASHLYNS-IPAD
+  picture:
+  track: false
+
+front_camera:
+  hide_if_away: false
+  icon:
+  mac: EC:71:DB:0A:D1:22
+  name: Front Camera
   picture:
   track: false
