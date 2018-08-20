@@ -1,0 +1,8 @@
+        type: custom:home-setter
+        pages:
+          - name: Main
+            path: lovelace/0
+          - name: Floorplan
+            path: lovelace/1
+          - name: Ian
+            path: lovelace/beer

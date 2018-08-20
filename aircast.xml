@@ -7,11 +7,18 @@
 <latency></latency>
 <codec>flac</codec>
 <artwork></artwork>
+<metadata>1</metadata>
 </common>
 <main_log>info</main_log>
 <cast_log>info</cast_log>
 <util_log>warn</util_log>
 <log_limit>-1</log_limit>
+<device>
+<udn>ccf090aa49eed36906956bcd141a1d82</udn>
+<name>Shop Home+</name>
+<mac>cc:cc:12:a6:c0:4c</mac>
+<enabled>1</enabled>
+</device>
 <device>
 <udn>c22d9a769564987afcb890b97dc1b8e3</udn>
 <name>Living Room Home+</name>

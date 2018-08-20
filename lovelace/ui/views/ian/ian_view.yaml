@@ -1,0 +1,15 @@
+    title: Ian
+    id: ian
+    icon: mdi:beer
+    panel: true
+    cards:
+      # TODO Vertical stack with horizontal stacks
+      - !include untappd_card.yaml
+      - !include fitbit_card.yaml
+      - !include twitch_card.yaml
+      - !include carbmanager_card.yaml
+      # - !include github_card.yaml
+      # - !include calendar_card.yaml
+      # - !include trakt_card.yaml
+      # - !include personcalcaptial_card.yaml
+      # - !include spotify_card.yaml

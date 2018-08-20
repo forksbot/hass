@@ -1,0 +1,46 @@
+title: House Swichardson
+views:
+  - !include ui/views/home_view.yaml
+#   - !include ui/views/floorplan_view.yaml
+#   - !include ui/views/ian_view.yaml
+#   - !include ui/views/chelsea_view.yaml
+#   - !include ui/views/settings_view.yaml
+
+# Copy resources from anywhere to www/lovelace and include them
+resources:
+  - url: /local/lovelace/custom_cards/entity-attributes-card.js?v=0.1.0
+    type: js
+  - url: /local/lovelace/custom_cards/gauge-card.js?v=0.1.0
+    type: js
+  - url: /local/lovelace/custom_cards/bignumber-card.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/beer-card.js?v=0.2.3
+    type: js
+  - url: /local/lovelace/custom_cards/tracker-card.js?v=0.1.4
+    type: js
+  - url: /local/lovelace/custom_cards/alarm_control_panel-card.js?v=0.3.2
+    type: js
+  - url: /local/lovelace/custom_cards/plan-coordinates.js?v=0.1.0
+    type: js
+  - url: /local/lovelace/custom_cards/monster-card.js?v=0.2.3
+    type: js
+  - url: /local/lovelace/custom_cards/vertical-stack-in-card.js?v=0.0.6
+    type: js
+  - url: /local/lovelace/custom_cards/text-element.js?v=0.0.2
+    type: js
+  - url: /local/lovelace/custom_cards/thermostat-card.js?v=0.0.2
+    type: module
+  - url: /local/lovelace/custom_cards/circle-sensor-card.js?v=1.2.0
+    type: module
+  - url: /local/kiosk.js?v=1
+    type: js
+  - url: /local/lovelace/custom_cards/column-card.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/state-attribute-element.js?v=0.0.4
+    type: js
+  - url: /local/lovelace/custom_cards/state-element.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/canvas-gauge-card.js
+    type: module
+  - url: /local/lovelace/custom_cards/home-setter.js?v=0.0.1
+    type: js

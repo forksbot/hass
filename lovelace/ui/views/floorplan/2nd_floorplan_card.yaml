@@ -1,0 +1,42 @@
+        type: picture-elements
+        image: /local/lovelace/icons/2nd_floor.png
+        elements:
+        # GIRLS ELEMENTS
+        - type: icon
+          icon: mdi:cctv
+          entity: camera.girls_room
+          title: Girls Camera
+          style:
+            left: 92%
+            top: 46%
+            color: gray
+        - type: state-icon
+          entity: media_player.girls_home
+          title: Girls Home
+          style:
+            left: 2%
+            top: 54%
+            # transform: scaleX(-1)
+            transform: none
+        # MASTER ELEMENTS
+        - type: state-icon
+          entity: media_player.master_home
+          title: Bedroom Home
+          style:
+            left: 12%
+            top: 54%
+            # transform: scaleX(-1)
+        - type: state-icon
+          entity: media_player.bedroom
+          title: Bedroom TV
+          style:
+            left: 86%
+            top: 38%
+        - type: state-icon
+          entity: media_player.bathroom_home
+          title: Bathroom Home
+          style:
+            left: 22%
+            top: 54%
+            # transform: scaleX(-1)
+        # BASEMENT

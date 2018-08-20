@@ -1,0 +1,4 @@
+                    type: picture-glance
+                    image: /local/lovelace/icons/kitchen.jpg
+                    entities:
+                      - media_player.kitchen_home

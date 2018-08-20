@@ -1,0 +1,126 @@
+        type: picture-elements
+        image: /local/lovelace/icons/1st_floor.png
+        elements:
+        # OTHER ELEMENTS
+        - type: state-icon
+          entity: device_tracker.ian_ians_phone
+          title: Ian
+          style:
+            left: 35%
+            top: 7%
+        - type: state-icon
+          entity: device_tracker.chelsea_chelseas_phone
+          title: Chelsea
+          style:
+            left: 49%
+            top: 7%
+        - type: state-label
+          entity: sensor.climate_current
+          title: Current Temperature Indoors
+          style:
+            left: 61%
+            top: 4%
+            color: black
+        - type: custom:text-element
+          text: '/'
+          pointer-events: none
+          style:
+            left: 64%
+            top: 4%
+            color: black
+        - type: state-label
+          entity: sensor.climate_target
+          title: Target Temperature Indoors
+          style:
+            left: 69%
+            top: 4%
+            color: black
+            "::before": '/'
+        - type: state-label
+          entity: sensor.climate_mode
+          title: Current Mode
+          style:
+            left: 76%
+            top: 4%
+            color: black
+        # OUTSIDE ELEMENTS
+        - type: icon
+          icon: mdi:cctv
+          entity: camera.livingroom
+          title: Livingroom Camera
+          style:
+            left: 4%
+            top: 78%
+            color: gray
+            transform: scaleX(-1)
+        # OFFICE ELEMENTS
+        - type: state-icon
+          entity: switch.switch
+          tap_action: toggle
+          title: Office Lights
+          style:
+            left: 86%
+            top: 27%
+        - type: state-icon
+          entity: media_player.roku_yh00e9423945 #TODO Show remote
+          title: Office TV
+          style:
+            left: 86%
+            top: 38%
+        - type: state-icon
+          entity: media_player.office_home
+          title: Office Home
+          style:
+            left: 78%
+            top: 27%
+            # transform: scaleX(-1)
+        # KITCHEN ELEMENTS
+        - type: state-icon
+          entity: media_player.kitchen_home
+          title: Kitchen Home
+          style:
+            left: 51%
+            top: 21%
+        # LIVINGROOM ELEMENTS
+        - type: state-icon
+          entity: media_player.living_room_home
+          title: Livingroom Home
+          style:
+            left: 2%
+            top: 54%
+            transform: scaleX(-1)
+        - type: icon
+          icon: mdi:cctv
+          entity: camera.livingroom
+          title: Livingroom Camera
+          style:
+            left: 4%
+            top: 48%
+            color: gray
+            transform: scaleX(-1)
+        - type: state-icon
+          entity: climate.thermostat
+          style:
+            left: 50%
+            top: 57%
+        # GARAGE ELEMENTS
+        - type: state-icon
+          entity: cover.left_garage_door
+          tap_action: toggle
+          style:
+            left: 65%
+            top: 94%
+        - type: state-icon
+          entity: cover.right_garage_door
+          tap_action: toggle
+          style:
+            left: 84%
+            top: 94%
+        - type: icon
+          icon: mdi:cctv
+          entity: camera.livingroom
+          title: Garage Camera
+          style:
+            left: 92%
+            top: 46%
+            color: gray

@@ -1,0 +1,270 @@
+          type: picture-elements
+          image: /local/lovelace/icons/roku.png
+          elements:
+          # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
+          - type: custom:text-element
+            text: 'Bedroom TV'
+            pointer-events: none
+            style:
+              left: 28%
+              top: 3%
+              text-shadow: 2px 2px black
+              font-family: Trebuchet MS
+              font-size: 250%
+              color: white
+              transform: none
+          - type: icon
+            icon: mdi:power
+            service: input_boolean.turn_on
+            service_data:
+              entity_id: input_boolean.bedroom_tv_power
+            tap_action: call-service
+            title: Power
+            style:
+              left: 86%
+              top: 3%
+              color: red
+              transform: none
+          - type: state-label
+            entity: sensor.bedroom_tv_source
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_play
+            style:
+              left: 38%
+              top: 8%
+              text-shadow: 2px 2px black
+              font-family: Trebuchet MS
+              font-size: 150%
+              color: white
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            service_data:
+              entity_id: input_boolean.bedroom_tv_back
+            tap_action: call-service
+            image: /local/lovelace/icons/blank_64.png
+            title: Back
+            style:
+              left: 15%
+              top: 17%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_info
+            image: /local/lovelace/icons/blank_64.png
+            title: Info
+            style:
+              left: 44%
+              top: 17%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_home
+            image: /local/lovelace/icons/blank_64.png
+            title: Home
+            style:
+              left: 71%
+              top: 17%
+              transform: none
+          - type: image
+            service: input_boolean.toggle
+            service_data:
+              entity_id: input_boolean.bedroom_tv_netflix
+            tap_action: call-service
+            image: /local/lovelace/icons/netflix.png
+            title: Netflix
+            style:
+              left: 16%
+              top: 29%
+              width: 78px
+              height: 78px
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_up
+            image: /local/lovelace/icons/blank_64.png
+            title: Up
+            style:
+              left: 44%
+              top: 30%
+              transform: none
+          - type: image
+            service: input_boolean.toggle
+            service_data:
+              entity_id: input_boolean.bedroom_tv_disney
+            tap_action: call-service
+            image: /local/lovelace/icons/disney.jpg
+            title: Disney Now
+            style:
+              left: 67%
+              top: 29%
+              width: 78px
+              height: 78px
+              border-radius: 5px
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_left
+            image: /local/lovelace/icons/blank_64.png
+            title: Left
+            style:
+              left: 18%
+              top: 44%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_select
+            image: /local/lovelace/icons/blank_64.png
+            title: Select
+            style:
+              left: 44%
+              top: 44%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_right
+            image: /local/lovelace/icons/blank_64.png
+            title: Right
+            style:
+              left: 70%
+              top: 44%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            service_data:
+              entity_id: input_boolean.bedroom_tv_nick
+            tap_action: call-service
+            image: /local/lovelace/icons/nick.png
+            title: Nick Jr
+            style:
+              left: 16%
+              top: 56%
+              width: 78px
+              height: 78px
+              border-radius: 5px
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_down
+            image: /local/lovelace/icons/blank_64.png
+            title: Down
+            style:
+              left: 44%
+              top: 57%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            service_data:
+              entity_id: input_boolean.bedroom_tv_youtube
+            tap_action: call-service
+            image: /local/lovelace/icons/youtube.png
+            title: YouTube
+            style:
+              left: 67%
+              top: 57%
+              width: 78px
+              height: 64px
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_rewind
+            image: /local/lovelace/icons/blank_64.png
+            title: Rewind
+            style:
+              left: 16%
+              top: 70%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_play
+            image: /local/lovelace/icons/blank_64.png
+            title: "Play/Pause"
+            style:
+              left: 44%
+              top: 70%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_forward
+            image: /local/lovelace/icons/blank_64.png
+            title: Forward
+            style:
+              left: 72%
+              top: 70%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_instant_replay
+            image: /local/lovelace/icons/blank_64.png
+            title: Replay
+            style:
+              left: 16%
+              top: 80%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_input
+            image: /local/lovelace/icons/blank_64.png
+            title: Keyboard
+            style:
+              left: 44%
+              top: 80%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_mute
+            image: /local/lovelace/icons/blank_64.png
+            title: Mute
+            style:
+              left: 16%
+              top: 90%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_lower
+            image: /local/lovelace/icons/blank_64.png
+            title: Lower Volume
+            style:
+              left: 44%
+              top: 90%
+              transform: none
+          - type: image
+            service: input_boolean.turn_on
+            tap_action: call-service
+            service_data:
+              entity_id: input_boolean.bedroom_tv_raise
+            image: /local/lovelace/icons/blank_64.png
+            title: Raise Volume
+            style:
+              left: 72%
+              top: 90%
+              transform: none

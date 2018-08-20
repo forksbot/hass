@@ -1,0 +1,31 @@
+        type: picture-elements
+        image: /local/lovelace/icons/2nd_floor.png
+        elements:
+        - type: icon
+          icon: mdi:cctv
+          entity: camera.girls_room
+          title: Basement Camera
+          style:
+            left: 92%
+            top: 46%
+        - type: state-icon
+          entity: media_player.basement_tv
+          title: Basement TV
+          style:
+            left: 86%
+            top: 38%
+            color: gray
+        - type: state-icon
+          entity: media_player.basement_home
+          title: Basement Home
+          style:
+            left: 2%
+            top: 54%
+            # transform: scaleX(-1)
+        - type: state-icon
+          entity: media_player.shop_home
+          title: Shop Home
+          style:
+            left: 12%
+            top: 54%
+            # transform: scaleX(-1)

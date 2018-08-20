@@ -1,0 +1,6 @@
+                    type: picture-glance
+                    camera_image: camera.basement
+                    entities:
+                      - media_player.basement_home
+                      - entity: input_boolean.show_basement_remote
+                        icon: mdi:youtube-tv

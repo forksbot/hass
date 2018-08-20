@@ -1,0 +1,135 @@
+        type: picture-elements
+        image: /local/lovelace/icons/untappd.png
+        elements:
+          - type: custom:state-element
+            entity: sensor.untappd_last_checkin
+            prefix: "Last Check-in: "
+            style:
+              font-size: 12px
+              left: 5%
+              top: 1%
+              transform: none
+              color: white
+          - type: state-badge
+            entity: sensor.untappd_last_checkin
+            style:
+              left: 1%
+              top: 11%
+              transform: none
+              color: white
+          - type: custom:state-attribute-element
+            entity: sensor.untappd_last_checkin
+            attribute: beer
+            style:
+              font-size: 12px
+              left: 16%
+              top: 10%
+              transform: none
+              color: white
+          - type: custom:circle-sensor-card
+            entity: sensor.untappd_last_checkin
+            attribute: score
+            max: 5
+            min: 0
+            stroke_width: 10
+            stroke_color: '#ffcc00'
+            show_max: true
+            gradient: true
+            fill: '#125054'
+            name: 'Rating'
+            units: '5'
+            font_style:
+              font-size: 0.8em
+              font-color: white
+              text-shadow: '1px 1px black'
+            style:
+              top: 43%
+              left: 1%
+              width: 5em
+              height: 5em
+              transform: none
+          - type: custom:circle-sensor-card
+            entity: sensor.untappd_last_checkin
+            attribute: 'total beers'
+            attribute_max: 'total checkins'
+            show_max: true
+            min: 0
+            stroke_width: 10
+            stroke_color: '#ffcc00'
+            gradient: true
+            fill: '#125054'
+            name: 'Beers'
+            units: ' '
+            font_style:
+              font-size: 0.8em
+              font-color: white
+              text-shadow: '1px 1px black'
+            style:
+              top: 40%
+              left: 80%
+              width: 5em
+              height: 5em
+              transform: none
+          - type: custom:state-element
+            entity: sensor.random_brewdog
+            prefix: "Brewdog: "
+            style:
+              left: 1%
+              top: 88%
+              transform: none
+              color: white
+              font-size: 12px
+          - type: custom:state-attribute-element
+            entity: sensor.random_brewdog
+            attribute: first brewed
+            prefix: "Brewed: "
+            style:
+              left: 1%
+              top: 80%
+              transform: none
+              color: white
+              font-size: 12px
+          - type: custom:hui-markdown-card
+            content: >
+              Wishlist:
+            style:
+              transform: none
+              top: 80%
+              left: 70%
+              font-size: 12px
+              color: white
+              "--paper-card-background-color": none
+              "--paper-material-elevation-1_-_box-shadow": none
+              "--shadow-elevation-2dp_-_box-shadow": none
+          - type: state-icon
+            entity: sensor.untappd_on_the_wishlist
+            style:
+              left: 85%
+              top: 80%
+              transform: none
+              "--iron-icon-fill-color": '#ffcc00'
+          - type: custom:state-element
+            entity: sensor.untappd_last_checkin
+            prefix: "Last Badge: "
+            style:
+              font-size: 12px
+              left: 65%
+              top: 1%
+              transform: none
+              color: white
+          - type: state-badge
+            entity: sensor.untappd_last_badge
+            style:
+              left: 60%
+              top: 11%
+              transform: none
+              color: white
+          - type: custom:state-attribute-element
+            entity: sensor.untappd_last_badge
+            attribute: badge
+            style:
+              font-size: 12px
+              left: 75%
+              top: 10%
+              transform: none
+              color: white
