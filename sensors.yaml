@@ -311,3 +311,11 @@
   - platform: pocketcasts
     username: !secret email
     password: !secret pocketcasts_password
+  - platform: personalcapital
+    email: !secret email
+    password: !secret personalcapital_password
+  - platform: aftership
+    api_key: !secret aftership_key
+  - platform: feedparser
+    name: Upcoming Shows
+    feed_url: !secret trakt_upcoming_feed

@@ -988,9 +988,11 @@
   "iantrich": {
    "editor": {
     "view": {
-     "view-grid-size": 20,
+     "view-grid-size": "20",
      "view-node-status": true,
-     "view-show-tips": true
+     "view-show-tips": true,
+     "view-snap-grid": false,
+     "view-show-grid": false
     }
    }
   }

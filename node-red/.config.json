@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.18.7",
+   "version": "0.19.1",
    "local": false,
    "nodes": {
     "sentiment": {
@@ -648,7 +648,7 @@
   },
   "node-red-contrib-time-range-switch": {
    "name": "node-red-contrib-time-range-switch",
-   "version": "0.6.0",
+   "version": "0.6.1",
    "local": false,
    "nodes": {
     "time-range-switch": {
@@ -966,7 +966,7 @@
   },
   "node-red-node-twitter": {
    "name": "node-red-node-twitter",
-   "version": "1.0.1",
+   "version": "1.1.2",
    "local": false,
    "nodes": {
     "twitter": {

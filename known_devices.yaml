@@ -1,12 +1,3 @@
-ian_ians_phone:
-  hide_if_away: false
-  icon:
-  mac: 98:9E:63:73:EA:A0
-  name: Ian
-  picture: /local/lovelace/icons/ian.jpg
-  track: true
-  vendor: Apple, Inc.
-
 chelsea_chelseas_phone:
   hide_if_away: false
   icon:
@@ -672,3 +663,28 @@ front_camera:
   name: Front Camera
   picture:
   track: false
+
+basement_camera_2:
+  hide_if_away: false
+  icon:
+  mac: E8:AB:FA:06:56:94
+  name: Basement Camera
+  picture:
+  track: false
+
+androidf1fd94f08c473966:
+  hide_if_away: false
+  icon:
+  mac: A8:B9:B3:E4:E3:CC
+  name: ANDROID-F1FD94F08C473966
+  picture:
+  track: false
+
+ian_iphone:
+  hide_if_away: false
+  icon:
+  mac: 98:9E:63:73:EA:A0
+  name: Ian
+  picture: /local/lovelace/icons/ian.jpg
+  track: true
+  vendor: Apple, Inc.

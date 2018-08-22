@@ -1,904 +1,966 @@
+# --iron-icon-height: 50px
+# --iron-icon-width: 50px
+
 name: House Swichardson
 views:
-  - title: Home
+  - title: Testing1
     cards:
-      - type: horizontal-stack
+      - type: iframe
+        url: 'https://to-do.microsoft.com/en-us'
+      - type: custom:useful-markdown-card
+        text_align: center
+        content: >
+          [[ input_boolean.basement_tv_back.state ]]
+      - type: custom:horizontal-scroll-card
+        column_style:
+          height: 200px
+          width: 600px
         cards:
-          # HOUSE GLANCE
-          - type: picture-glance
-            camera_image: camera.front
-            entity: group.all_switches
-            entities:
-              - device_tracker.ian_ians_phone
-              - device_tracker.chelsea_chelseas_phone
-              - climate.thermostat
-          # OFFICE GLANCE
-          - type: picture-glance
-            image: /local/lovelace/icons/office_on.jpg
+          - type: picture-entity
             entity: switch.switch
-            state_image:
-              on: /local/lovelace/icons/office_on.jpg
-              off: /local/lovelace/icons/office_off.jpg
-            entities:
-              - switch.switch
-              - media_player.office_home
-              - entity: input_boolean.show_office_remote
-                icon: mdi:youtube-tv
-      - type: conditional
-        conditions:
-          - entity: input_boolean.show_office_remote
-            state: "on"
+            image: /local/lovelace/icons/office_on.jpg
+
+          - type: picture-entity
+            entity: switch.switch
+            image: /local/lovelace/icons/office_on.jpg
+
+          - type: picture-entity
+            entity: switch.switch
+            image: /local/lovelace/icons/office_on.jpg
+  - title: Testing
+    panel: true
+    cards:
+      # - type: vertical-stack
+      #   cards:
+      #     - type: picture-elements
+      #       image: /local/lovelace/icons/office_on.jpg
+      #       elements:
+      #       - type: image
+      #         camera_image: camera.front
+      #         style:
+      #           top: 50%
+      #           left: 50%
+      - type: "custom:monster-card"
         card:
-          type: picture-elements
-          image: /local/lovelace/icons/roku.png
-          elements:
-          # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
-          - type: custom:text-element
-            text: 'Office TV'
-            pointer-events: none
-            style:
-              left: 33%
-              top: 3%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 250%
-              color: white
-              transform: none
-          - type: icon
-            icon: mdi:power
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.office_tv_power
-            tap_action: call-service
-            title: Power
-            style:
-              left: 86%
-              top: 3%
-              color: red
-              transform: none
-          - type: state-label
-            entity: sensor.office_tv_source
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_play
-            style:
-              left: 38%
-              top: 8%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 150%
-              color: white
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.office_tv_back
-            tap_action: call-service
-            image: /local/lovelace/icons/blank_64.png
-            title: Back
-            style:
-              left: 15%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_info
-            image: /local/lovelace/icons/blank_64.png
-            title: Info
-            style:
-              left: 44%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_home
-            image: /local/lovelace/icons/blank_64.png
-            title: Home
-            style:
-              left: 71%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.office_tv_netflix
-            tap_action: call-service
-            image: /local/lovelace/icons/netflix.png
-            title: Netflix
-            style:
-              left: 16%
-              top: 29%
-              width: 78px
-              height: 78px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_up
-            image: /local/lovelace/icons/blank_64.png
-            title: Up
-            style:
-              left: 44%
-              top: 30%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.office_tv_disney
-            tap_action: call-service
-            image: /local/lovelace/icons/disney.jpg
-            title: Disney Now
-            style:
-              left: 67%
-              top: 29%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_left
-            image: /local/lovelace/icons/blank_64.png
-            title: Left
-            style:
-              left: 18%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_select
-            image: /local/lovelace/icons/blank_64.png
-            title: Select
-            style:
-              left: 44%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_right
-            image: /local/lovelace/icons/blank_64.png
-            title: Right
-            style:
-              left: 70%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.office_tv_nick
-            tap_action: call-service
-            image: /local/lovelace/icons/nick.png
-            title: Nick Jr
-            style:
-              left: 16%
-              top: 56%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_down
-            image: /local/lovelace/icons/blank_64.png
-            title: Down
-            style:
-              left: 44%
-              top: 57%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.office_tv_youtube
-            tap_action: call-service
-            image: /local/lovelace/icons/youtube.png
-            title: YouTube
-            style:
-              left: 67%
-              top: 57%
-              width: 78px
-              height: 64px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_rewind
-            image: /local/lovelace/icons/blank_64.png
-            title: Rewind
-            style:
-              left: 16%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_play
-            image: /local/lovelace/icons/blank_64.png
-            title: "Play/Pause"
-            style:
-              left: 44%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_forward
-            image: /local/lovelace/icons/blank_64.png
-            title: Forward
-            style:
-              left: 72%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_instant_replay
-            image: /local/lovelace/icons/blank_64.png
-            title: Replay
-            style:
-              left: 16%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_input
-            image: /local/lovelace/icons/blank_64.png
-            title: Keyboard
-            style:
-              left: 44%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_mute
-            image: /local/lovelace/icons/blank_64.png
-            title: Mute
-            style:
-              left: 16%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_lower
-            image: /local/lovelace/icons/blank_64.png
-            title: Lower Volume
-            style:
-              left: 44%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.office_tv_raise
-            image: /local/lovelace/icons/blank_64.png
-            title: Raise Volume
-            style:
-              left: 72%
-              top: 90%
-              transform: none
-      - type: horizontal-stack
+          title: Docker
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - domain: media_player
+              state: 'playing'
+  - title: Home
+    panel: true
+    cards:
+      - type: vertical-stack
         cards:
-          # LIVINGROOM GLANCE
-          - type: picture-glance
-            camera_image: camera.livingroom
-            entities:
-              - media_player.living_room_home
-              - media_player.living_room_speakers
-          # KIDDOS GLANCE
-          - type: picture-glance
-            camera_image: camera.girls_room
-            entities:
-              - media_player.girls_home
-      - type: horizontal-stack
-        cards:
-          # BASEMENT GLANCE
-          - type: picture-glance
-            camera_image: camera.basement
-            entities:
-              - media_player.basement_home
-              - entity: input_boolean.show_basement_remote
-                icon: mdi:youtube-tv
-          # BEDROOM GLANCE
-          - type: picture-glance
-            image: /local/lovelace/icons/bedroom.jpg
-            entities:
-              - media_player.master_home
-              - media_player.bathroom_home
-              - entity: input_boolean.show_bedroom_remote
-                icon: mdi:youtube-tv
-      - type: conditional
-        conditions:
-          - entity: input_boolean.show_basement_remote
-            state: "on"
-        card:
-          type: picture-elements
-          image: /local/lovelace/icons/roku.png
-          elements:
-          # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
-          - type: custom:text-element
-            text: 'Basement TV'
-            pointer-events: none
-            style:
-              left: 25%
-              top: 3%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 250%
-              color: white
-              transform: none
-          - type: icon
-            icon: mdi:power
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.basement_tv_power
-            tap_action: call-service
-            title: Power
-            style:
-              left: 86%
-              top: 3%
-              color: red
-              transform: none
-          - type: state-label
-            entity: sensor.basement_tv_source
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_play
-            style:
-              left: 38%
-              top: 8%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 150%
-              color: white
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.basement_tv_back
-            tap_action: call-service
-            image: /local/lovelace/icons/blank_64.png
-            title: Back
-            style:
-              left: 15%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_info
-            image: /local/lovelace/icons/blank_64.png
-            title: Info
-            style:
-              left: 44%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_home
-            image: /local/lovelace/icons/blank_64.png
-            title: Home
-            style:
-              left: 71%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.basement_tv_netflix
-            tap_action: call-service
-            image: /local/lovelace/icons/netflix.png
-            title: Netflix
-            style:
-              left: 16%
-              top: 29%
-              width: 78px
-              height: 78px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_up
-            image: /local/lovelace/icons/blank_64.png
-            title: Up
-            style:
-              left: 44%
-              top: 30%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.basement_tv_disney
-            tap_action: call-service
-            image: /local/lovelace/icons/disney.jpg
-            title: Disney Now
-            style:
-              left: 67%
-              top: 29%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_left
-            image: /local/lovelace/icons/blank_64.png
-            title: Left
-            style:
-              left: 18%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_select
-            image: /local/lovelace/icons/blank_64.png
-            title: Select
-            style:
-              left: 44%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_right
-            image: /local/lovelace/icons/blank_64.png
-            title: Right
-            style:
-              left: 70%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.basement_tv_nick
-            tap_action: call-service
-            image: /local/lovelace/icons/nick.png
-            title: Nick Jr
-            style:
-              left: 16%
-              top: 56%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_down
-            image: /local/lovelace/icons/blank_64.png
-            title: Down
-            style:
-              left: 44%
-              top: 57%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.basement_tv_youtube
-            tap_action: call-service
-            image: /local/lovelace/icons/youtube.png
-            title: YouTube
-            style:
-              left: 67%
-              top: 57%
-              width: 78px
-              height: 64px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_rewind
-            image: /local/lovelace/icons/blank_64.png
-            title: Rewind
-            style:
-              left: 16%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_play
-            image: /local/lovelace/icons/blank_64.png
-            title: "Play/Pause"
-            style:
-              left: 44%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_forward
-            image: /local/lovelace/icons/blank_64.png
-            title: Forward
-            style:
-              left: 72%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_instant_replay
-            image: /local/lovelace/icons/blank_64.png
-            title: Replay
-            style:
-              left: 16%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_input
-            image: /local/lovelace/icons/blank_64.png
-            title: Keyboard
-            style:
-              left: 44%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_mute
-            image: /local/lovelace/icons/blank_64.png
-            title: Mute
-            style:
-              left: 16%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_lower
-            image: /local/lovelace/icons/blank_64.png
-            title: Lower Volume
-            style:
-              left: 44%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.basement_tv_raise
-            image: /local/lovelace/icons/blank_64.png
-            title: Raise Volume
-            style:
-              left: 72%
-              top: 90%
-              transform: none
-      - type: conditional
-        conditions:
-          - entity: input_boolean.show_bedroom_remote
-            state: "on"
-        card:
-          type: picture-elements
-          image: /local/lovelace/icons/roku.png
-          elements:
-          # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
-          - type: custom:text-element
-            text: 'Bedroom TV'
-            pointer-events: none
-            style:
-              left: 28%
-              top: 3%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 250%
-              color: white
-              transform: none
-          - type: icon
-            icon: mdi:power
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.bedroom_tv_power
-            tap_action: call-service
-            title: Power
-            style:
-              left: 86%
-              top: 3%
-              color: red
-              transform: none
-          - type: state-label
-            entity: sensor.bedroom_tv_source
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_play
-            style:
-              left: 38%
-              top: 8%
-              text-shadow: 2px 2px black
-              font-family: Trebuchet MS
-              font-size: 150%
-              color: white
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.bedroom_tv_back
-            tap_action: call-service
-            image: /local/lovelace/icons/blank_64.png
-            title: Back
-            style:
-              left: 15%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_info
-            image: /local/lovelace/icons/blank_64.png
-            title: Info
-            style:
-              left: 44%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_home
-            image: /local/lovelace/icons/blank_64.png
-            title: Home
-            style:
-              left: 71%
-              top: 17%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.bedroom_tv_netflix
-            tap_action: call-service
-            image: /local/lovelace/icons/netflix.png
-            title: Netflix
-            style:
-              left: 16%
-              top: 29%
-              width: 78px
-              height: 78px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_up
-            image: /local/lovelace/icons/blank_64.png
-            title: Up
-            style:
-              left: 44%
-              top: 30%
-              transform: none
-          - type: image
-            service: input_boolean.toggle
-            service_data:
-              entity_id: input_boolean.bedroom_tv_disney
-            tap_action: call-service
-            image: /local/lovelace/icons/disney.jpg
-            title: Disney Now
-            style:
-              left: 67%
-              top: 29%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_left
-            image: /local/lovelace/icons/blank_64.png
-            title: Left
-            style:
-              left: 18%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_select
-            image: /local/lovelace/icons/blank_64.png
-            title: Select
-            style:
-              left: 44%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_right
-            image: /local/lovelace/icons/blank_64.png
-            title: Right
-            style:
-              left: 70%
-              top: 44%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.bedroom_tv_nick
-            tap_action: call-service
-            image: /local/lovelace/icons/nick.png
-            title: Nick Jr
-            style:
-              left: 16%
-              top: 56%
-              width: 78px
-              height: 78px
-              border-radius: 5px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_down
-            image: /local/lovelace/icons/blank_64.png
-            title: Down
-            style:
-              left: 44%
-              top: 57%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            service_data:
-              entity_id: input_boolean.bedroom_tv_youtube
-            tap_action: call-service
-            image: /local/lovelace/icons/youtube.png
-            title: YouTube
-            style:
-              left: 67%
-              top: 57%
-              width: 78px
-              height: 64px
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_rewind
-            image: /local/lovelace/icons/blank_64.png
-            title: Rewind
-            style:
-              left: 16%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_play
-            image: /local/lovelace/icons/blank_64.png
-            title: "Play/Pause"
-            style:
-              left: 44%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_forward
-            image: /local/lovelace/icons/blank_64.png
-            title: Forward
-            style:
-              left: 72%
-              top: 70%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_instant_replay
-            image: /local/lovelace/icons/blank_64.png
-            title: Replay
-            style:
-              left: 16%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_input
-            image: /local/lovelace/icons/blank_64.png
-            title: Keyboard
-            style:
-              left: 44%
-              top: 80%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_mute
-            image: /local/lovelace/icons/blank_64.png
-            title: Mute
-            style:
-              left: 16%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_lower
-            image: /local/lovelace/icons/blank_64.png
-            title: Lower Volume
-            style:
-              left: 44%
-              top: 90%
-              transform: none
-          - type: image
-            service: input_boolean.turn_on
-            tap_action: call-service
-            service_data:
-              entity_id: input_boolean.bedroom_tv_raise
-            image: /local/lovelace/icons/blank_64.png
-            title: Raise Volume
-            style:
-              left: 72%
-              top: 90%
-              transform: none
-      - type: horizontal-stack
-        cards:
-          # KITHCEN GLANCE
-          - type: picture-glance
-            image: /local/lovelace/icons/kitchen.jpg
-            entities:
-              - media_player.kitchen_home
-          # GARAGE GLANCE
-          - type: picture-glance
-            image: /local/lovelace/icons/garage.jpg
-            entities:
-              - cover.left_garage_door
-              - cover.right_garage_door
-      - type: horizontal-stack
-        cards:
-          - type: weather-forecast
-            entity: weather.yweather
-          - type: custom:thermostat-card
-            entity: climate.thermostat
-            step: 1
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_one_column
+              state: "on"
+            - entity: input_boolean.show_office_remote
+              state_not: "on"
+            - entity: input_boolean.show_basement_remote
+              state_not: "on"
+            - entity: input_boolean.show_bedroom_remote
+              state_not: "on"
+          card:
+            type: vertical-stack
+            cards:
+            - &column_selection
+              type: horizontal-stack
+              cards:
+                - type: glance
+                  show_name: false
+                  show_state: false
+                  entities:
+                    - entity: script.show_one_column
+                      icon: mdi:numeric-1-box
+                      tap_action: toggle
+                    - entity: script.show_two_columns
+                      icon: mdi:numeric-2-box
+                      tap_action: toggle
+                    - entity: script.show_three_columns
+                      icon: mdi:numeric-3-box
+                      tap_action: toggle
+                    - entity: script.show_four_columns
+                      icon: mdi:numeric-4-box
+                      tap_action: toggle
+            - &house_glance
+              type: picture-glance
+              camera_image: camera.front
+              entity: group.all_switches
+              entities:
+                - device_tracker.ian_ians_phone
+                - device_tracker.chelsea_chelseas_phone
+                - climate.thermostat
+            - &living_room_glance
+              type: picture-glance
+              camera_image: camera.livingroom
+              entities:
+                - media_player.living_room_home
+                - media_player.living_room_speakers
+            - &office_glance
+              type: picture-glance
+              image: /local/lovelace/icons/office_on.jpg
+              entity: switch.switch
+              state_image:
+                on: /local/lovelace/icons/office_on.jpg
+                off: /local/lovelace/icons/office_off.jpg
+              entities:
+                - switch.switch
+                - media_player.office_home
+                - entity: input_boolean.show_office_remote
+                  icon: mdi:youtube-tv
+            - &kids_glance
+              type: picture-glance
+              camera_image: camera.girls_room
+              entities:
+                - media_player.girls_home
+            - &basement_glance
+              type: picture-glance
+              camera_image: camera.basement
+              entities:
+                - media_player.basement_home
+                - entity: input_boolean.show_basement_remote
+                  icon: mdi:youtube-tv
+            - &bedroom_glance
+              type: picture-glance
+              image: /local/lovelace/icons/bedroom.jpg
+              entities:
+                - media_player.master_home
+                - media_player.bathroom_home
+                - entity: input_boolean.show_bedroom_remote
+                  icon: mdi:youtube-tv
+            - &kitchen_glance
+              type: picture-glance
+              image: /local/lovelace/icons/kitchen.jpg
+              entities:
+                - media_player.kitchen_home
+            - &garage_glance
+              type: picture-glance
+              camera_image: camera.garage
+              entities:
+                - cover.left_garage_door
+                - cover.right_garage_door
+            - &weather
+              type: weather-forecast
+              entity: weather.yweather
+            - &thermostat
+              type: custom:thermostat-card
+              entity: climate.thermostat
+              step: 1
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_two_columns
+              state: "on"
+            - entity: input_boolean.show_office_remote
+              state_not: "on"
+            - entity: input_boolean.show_basement_remote
+              state_not: "on"
+            - entity: input_boolean.show_bedroom_remote
+              state_not: "on"
+          card:
+            type: vertical-stack
+            cards:
+            - *column_selection
+            - type: horizontal-stack
+              cards:
+                - *house_glance
+                - *living_room_glance
+            - type: horizontal-stack
+              cards:
+                - *office_glance
+                - *kids_glance
+            - type: horizontal-stack
+              cards:
+                - *basement_glance
+                - *bedroom_glance
+            - type: horizontal-stack
+              cards:
+                - *kitchen_glance
+                - *garage_glance
+            - type: horizontal-stack
+              cards:
+                - *weather
+                - *thermostat
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_three_columns
+              state: "on"
+            - entity: input_boolean.show_office_remote
+              state_not: "on"
+            - entity: input_boolean.show_basement_remote
+              state_not: "on"
+            - entity: input_boolean.show_bedroom_remote
+              state_not: "on"
+          card:
+            type: vertical-stack
+            cards:
+            - *column_selection
+            - type: horizontal-stack
+              cards:
+                - *house_glance
+                - *living_room_glance
+                - *kids_glance
+            - type: horizontal-stack
+              cards:
+                - *office_glance
+                - *basement_glance
+                - *bedroom_glance
+            - type: horizontal-stack
+              cards:
+                - *kitchen_glance
+                - *garage_glance
+                - *weather
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_four_columns
+              state: "on"
+            - entity: input_boolean.show_office_remote
+              state_not: "on"
+            - entity: input_boolean.show_basement_remote
+              state_not: "on"
+            - entity: input_boolean.show_bedroom_remote
+              state_not: "on"
+          card:
+            type: vertical-stack
+            cards:
+            - *column_selection
+            - type: horizontal-stack
+              cards:
+                - *house_glance
+                - *living_room_glance
+                - *kids_glance
+                - *office_glance
+            - type: horizontal-stack
+              cards:
+                - *kitchen_glance
+                - *garage_glance
+                - *basement_glance
+                - *bedroom_glance
+            - type: horizontal-stack
+              cards:
+                - *weather
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_office_remote
+              state: "on"
+          card:
+            type: picture-elements
+            image: /local/lovelace/icons/roku.png
+            elements:
+            # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
+            - type: icon
+              icon: mdi:close
+              entity: input_boolean.show_office_remote
+              tap_action: toggle
+              style:
+                left: 10%
+                top: 5%
+                color: white
+            - type: custom:text-element
+              text: 'Office TV'
+              pointer-events: none
+              style:
+                left: 33%
+                top: 3%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 250%
+                color: white
+                transform: none
+            - type: icon
+              icon: mdi:power
+              entity: input_boolean.office_tv_power
+              tap_action: toggle
+              title: Power
+              style:
+                left: 86%
+                top: 3%
+                color: red
+                transform: none
+            - type: state-label
+              entity: sensor.office_tv_source
+              tap_action: toggle
+              style:
+                left: 38%
+                top: 8%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 150%
+                color: white
+                transform: none
+            - type: image
+              entity: input_boolean.office_tv_back
+              tap_action: toggle
+              image: /local/lovelace/icons/blank_64.png
+              title: Back
+              style:
+                left: 15%
+                top: 17%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_info
+              image: /local/lovelace/icons/blank_64.png
+              title: Info
+              style:
+                left: 44%
+                top: 17%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_home
+              image: /local/lovelace/icons/blank_64.png
+              title: Home
+              style:
+                left: 71%
+                top: 17%
+                transform: none
+            - type: image
+              entity: input_boolean.office_tv_netflix
+              tap_action: toggle
+              image: /local/lovelace/icons/netflix.png
+              title: Netflix
+              style:
+                left: 16%
+                top: 29%
+                width: 78px
+                height: 78px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_up
+              image: /local/lovelace/icons/blank_64.png
+              title: Up
+              style:
+                left: 44%
+                top: 30%
+                transform: none
+            - type: image
+              entity: input_boolean.office_tv_disney
+              tap_action: toggle
+              image: /local/lovelace/icons/disney.jpg
+              title: Disney Now
+              style:
+                left: 67%
+                top: 29%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_left
+              image: /local/lovelace/icons/blank_64.png
+              title: Left
+              style:
+                left: 18%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_select
+              image: /local/lovelace/icons/blank_64.png
+              title: Select
+              style:
+                left: 44%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_right
+              image: /local/lovelace/icons/blank_64.png
+              title: Right
+              style:
+                left: 70%
+                top: 44%
+                transform: none
+            - type: image
+              entity: input_boolean.office_tv_nick
+              tap_action: toggle
+              image: /local/lovelace/icons/nick.png
+              title: Nick Jr
+              style:
+                left: 16%
+                top: 56%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_down
+              image: /local/lovelace/icons/blank_64.png
+              title: Down
+              style:
+                left: 44%
+                top: 57%
+                transform: none
+            - type: image
+              entity: input_boolean.office_tv_youtube
+              tap_action: toggle
+              image: /local/lovelace/icons/youtube.png
+              title: YouTube
+              style:
+                left: 67%
+                top: 57%
+                width: 78px
+                height: 64px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_rewind
+              image: /local/lovelace/icons/blank_64.png
+              title: Rewind
+              style:
+                left: 16%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_play
+              image: /local/lovelace/icons/blank_64.png
+              title: "Play/Pause"
+              style:
+                left: 44%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_forward
+              image: /local/lovelace/icons/blank_64.png
+              title: Forward
+              style:
+                left: 72%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_instant_replay
+              image: /local/lovelace/icons/blank_64.png
+              title: Replay
+              style:
+                left: 16%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_input
+              image: /local/lovelace/icons/blank_64.png
+              title: Keyboard
+              style:
+                left: 44%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_mute
+              image: /local/lovelace/icons/blank_64.png
+              title: Mute
+              style:
+                left: 16%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_lower
+              image: /local/lovelace/icons/blank_64.png
+              title: Lower Volume
+              style:
+                left: 44%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.office_tv_raise
+              image: /local/lovelace/icons/blank_64.png
+              title: Raise Volume
+              style:
+                left: 72%
+                top: 90%
+                transform: none
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_basement_remote
+              state: "on"
+          card:
+            type: picture-elements
+            image: /local/lovelace/icons/roku.png
+            elements:
+            # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
+            - type: icon
+              icon: mdi:close
+              tap_action: toggle
+              entity: input_boolean.show_basement_remote
+              style:
+                left: 10%
+                top: 5%
+                color: white
+            - type: custom:text-element
+              text: 'Basement TV'
+              pointer-events: none
+              style:
+                left: 25%
+                top: 3%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 250%
+                color: white
+                transform: none
+            - type: icon
+              icon: mdi:power
+              entity: input_boolean.basement_tv_power
+              tap_action: toggle
+              title: Power
+              style:
+                left: 86%
+                top: 3%
+                color: red
+                transform: none
+            - type: state-label
+              entity: sensor.basement_tv_source
+              tap_action: toggle
+              style:
+                left: 38%
+                top: 8%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 150%
+                color: white
+                transform: none
+            - type: image
+              entity_: input_boolean.basement_tv_back
+              tap_action: toggle
+              image: /local/lovelace/icons/blank_64.png
+              title: Back
+              style:
+                left: 15%
+                top: 17%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_info
+              image: /local/lovelace/icons/blank_64.png
+              title: Info
+              style:
+                left: 44%
+                top: 17%
+                transform: none
+            - type: image
+              service: input_boolean.turn_on
+              tap_action: toggle
+              entity: input_boolean.basement_tv_home
+              image: /local/lovelace/icons/blank_64.png
+              title: Home
+              style:
+                left: 71%
+                top: 17%
+                transform: none
+            - type: image
+              entity: input_boolean.basement_tv_netflix
+              tap_action: toggle
+              image: /local/lovelace/icons/netflix.png
+              title: Netflix
+              style:
+                left: 16%
+                top: 29%
+                width: 78px
+                height: 78px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_up
+              image: /local/lovelace/icons/blank_64.png
+              title: Up
+              style:
+                left: 44%
+                top: 30%
+                transform: none
+            - type: image
+              entity: input_boolean.basement_tv_disney
+              tap_action: toggle
+              image: /local/lovelace/icons/disney.jpg
+              title: Disney Now
+              style:
+                left: 67%
+                top: 29%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_left
+              image: /local/lovelace/icons/blank_64.png
+              title: Left
+              style:
+                left: 18%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_select
+              image: /local/lovelace/icons/blank_64.png
+              title: Select
+              style:
+                left: 44%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_right
+              image: /local/lovelace/icons/blank_64.png
+              title: Right
+              style:
+                left: 70%
+                top: 44%
+                transform: none
+            - type: image
+              entity: input_boolean.basement_tv_nick
+              tap_action: toggle
+              image: /local/lovelace/icons/nick.png
+              title: Nick Jr
+              style:
+                left: 16%
+                top: 56%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_down
+              image: /local/lovelace/icons/blank_64.png
+              title: Down
+              style:
+                left: 44%
+                top: 57%
+                transform: none
+            - type: image
+              entity: input_boolean.basement_tv_youtube
+              tap_action: toggle
+              image: /local/lovelace/icons/youtube.png
+              title: YouTube
+              style:
+                left: 67%
+                top: 57%
+                width: 78px
+                height: 64px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_rewind
+              image: /local/lovelace/icons/blank_64.png
+              title: Rewind
+              style:
+                left: 16%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_play
+              image: /local/lovelace/icons/blank_64.png
+              title: "Play/Pause"
+              style:
+                left: 44%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_forward
+              image: /local/lovelace/icons/blank_64.png
+              title: Forward
+              style:
+                left: 72%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_instant_replay
+              image: /local/lovelace/icons/blank_64.png
+              title: Replay
+              style:
+                left: 16%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_input
+              image: /local/lovelace/icons/blank_64.png
+              title: Keyboard
+              style:
+                left: 44%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_mute
+              image: /local/lovelace/icons/blank_64.png
+              title: Mute
+              style:
+                left: 16%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_lower
+              image: /local/lovelace/icons/blank_64.png
+              title: Lower Volume
+              style:
+                left: 44%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.basement_tv_raise
+              image: /local/lovelace/icons/blank_64.png
+              title: Raise Volume
+              style:
+                left: 72%
+                top: 90%
+                transform: none
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_bedroom_remote
+              state: "on"
+          card:
+            type: picture-elements
+            image: /local/lovelace/icons/roku.png
+            elements:
+            # keyboard input such as 'a' is sent with request: 192.168.1.*:8060/keyPress/Lit_a
+            - type: icon
+              icon: mdi:close
+              tap_action: toggle
+              entity: input_boolean.show_bedroom_remote
+              style:
+                left: 10%
+                top: 5%
+                color: white
+            - type: custom:text-element
+              text: 'Bedroom TV'
+              pointer-events: none
+              style:
+                left: 28%
+                top: 3%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 250%
+                color: white
+                transform: none
+            - type: icon
+              icon: mdi:power
+              entity: input_boolean.bedroom_tv_power
+              tap_action: toggle
+              title: Power
+              style:
+                left: 86%
+                top: 3%
+                color: red
+                transform: none
+            - type: state-label
+              entity: sensor.bedroom_tv_source
+              tap_action: toggle
+              style:
+                left: 38%
+                top: 8%
+                text-shadow: 2px 2px black
+                font-family: Trebuchet MS
+                font-size: 150%
+                color: white
+                transform: none
+            - type: image
+              entity: input_boolean.bedroom_tv_back
+              tap_action: toggle
+              image: /local/lovelace/icons/blank_64.png
+              title: Back
+              style:
+                left: 15%
+                top: 17%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_info
+              image: /local/lovelace/icons/blank_64.png
+              title: Info
+              style:
+                left: 44%
+                top: 17%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_home
+              image: /local/lovelace/icons/blank_64.png
+              title: Home
+              style:
+                left: 71%
+                top: 17%
+                transform: none
+            - type: image
+              entity: input_boolean.bedroom_tv_netflix
+              tap_action: toggle
+              image: /local/lovelace/icons/netflix.png
+              title: Netflix
+              style:
+                left: 16%
+                top: 29%
+                width: 78px
+                height: 78px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_up
+              image: /local/lovelace/icons/blank_64.png
+              title: Up
+              style:
+                left: 44%
+                top: 30%
+                transform: none
+            - type: image
+              entity: input_boolean.bedroom_tv_disney
+              tap_action: toggle
+              image: /local/lovelace/icons/disney.jpg
+              title: Disney Now
+              style:
+                left: 67%
+                top: 29%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_left
+              image: /local/lovelace/icons/blank_64.png
+              title: Left
+              style:
+                left: 18%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_select
+              image: /local/lovelace/icons/blank_64.png
+              title: Select
+              style:
+                left: 44%
+                top: 44%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_right
+              image: /local/lovelace/icons/blank_64.png
+              title: Right
+              style:
+                left: 70%
+                top: 44%
+                transform: none
+            - type: image
+              entity: input_boolean.bedroom_tv_nick
+              tap_action: toggle
+              image: /local/lovelace/icons/nick.png
+              title: Nick Jr
+              style:
+                left: 16%
+                top: 56%
+                width: 78px
+                height: 78px
+                border-radius: 5px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_down
+              image: /local/lovelace/icons/blank_64.png
+              title: Down
+              style:
+                left: 44%
+                top: 57%
+                transform: none
+            - type: image
+              entity: input_boolean.bedroom_tv_youtube
+              tap_action: toggle
+              image: /local/lovelace/icons/youtube.png
+              title: YouTube
+              style:
+                left: 67%
+                top: 57%
+                width: 78px
+                height: 64px
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_rewind
+              image: /local/lovelace/icons/blank_64.png
+              title: Rewind
+              style:
+                left: 16%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_play
+              image: /local/lovelace/icons/blank_64.png
+              title: "Play/Pause"
+              style:
+                left: 44%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_forward
+              image: /local/lovelace/icons/blank_64.png
+              title: Forward
+              style:
+                left: 72%
+                top: 70%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_instant_replay
+              image: /local/lovelace/icons/blank_64.png
+              title: Replay
+              style:
+                left: 16%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_input
+              image: /local/lovelace/icons/blank_64.png
+              title: Keyboard
+              style:
+                left: 44%
+                top: 80%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_mute
+              image: /local/lovelace/icons/blank_64.png
+              title: Mute
+              style:
+                left: 16%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_lower
+              image: /local/lovelace/icons/blank_64.png
+              title: Lower Volume
+              style:
+                left: 44%
+                top: 90%
+                transform: none
+            - type: image
+              tap_action: toggle
+              entity: input_boolean.bedroom_tv_raise
+              image: /local/lovelace/icons/blank_64.png
+              title: Raise Volume
+              style:
+                left: 72%
+                top: 90%
+                transform: none
+
       # - type: custom:beer-card
       #   entity: calendar.menards
       #   attribute: all_tasks
@@ -1141,6 +1203,157 @@ views:
       - type: picture-elements
         image: /local/lovelace/icons/untappd.png
         elements:
+        - type: state-icon
+          entity: sensor.untappd_last_badge
+          style:
+            top: 18px
+            left: 8px
+            transform: none
+        - type: state-label
+          entity: sensor.untappd_beer
+          style:
+            top: 8%
+            left: 52px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            border-left-style: inset
+            border-color: Yellow
+            background-color: rgb(54, 65, 78)
+            opacity: 0.8
+            pointer-events: none
+            width: 265px
+            padding: 5px
+            border-top-right-radius: 5px
+        - type: state-icon
+          entity: sensor.untappd_last_checkin
+          style:
+            top: 64px
+            left: 8px
+            transform: none
+        - type: state-label
+          entity: sensor.untappd_badge
+          style:
+            top: 63px
+            left: 52px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            border-left-style: inset
+            border-color: Orange
+            background-color: rgb(54, 65, 78)
+            opacity: 0.8
+            pointer-events: none
+            width: 265px
+            padding: 5px
+            border-bottom-right-radius: 5px
+
+        - type: state-icon
+          entity: sensor.untappd_checked
+          style:
+            bottom: 0px
+            left: 8px
+            transform: none
+            z-index: 2
+        - type: state-label
+          entity: sensor.untappd_checked
+          style:
+            bottom: 0px
+            left: 0px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            background-color: rgb(54, 65, 78)
+            border-bottom-style: inset
+            border-color: LightSalmon
+            opacity: 0.8
+            pointer-events: none
+            padding-left: 36px
+            padding-bottom: 8px
+
+        - type: state-icon
+          entity: sensor.untappd_followings
+          style:
+            bottom: 0px
+            left: 78px
+            transform: none
+            z-index: 2
+        - type: state-label
+          entity: sensor.untappd_followings
+          style:
+            bottom: 0px
+            left: 74px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            background-color: rgb(54, 65, 78)
+            border-bottom-style: inset
+            border-color: OrangeRed
+            opacity: 0.8
+            pointer-events: none
+            padding-left: 36px
+            padding-bottom: 8px
+
+        - type: state-icon
+          entity: sensor.untappd_total_badges
+          style:
+            bottom: 0px
+            left: 148px
+            transform: none
+            z-index: 2
+        - type: state-label
+          entity: sensor.untappd_total_badges
+          style:
+            bottom: 0px
+            left: 141px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            background-color: rgb(54, 65, 78)
+            border-bottom-style: inset
+            border-color: Crimson
+            opacity: 0.8
+            pointer-events: none
+            padding-left: 36px
+            padding-bottom: 8px
+
+        - type: state-icon
+          entity: sensor.untappd_total_beers
+          style:
+            bottom: 0px
+            left: 228px
+            transform: none
+            z-index: 2
+        - type: state-label
+          entity: sensor.untappd_total_beers
+          style:
+            bottom: 0px
+            left: 215px
+            transform: none
+            color: rgb(255, 255, 255)
+            font-family: Trebuchet MS
+            font-size: 90%
+            font-weight: bold
+            background-color: rgb(54, 65, 78)
+            border-bottom-style: inset
+            border-color: Maroon
+            opacity: 0.8
+            pointer-events: none
+            padding-left: 36px
+            padding-bottom: 8px
+      - type: picture-elements
+        image: /local/lovelace/icons/untappd.png
+        elements:
           - type: custom:state-element
             entity: sensor.untappd_last_checkin
             prefix: "Last Check-in: "
@@ -1150,11 +1363,12 @@ views:
               top: 1%
               transform: none
               color: white
+              text-shadow: '1px 1px black'
           - type: state-badge
             entity: sensor.untappd_last_checkin
             style:
               left: 1%
-              top: 11%
+              top: 5%
               transform: none
               color: white
           - type: custom:state-attribute-element
@@ -1166,6 +1380,7 @@ views:
               top: 10%
               transform: none
               color: white
+              text-shadow: '1px 1px black'
           - type: custom:circle-sensor-card
             entity: sensor.untappd_last_checkin
             attribute: score
@@ -1219,6 +1434,7 @@ views:
               transform: none
               color: white
               font-size: 12px
+              text-shadow: '1px 1px black'
           - type: custom:state-attribute-element
             entity: sensor.random_brewdog
             attribute: first brewed
@@ -1229,6 +1445,7 @@ views:
               transform: none
               color: white
               font-size: 12px
+              text-shadow: '1px 1px black'
           - type: custom:hui-markdown-card
             content: >
               Wishlist:
@@ -1257,6 +1474,7 @@ views:
               top: 1%
               transform: none
               color: white
+              text-shadow: '1px 1px black'
           - type: state-badge
             entity: sensor.untappd_last_badge
             style:
@@ -1273,6 +1491,7 @@ views:
               top: 10%
               transform: none
               color: white
+              text-shadow: '1px 1px black'
       - type: custom:beer-card
         entity: sensor.untappd_wishlist
         # icon: /local/icons/untappd.png
@@ -1289,7 +1508,7 @@ views:
           fill: '#125054'
           name: loss
           units: ' '
-          font_style:
+          font_style: &fitbit_circle_sensor_style
             font-size: 1.1em
             font-color: white
             text-shadow: '1px 1px black'
@@ -1308,10 +1527,10 @@ views:
           fill: '#125054'
           name: steps
           units: ' '
-          font_style:
-            font-size: 1.1em
-            font-color: white
-            text-shadow: '2px 2px black'
+          font_style: *fitbit_circle_sensor_style
+            # font-size: 1.1em
+            # font-color: white
+            # text-shadow: '2px 2px black'
           color_stops:
             1: '#09C7E8'
             10000: '#0BDF0E'
@@ -1358,7 +1577,7 @@ views:
             text-shadow: '2px 2px black'
           color_stops:
             1: '#09C7E8'
-            10: '#0BDF0E' 
+            10: '#0BDF0E'
           style:
             top: 70%
             left: 43%
@@ -1390,7 +1609,7 @@ views:
             transform: none
         - type: custom:circle-sensor-card
           entity: sensor.fitbit_minutes_active
-          max: 30 
+          max: 30
           min: 0
           stroke_width: 15
           gradient: true
@@ -1418,11 +1637,11 @@ views:
             left: 1%
             font-size: 18px
             color: white
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black 
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
             "--paper-card-background-color": none
             "--paper-material-elevation-1_-_box-shadow": none
             "--shadow-elevation-2dp_-_box-shadow": none
-            transform: translate(0%,-50%)  
+            transform: translate(0%,-50%)
         - type: state-icon
           entity: sensor.weight
           title: Weight
@@ -1570,7 +1789,7 @@ views:
           - sensor.timthetatman
         state_filter:
           - streaming
-        card: 
+        card:
           type: glance
           title: Twitch
       - type: iframe
@@ -1579,129 +1798,129 @@ views:
   - icon: mdi:settings
     title: Settings
     cards:
-      - type: custom:canvas-gauge-card
-        entity: sensor.processor_use
-        name: Processor (%)
-        card_height: 210
-        shadow_height: 12%
-        font_size: 1em
-        gauge:
-          type: "radial-gauge"
-          width: 220
-          height: 220
-          minValue: 0
-          maxValue: 100
-          startAngle: 40
-          ticksAngle: 280
-          valueBox: false
-          units: "%"
-          majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
-          minorTicks: 2
-          strokeTicks: true
-          highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
-          borders: false
-    # TODO Add automations card to turn on/off
-      - type: picture-elements
-        image: /local/lovelace/icons/xeon.jpg
-        elements:
-        - type: state-icon
-          entity: sensor.speedtest_ping
-          style:
-            top: 60%
-            left: 1%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.speedtest_ping
-          style:
-            top: 63%
-            left: 8%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.speedtest_upload
-          style:
-            top: 30%
-            left: 1%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.speedtest_upload
-          style:
-            top: 33%
-            left: 8%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.speedtest_download
-          style:
-            top: 30%
-            left: 30%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.speedtest_download
-          style:
-            top: 33%
-            left: 37%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.processor_use
-          style:
-            top: 58%
-            left: 80%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.processor_use
-          style:
-            top: 62%
-            left: 88%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.disk_use_percent_home
-          style:
-            top: 1%
-            left: 80%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.disk_use_percent_home
-          style:
-            top: 5%
-            left: 87%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.since_last_boot
-          style:
-            top: 1%
-            left: 1%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.uptime
-          style:
-            top: 2%
-            left: 8%
-            transform: none
-            color: white
-        - type: state-icon
-          entity: sensor.memory_use_percent
-          style:
-            top: 30%
-            left: 80%
-            transform: none
-            "--paper-item-icon-color": white
-        - type: state-label
-          entity: sensor.memory_use_percent
-          style:
-            top: 34%
-            left: 87%
-            transform: none
-            color: white
+    #   - type: custom:canvas-gauge-card
+    #     entity: sensor.processor_use
+    #     name: Processor (%)
+    #     card_height: 210
+    #     shadow_height: 12%
+    #     font_size: 1em
+    #     gauge:
+    #       type: "radial-gauge"
+    #       width: 220
+    #       height: 220
+    #       minValue: 0
+    #       maxValue: 100
+    #       startAngle: 40
+    #       ticksAngle: 280
+    #       valueBox: false
+    #       units: "%"
+    #       majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+    #       minorTicks: 2
+    #       strokeTicks: true
+    #       highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+    #       borders: false
+    # # TODO Add automations card to turn on/off
+    #   - type: picture-elements
+    #     image: /local/lovelace/icons/xeon.jpg
+    #     elements:
+    #     - type: state-icon
+    #       entity: sensor.speedtest_ping
+    #       style:
+    #         top: 60%
+    #         left: 1%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.speedtest_ping
+    #       style:
+    #         top: 63%
+    #         left: 8%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.speedtest_upload
+    #       style:
+    #         top: 30%
+    #         left: 1%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.speedtest_upload
+    #       style:
+    #         top: 33%
+    #         left: 8%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.speedtest_download
+    #       style:
+    #         top: 30%
+    #         left: 30%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.speedtest_download
+    #       style:
+    #         top: 33%
+    #         left: 37%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.processor_use
+    #       style:
+    #         top: 58%
+    #         left: 80%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.processor_use
+    #       style:
+    #         top: 62%
+    #         left: 88%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.disk_use_percent_home
+    #       style:
+    #         top: 1%
+    #         left: 80%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.disk_use_percent_home
+    #       style:
+    #         top: 5%
+    #         left: 87%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.since_last_boot
+    #       style:
+    #         top: 1%
+    #         left: 1%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.uptime
+    #       style:
+    #         top: 2%
+    #         left: 8%
+    #         transform: none
+    #         color: white
+    #     - type: state-icon
+    #       entity: sensor.memory_use_percent
+    #       style:
+    #         top: 30%
+    #         left: 80%
+    #         transform: none
+    #         "--paper-item-icon-color": white
+    #     - type: state-label
+    #       entity: sensor.memory_use_percent
+    #       style:
+    #         top: 34%
+    #         left: 87%
+    #         transform: none
+    #         color: white
         # - type: state-icon
         #   entity: sensor.pihole_domains_blocked
         #   style:
@@ -1722,6 +1941,8 @@ views:
         trackers:
           - sensor.custom_card_tracker
           - sensor.custom_component_tracker
+      - type: custom:aftership-card
+        entity: sensor.aftership
       - type: custom:alarm_control_panel-card
         entity: alarm_control_panel.ha_alarm
         show_keypad: true
@@ -1756,11 +1977,79 @@ views:
             path: lovelace/1
           - name: Ian
             path: lovelace/beer
+      - type: custom:list-card
+        entity: sensor.upcoming_shows
+        title: Upcoming Shows
+        row_limit: 5
+        columns:
+          - title: Show
+            field: media_thumbnail
+            type: image
+            add_link: link
+          - title: Air Date
+            field: published
+            add_link: link
+            style:
+              - background-color: red
+              - white-space: nowrap
+          - title: Synopsis
+            field: summary
+            add_link: link
+      - type: custom:list-card
+        entity: sensor.aftership
+        title: Packages
+        columns:
+          - title: Name
+            field: title
+          - title: Carrier
+            field: slug
+            style:
+              - background-color: red
+              - white-space: nowrap
+          - title: Status
+            field: status
+          - title: Tracking
+            field: tracking_number
+            add_link: link
+  # - icon: mdi:settings
+  #   title: Settings2
+  #   panel: true
+  #   cards:
+      - type: custom:list-card
+        entity: sensor.untappd_on_the_wishlist
+        title: Beer Wishlist
+        columns:
+          - title: Brewery
+            field: brewery_label
+            type: image
+          - title: Label
+            field: beer_label
+            type: image
+          - title: Name
+            field: beer_name
+          - title: ABV %
+            field: beer_abv
+            style:
+              - white-space: nowrap
+              - text-align: center
+          - title: IBUs
+            field: beer_ibu
+            style:
+              - white-space: nowrap
+              - text-align: center
+          - title: Style
+            field: beer_style
+          - title: Rating
+            field: rating_score
+            style:
+              - white-space: nowrap
+              - text-align: center
+          
 
 resources:
   - url: /local/lovelace/custom_cards/entity-attributes-card.js?v=0.1.0
     type: js
-  - url: /local/lovelace/custom_cards/gauge-card.js?v=0.1.0
+  - url: /local/lovelace/custom_cards/gauge-card.js?v=0.2.0
     type: js
   - url: /local/lovelace/custom_cards/bignumber-card.js?v=0.0.1
     type: js
@@ -1793,4 +2082,16 @@ resources:
   - url: /local/lovelace/custom_cards/canvas-gauge-card.js
     type: module
   - url: /local/lovelace/custom_cards/home-setter.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/useful-markdown-card.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/ext-weblink.js?v=0.3.2
+    type: js
+  - url: /local/lovelace/custom_cards/slider-entity-row.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/horizontal-scroll-card.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/aftership-card.js?v=0.0.2
+    type: js
+  - url: /local/lovelace/custom_cards/list-card.js?v=0.0.3
     type: js
