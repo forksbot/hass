@@ -32,91 +32,65 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_UNIT_OF_MEASUREMENT, default='USD'): cv.string,
 })
 
+_CONFIGURING = {}
 _LOGGER = logging.getLogger(__name__)
 
-# def request_configuration(hass, config, url, add_devices_callback):
-#     """Request configuration steps from the user."""
-#     configurator = hass.components.configurator
-#     if 'personalcapital' in _CONFIGURING:
-#         configurator.notify_errors(
-#             _CONFIGURING['personalcapital'], "Failed to register, please try again.")
-
-#         return
-#     from websocket import create_connection
-#     websocket = create_connection((url), timeout=1)
-#     websocket.send(json.dumps({'namespace': 'connect',
-#                                'method': 'connect',
-#                                'arguments': ['Home Assistant']}))
-
-#     def personalcapital_configuration_callback(callback_data):
-#         """Handle configuration changes."""
-#         while True:
-#             from websocket import _exceptions
-#             try:
-#                 msg = json.loads(websocket.recv())
-#             except _exceptions.WebSocketConnectionClosedException:
-#                 continue
-#             if msg['channel'] != 'connect':
-#                 continue
-#             if msg['payload'] != "CODE_REQUIRED":
-#                 continue
-#             pin = callback_data.get('pin')
-#             websocket.send(json.dumps({'namespace': 'connect',
-#                                        'method': 'connect',
-#                                        'arguments': ['Home Assistant', pin]}))
-#             tmpmsg = json.loads(websocket.recv())
-#             if tmpmsg['channel'] == 'time':
-#                 _LOGGER.error("Error setting up Personal Captial. Please request another PIN")
-#                 break
-#             code = tmpmsg['payload']
-#             if code == 'CODE_REQUIRED':
-#                 continue
-#             setup_personalcaptial(hass, config, code,
-#                         add_devices_callback)
-#             save_json(hass.config.path(GPMDP_CONFIG_FILE), {"CODE": code})
-#             websocket.send(json.dumps({'namespace': 'connect',
-#                                        'method': 'connect',
-#                                        'arguments': ['Home Assistant', code]}))
-#             websocket.close()
-#             break
-
-#     _CONFIGURING['personalcapital'] = configurator.request_config(
-#         DEFAULT_NAME, gpmdp_configuration_callback,
-#         description=(
-#             'Enter the pin texted to you by PersonalCapital.'),
-#         submit_caption="Submit",
-#         fields=[{'id': 'pin', 'name': 'Pin Code', 'type': 'number'}]
-#     )
-
-def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Set up the Personal Capital sensors."""
+def request_app_setup(hass, config, pc, add_devices, discovery_info=None):
+    """Request configuration steps from the user."""
     from personalcapital import PersonalCapital, RequireTwoFactorException, TwoFactorVerificationModeEnum
-    pc = PersonalCapital()
+    configurator = hass.components.configurator
+
+    def personalcapital_configuration_callback(data):
+        """Run when the configuration callback is called."""
+        from personalcapital import PersonalCapital, RequireTwoFactorException, TwoFactorVerificationModeEnum
+
+        pc.two_factor_authenticate(TwoFactorVerificationModeEnum.SMS, data.get('verification_code'))
+        result = pc.authenticate_password(config.get(CONF_PASSWORD))
+        # result = 0
+
+        if result == RequireTwoFactorException:
+            configurator.notify_errors(_CONFIGURING['personalcapital'], "Invalid verification code")
+        else:
+            continue_setup_platform(hass, config, pc, add_devices, discovery_info)
+
+    if 'personalcapital' not in _CONFIGURING:
+        try:
+            pc.login(config.get(CONF_EMAIL), config.get(CONF_PASSWORD))
+        except RequireTwoFactorException:
+            pc.two_factor_challenge(TwoFactorVerificationModeEnum.SMS)
+
+    _CONFIGURING['personalcapital'] = configurator.request_config(
+        'Personal Capital',
+        personalcapital_configuration_callback,
+        description="Please check text and enter the verification code below",
+        submit_caption='Verify',
+        fields=[{
+            'id': 'verification_code',
+            'name': "Verification code",
+            'type': 'string'}]
+    )
+
+def setup_platform(hass, config, pc, add_devices, discovery_info=None):
+    """Set up the Personal Capital component."""
+    from personalcapital import PersonalCapital, RequireTwoFactorException, TwoFactorVerificationModeEnum
+
     email = config.get(CONF_EMAIL)
     password = config.get(CONF_PASSWORD)
     unit_of_measurement = config.get(CONF_UNIT_OF_MEASUREMENT)
-
-    # TODO Restore session if available
-    # cookies = {}
-    # data_file = ''
+    pc = PersonalCapital()
+    
     # try:
-    #     cookies = json.loads(data_file)
-    # except ValueError as err:
-    #     _LOGGER.error(err)
+    #     pc.login(email, password)
+    # except RequireTwoFactorException:
+    #     pc.two_factor_challenge(TwoFactorVerificationModeEnum.SMS)
 
-    # pc.set_session(cookies)
+    request_app_setup(hass, config, pc, add_devices, discovery_info=None)
 
-    try:
-        pc.login(email, password)
-        _LOGGER.warn('PC session authenticated')
-    except RequireTwoFactorException:
-        _LOGGER.warn('PC session not authenticated')
-        pc.two_factor_challenge(TwoFactorVerificationModeEnum.SMS)
-        # TODO Setup configurator
-        pc.two_factor_authenticate(TwoFactorVerificationModeEnum.SMS, '6935')
-        pc.authenticate_password(password)
-
-    add_devices([PersonalCapitalNetWorthSensor(hass, pc, unit_of_measurement)])
+def continue_setup_platform(hass, config, pc, add_devices, discovery_info=None):
+    """Set up the Personal Capital component."""
+    if "personalcapital" in _CONFIGURING:
+        hass.components.configurator.request_done(_CONFIGURING.pop("personalcapital"))
+        add_devices([PersonalCapitalNetWorthSensor(hass, pc, unit_of_measurement)])
 
 class PersonalCapitalNetWorthSensor(Entity):
     """Representation of a personalcapital.com net worth sensor."""

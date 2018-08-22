@@ -3,43 +3,9 @@
 
 name: House Swichardson
 views:
-  - title: Testing1
-    cards:
-      - type: iframe
-        url: 'https://to-do.microsoft.com/en-us'
-      - type: custom:useful-markdown-card
-        text_align: center
-        content: >
-          [[ input_boolean.basement_tv_back.state ]]
-      - type: custom:horizontal-scroll-card
-        column_style:
-          height: 200px
-          width: 600px
-        cards:
-          - type: picture-entity
-            entity: switch.switch
-            image: /local/lovelace/icons/office_on.jpg
-
-          - type: picture-entity
-            entity: switch.switch
-            image: /local/lovelace/icons/office_on.jpg
-
-          - type: picture-entity
-            entity: switch.switch
-            image: /local/lovelace/icons/office_on.jpg
   - title: Testing
     panel: true
     cards:
-      # - type: vertical-stack
-      #   cards:
-      #     - type: picture-elements
-      #       image: /local/lovelace/icons/office_on.jpg
-      #       elements:
-      #       - type: image
-      #         camera_image: camera.front
-      #         style:
-      #           top: 50%
-      #           left: 50%
       - type: "custom:monster-card"
         card:
           title: Docker
@@ -93,7 +59,7 @@ views:
               entities:
                 - device_tracker.ian_ians_phone
                 - device_tracker.chelsea_chelseas_phone
-                - climate.thermostat
+                # - climate.thermostat
             - &living_room_glance
               type: picture-glance
               camera_image: camera.livingroom
@@ -146,10 +112,10 @@ views:
             - &weather
               type: weather-forecast
               entity: weather.yweather
-            - &thermostat
-              type: custom:thermostat-card
-              entity: climate.thermostat
-              step: 1
+            # - &thermostat
+            #   type: custom:thermostat-card
+            #   entity: climate.thermostat
+            #   step: 1
         - type: conditional
           conditions:
             - entity: input_boolean.show_two_columns
@@ -180,10 +146,10 @@ views:
               cards:
                 - *kitchen_glance
                 - *garage_glance
-            - type: horizontal-stack
-              cards:
-                - *weather
-                - *thermostat
+            # - type: horizontal-stack
+            #   cards:
+            #     - *weather
+            #     - *thermostat
         - type: conditional
           conditions:
             - entity: input_boolean.show_three_columns
@@ -1096,11 +1062,11 @@ views:
             top: 48%
             color: gray
             transform: scaleX(-1)
-        - type: state-icon
-          entity: climate.thermostat
-          style:
-            left: 50%
-            top: 57%
+        # - type: state-icon
+        #   entity: climate.thermostat
+        #   style:
+        #     left: 50%
+        #     top: 57%
         # GARAGE ELEMENTS
         - type: state-icon
           entity: cover.left_garage_door
@@ -2086,6 +2052,18 @@ views:
                     style:
                       - white-space: nowrap
                       - text-align: center
+          - type: horizontal-stack
+            cards:
+              - type: custom:list-card
+                entity: sensor.abruzzoweb
+                title:  AbruzzoWeb
+                columns:
+                  - title: Title
+                    field: title
+                    style:
+                      - white-space: nowrap
+                  - title: Description
+                    field: summary
           
 
 resources:

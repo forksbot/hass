@@ -325,3 +325,6 @@
   - platform: feedparser
     name: Watchlist
     feed_url: !secret trakt_watchlist_feed
+  - platform: feedparser
+    name: AbruzzoWeb
+    feed_url: 'https://feeds.feedburner.com/Abruzzoweb'

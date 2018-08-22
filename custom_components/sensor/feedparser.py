@@ -21,6 +21,8 @@ from homeassistant.components.switch import (PLATFORM_SCHEMA)
 __version__ = '0.0.1'
 _LOGGER = logging.getLogger(__name__)
 
+REQUIREMENTS = ['feedparser==5.2.1']
+
 CONF_NAME = 'name'
 CONF_FEED_URL = 'feed_url'
 CONF_DATE_FORMAT = 'date_format'
