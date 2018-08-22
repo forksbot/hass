@@ -97,25 +97,24 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     unit_of_measurement = config.get(CONF_UNIT_OF_MEASUREMENT)
 
     # TODO Restore session if available
-    cookies = {}
-    data_file = '{"AWSELB": "57AD13530489012C132022E50DB8A16FA96C8D7A9E004B49630961B98E55B9C8A77D44AD58DA2FF58EC64BB381F70B2BC38AF3663F23DA4E11897F22C8B77CFC44183AE0F1B491E11587B445F893AD060D40FB0F6C", "JSESSIONID": "C248C961AD7B0EC2657A7985ED5EFB18", "PMData": "34336535366461392d303462642d343764342d383939342d323738623939653938393838", "REMEMBER_ME_COOKIE": "563241454a3468594d6a72767a65774e44426b614b51354848773d3d", "__cfduid": "df8d2f8e00e72bf52e494d8d04b9ecf281534825242"}'
-    try:
-        cookies = json.loads(data_file)
-    except ValueError as err:
-        _LOGGER.error(err)
+    # cookies = {}
+    # data_file = ''
+    # try:
+    #     cookies = json.loads(data_file)
+    # except ValueError as err:
+    #     _LOGGER.error(err)
 
-    pc.set_session(cookies)
+    # pc.set_session(cookies)
 
     try:
         pc.login(email, password)
         _LOGGER.warn('PC session authenticated')
     except RequireTwoFactorException:
         _LOGGER.warn('PC session not authenticated')
-        # pc.two_factor_challenge(TwoFactorVerificationModeEnum.SMS)
+        pc.two_factor_challenge(TwoFactorVerificationModeEnum.SMS)
+        # TODO Setup configurator
         pc.two_factor_authenticate(TwoFactorVerificationModeEnum.SMS, '6935')
         pc.authenticate_password(password)
-
-    _LOGGER.warn(pc.get_session())
 
     add_devices([PersonalCapitalNetWorthSensor(hass, pc, unit_of_measurement)])
 

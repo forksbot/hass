@@ -1977,73 +1977,115 @@ views:
             path: lovelace/1
           - name: Ian
             path: lovelace/beer
-      - type: custom:list-card
-        entity: sensor.upcoming_shows
-        title: Upcoming Shows
-        row_limit: 5
-        columns:
-          - title: Show
-            field: media_thumbnail
-            type: image
-            add_link: link
-          - title: Air Date
-            field: published
-            add_link: link
-            style:
-              - background-color: red
-              - white-space: nowrap
-          - title: Synopsis
-            field: summary
-            add_link: link
-      - type: custom:list-card
-        entity: sensor.aftership
-        title: Packages
-        columns:
-          - title: Name
-            field: title
-          - title: Carrier
-            field: slug
-            style:
-              - background-color: red
-              - white-space: nowrap
-          - title: Status
-            field: status
-          - title: Tracking
-            field: tracking_number
-            add_link: link
-  # - icon: mdi:settings
-  #   title: Settings2
-  #   panel: true
-  #   cards:
-      - type: custom:list-card
-        entity: sensor.untappd_on_the_wishlist
-        title: Beer Wishlist
-        columns:
-          - title: Brewery
-            field: brewery_label
-            type: image
-          - title: Label
-            field: beer_label
-            type: image
-          - title: Name
-            field: beer_name
-          - title: ABV %
-            field: beer_abv
-            style:
-              - white-space: nowrap
-              - text-align: center
-          - title: IBUs
-            field: beer_ibu
-            style:
-              - white-space: nowrap
-              - text-align: center
-          - title: Style
-            field: beer_style
-          - title: Rating
-            field: rating_score
-            style:
-              - white-space: nowrap
-              - text-align: center
+  - icon: mdi:format-list-bulleted
+    title: Lists
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:list-card
+                entity: sensor.upcoming_shows
+                title: Upcoming Shows
+                row_limit: 4
+                columns:
+                  - title: Show
+                    field: media_thumbnail
+                    type: image
+                    add_link: link
+                  - title: ''
+                    field: title
+                    regex: '[0-9]{1,2}[Xx][0-9]{1,2}'
+                  - title: Air Date
+                    field: published
+                    add_link: link
+                    style:
+                      - white-space: nowrap
+                  - title: Synopsis
+                    field: summary
+                    add_link: link
+              - type: custom:list-card
+                entity: sensor.up_next
+                title: Up Next
+                row_limit: 4
+                columns:
+                  - title: Show
+                    field: media_thumbnail
+                    type: image
+                    add_link: link
+                  - title: ''
+                    field: title
+                    regex: '[0-9]{1,2}[Xx][0-9]{1,2}'
+                  - title: Synopsis
+                    field: summary
+                    add_link: link
+              - type: custom:list-card
+                entity: sensor.watchlist
+                title: Watchlist
+                row_limit: 4
+                columns:
+                  - title: Show
+                    field: media_thumbnail
+                    type: image
+                    add_link: link
+                  - title: ''
+                    field: title
+                    regex: '[0-9]{1,2}[Xx][0-9]{1,2}'
+                  - title: Synopsis
+                    field: summary
+                    add_link: link
+          - type: horizontal-stack
+            cards:
+              - type: custom:list-card
+                entity: sensor.aftership
+                title: Packages
+                columns:
+                  - title: Carrier
+                    field: slug_link
+                    type: image
+                  - title: Name
+                    field: title
+                  - title: Status
+                    field: status
+                  - title: Tracking
+                    field: tracking_number
+                    add_link: link
+          # - icon: mdi:settings
+          #   title: Settings2
+          #   panel: true
+          #   cards:
+              - type: custom:list-card
+                entity: sensor.untappd_on_the_wishlist
+                title: Beer Wishlist
+                columns:
+                  - title: Brewery
+                    field: brewery_label
+                    type: image
+                  - title: Label
+                    field: beer_label
+                    type: image
+                    add_link: beer_link
+                  - title: Name
+                    field: beer_name
+                  - title: ABV
+                    field: beer_abv
+                    postfix: '%'
+                    style:
+                      - white-space: nowrap
+                      - text-align: center
+                  - title: IBUs
+                    field: beer_ibu
+                    style:
+                      - white-space: nowrap
+                      - text-align: center
+                  - title: Style
+                    field: beer_style
+                  - title: Rating
+                    field: rating_score
+                    style:
+                      - white-space: nowrap
+                      - text-align: center
           
 
 resources:
@@ -2093,5 +2135,5 @@ resources:
     type: js
   - url: /local/lovelace/custom_cards/aftership-card.js?v=0.0.2
     type: js
-  - url: /local/lovelace/custom_cards/list-card.js?v=0.0.3
+  - url: /local/lovelace/custom_cards/list-card.js?v=0.0.6
     type: js

@@ -319,3 +319,9 @@
   - platform: feedparser
     name: Upcoming Shows
     feed_url: !secret trakt_upcoming_feed
+  - platform: feedparser
+    name: Up Next
+    feed_url: !secret trakt_up_next_feed
+  - platform: feedparser
+    name: Watchlist
+    feed_url: !secret trakt_watchlist_feed

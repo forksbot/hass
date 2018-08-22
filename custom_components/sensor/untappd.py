@@ -175,6 +175,7 @@ class UntappdWishlistSensor(Entity):
                     "beer_abv": beer['beer']['beer_abv'],
                     "beer_style": beer['beer']['beer_style'],
                     "beer_ibu": beer['beer']['beer_ibu'],
+                    "beer_link": 'https://untappd.com/b/' + beer['beer']['beer_slug'] + '/' + str(beer['beer']['bid']),
                     "rating_score": beer['beer']['rating_score'],
                     "rating_count": beer['beer']['rating_count'],
                     "brewery_label": beer['brewery']['brewery_label'],

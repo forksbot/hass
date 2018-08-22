@@ -71,6 +71,7 @@ class AftershipSensor(Entity):
                 parcel_data['last_update'] = parcel['updated_at']
                 parcel_data['tracking_number'] = parcel['tracking_number']
                 parcel_data['link'] = base_link + parcel['slug'] + '/' + parcel['tracking_number']
+                parcel_data['slug_link'] = 'https://assets.aftership.com/couriers/svg/' + parcel['slug'] + '.svg'
                 self.hass.data[DATA][parcel['tracking_number']] = parcel_data
 
     @property

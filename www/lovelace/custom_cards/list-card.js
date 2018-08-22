@@ -64,7 +64,6 @@ class ListCard extends HTMLElement {
             for (let index in styles) {
               if (styles.hasOwnProperty(index)) {
                 for (let s in styles[index]) {
-                  console.log(s + ': ' + styles[index][s]);
                   style.textContent += `
                   ${s}: ${styles[index][s]};`;
                 }
@@ -160,7 +159,17 @@ class ListCard extends HTMLElement {
                       //   card_content += `<paper-button raised>${feed[entry][columns[column].button_text]}</paper-button>`;
                       // }
                     } else {
-                      card_content += `${feed[entry][columns[column].field]}`;
+                      let newText = feed[entry][columns[column].field];
+
+                      if (columns[column].hasOwnProperty('regex')) {
+                        newText = new RegExp(columns[column].regex).exec(feed[entry][columns[column].field]);
+                      } else if (columns[column].hasOwnProperty('prefix')) {
+                        newText = columns[column].prefix + newText;
+                      } else if (columns[column].hasOwnProperty('postfix')) {
+                        newText += columns[column].postfix;
+                      }
+
+                      card_content += `${newText}`;
                     }
 
                     if (columns[column].hasOwnProperty('add_link')) {
