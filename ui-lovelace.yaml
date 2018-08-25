@@ -107,8 +107,8 @@ views:
               type: picture-glance
               camera_image: camera.garage
               entities:
-                - cover.left_garage_door
                 - cover.right_garage_door
+                - cover.left_garage_door
             - &weather
               type: weather-forecast
               entity: weather.yweather

@@ -2,3 +2,5 @@
     api_key: !secret telegram_key
     allowed_chat_ids:
       - !secret telegram_group_id
+      - !secret telegram_ian_id
+      - !secret telegram_chelsea_id

@@ -60,3 +60,8 @@
   bedroom_tv_mute:
   bedroom_tv_lower:
   bedroom_tv_raise:
+
+  show_one_column:
+  show_two_columns:
+  show_three_columns:
+  show_four_columns:

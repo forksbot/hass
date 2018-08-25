@@ -48,3 +48,5 @@ sensor.untappd_last_checkin:
   friendly_name: ' '
 sensor.untappd_last_badge:
   friendly_name: ' '
+input_boolean.show_two_columns:
+  initial_state: on
