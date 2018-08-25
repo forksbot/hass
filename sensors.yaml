@@ -72,43 +72,43 @@
   #   json_attributes:
   #     - alarm
   #     - timer
-  - platform: rest
-    name: office_home_eq
-    resource: http://192.168.1.203:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: kitchen_home_eq
-    resource: http://192.168.1.204:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: basement_home_eq
-    resource: http://192.168.1.201:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: livingroom_home_eq
-    resource: http://192.168.1.207:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: girls_home_eq
-    resource: http://192.168.1.206:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: bedroom_home_eq
-    resource: http://192.168.1.202:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: rest
-    name: bathroom_home_eq
-    resource: http://192.168.1.200:8008/setup/eureka_info?params=user_eq&options=detail
-    json_attributes:
-      - user_eq
-  - platform: template
-    sensors:
+  # - platform: rest
+  #   name: office_home_eq
+  #   resource: http://192.168.1.203:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: kitchen_home_eq
+  #   resource: http://192.168.1.204:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: basement_home_eq
+  #   resource: http://192.168.1.201:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: livingroom_home_eq
+  #   resource: http://192.168.1.207:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: girls_home_eq
+  #   resource: http://192.168.1.206:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: bedroom_home_eq
+  #   resource: http://192.168.1.202:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: rest
+  #   name: bathroom_home_eq
+  #   resource: http://192.168.1.200:8008/setup/eureka_info?params=user_eq&options=detail
+  #   json_attributes:
+  #     - user_eq
+  # - platform: template
+  #   sensors:
       # office_home_alarm:
       #   friendly_name: 'Next Office Home Alarm'
       #   value_template: '{{ states.sensor.office_home_alarms.attributes.alarm[0]["fire_time"] }}'
@@ -118,48 +118,48 @@
       # office_home_timer:
       #   friendly_name: 'Next Office Home Timer'
       #   value_template: '{{ states.sensor.office_home_alarms.attributes.timer[0]["fire_time"] }}'
-      office_home_bass:
-        friendly_name: 'Office Home Bass'
-        value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      office_home_treble:
-        friendly_name: 'Office Home Treble'
-        value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      kitchen_home_bass:
-        friendly_name: 'Kitchen Home Bass'
-        value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      kitchen_home_treble:
-        friendly_name: 'Kitchen Home Treble'
-        value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      basement_home_bass:
-        friendly_name: 'Basement Home Bass'
-        value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      basement_home_treble:
-        friendly_name: 'Basement Home Treble'
-        value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      livingroom_home_bass:
-        friendly_name: 'Livingroom Home Bass'
-        value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      livingroom_home_treble:
-        friendly_name: 'Livingroom Home Treble'
-        value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      girls_home_bass:
-        friendly_name: 'Girls Home Bass'
-        value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      girls_home_treble:
-        friendly_name: 'Girls Home Treble'
-        value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      bedroom_home_bass:
-        friendly_name: 'Bedroom Home Bass'
-        value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      bedroom_home_treble:
-        friendly_name: 'Bedroom Home Treble'
-        value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
-      bathroom_home_bass:
-        friendly_name: 'Bathroom Home Bass'
-        value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
-      batchroom_home_treble:
-        friendly_name: 'Bathroom Home Treble'
-        value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # office_home_bass:
+      #   friendly_name: 'Office Home Bass'
+      #   value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # office_home_treble:
+      #   friendly_name: 'Office Home Treble'
+      #   value_template: '{{ states.sensor.office_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # kitchen_home_bass:
+      #   friendly_name: 'Kitchen Home Bass'
+      #   value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # kitchen_home_treble:
+      #   friendly_name: 'Kitchen Home Treble'
+      #   value_template: '{{ states.sensor.kitchen_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # basement_home_bass:
+      #   friendly_name: 'Basement Home Bass'
+      #   value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # basement_home_treble:
+      #   friendly_name: 'Basement Home Treble'
+      #   value_template: '{{ states.sensor.basement_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # livingroom_home_bass:
+      #   friendly_name: 'Livingroom Home Bass'
+      #   value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # livingroom_home_treble:
+      #   friendly_name: 'Livingroom Home Treble'
+      #   value_template: '{{ states.sensor.livingroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # girls_home_bass:
+      #   friendly_name: 'Girls Home Bass'
+      #   value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # girls_home_treble:
+      #   friendly_name: 'Girls Home Treble'
+      #   value_template: '{{ states.sensor.girls_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # bedroom_home_bass:
+      #   friendly_name: 'Bedroom Home Bass'
+      #   value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # bedroom_home_treble:
+      #   friendly_name: 'Bedroom Home Treble'
+      #   value_template: '{{ states.sensor.bedroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
+      # bathroom_home_bass:
+      #   friendly_name: 'Bathroom Home Bass'
+      #   value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["low_shelf"]["gain_db"] }}'
+      # batchroom_home_treble:
+      #   friendly_name: 'Bathroom Home Treble'
+      #   value_template: '{{ states.sensor.bathroom_home_eq.attributes.user_eq["high_shelf"]["gain_db"] }}'
   - platform: zestimate
     api_key: !secret zillow_api
     zpid:
@@ -305,12 +305,9 @@
   - platform: weatheralerts
     sameid: !secret sameid
   - platform: brewdog
-  - platform: trakt
-    id: !secret trakt_id
-    secret: !secret trakt_secret
-  - platform: pocketcasts
-    username: !secret email
-    password: !secret pocketcasts_password
+  # - platform: trakt
+  #   id: !secret trakt_id
+  #   secret: !secret trakt_secret
   - platform: personalcapital
     email: !secret email
     password: !secret personalcapital_password
@@ -325,6 +322,3 @@
   - platform: feedparser
     name: Watchlist
     feed_url: !secret trakt_watchlist_feed
-  - platform: feedparser
-    name: AbruzzoWeb
-    feed_url: 'https://feeds.feedburner.com/Abruzzoweb'

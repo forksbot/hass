@@ -1951,26 +1951,55 @@ views:
         cards:
           - type: horizontal-stack
             cards:
+              - type: custom:horizontal-list-card
+                entity: sensor.upcoming_shows
+                title: Upcoming Shows
+                image_field: media_thumbnail
+                separator_field: published
+                separator_regex: >-
+                  ^(\w+[\,\s]+){3}
+                title_field: title
+                title_regex: >-
+                  .+?(?=[0-9]{1,2}[Xx][0-9]{1,2})
+                primary_left_text_field: title
+                primary_left_text_regex: >-
+                  [0-9]{1,2}[Xx][0-9]{1,2}
+                primary_right_text_field: title
+                primary_right_text_regex: >-
+                  /"(.*?)"/g
+                secondary_text_field: updated
+                secondary_text_regex: >-
+                  [^ ]* [^ ]*$
+          - type: horizontal-stack
+            cards:
               - type: custom:list-card
                 entity: sensor.upcoming_shows
                 title: Upcoming Shows
                 row_limit: 4
+                show_header: false
                 columns:
-                  - title: Show
+                  - title: ''
                     field: media_thumbnail
                     type: image
                     add_link: link
                   - title: ''
                     field: title
-                    regex: '[0-9]{1,2}[Xx][0-9]{1,2}'
-                  - title: Air Date
+                    regex: >-
+                      [0-9]{1,2}[Xx][0-9]{1,2}
+                  # - title: ''
+                  #   field: title
+                  #   regex: >-
+                  #     /"(?:[^"\]|\.)*"/
+                  - title: ''
                     field: published
                     add_link: link
                     style:
                       - white-space: nowrap
-                  - title: Synopsis
+                  - title: ''
                     field: summary
                     add_link: link
+          - type: horizontal-stack
+            cards:
               - type: custom:list-card
                 entity: sensor.up_next
                 title: Up Next
@@ -2055,15 +2084,16 @@ views:
           - type: horizontal-stack
             cards:
               - type: custom:list-card
-                entity: sensor.abruzzoweb
-                title:  AbruzzoWeb
+                entity: sensor.personal_capital_cash
+                title: Cash
                 columns:
-                  - title: Title
-                    field: title
-                    style:
-                      - white-space: nowrap
-                  - title: Description
-                    field: summary
+                  - title: ''
+                    field: firm_name
+                  - title: ''
+                    field: name
+                    add_link: url
+                  - title: Balance
+                    field: balance
           
 
 resources:
@@ -2087,13 +2117,13 @@ resources:
     type: js
   - url: /local/lovelace/custom_cards/text-element.js?v=0.0.2
     type: js
-  - url: /local/lovelace/custom_cards/thermostat-card.js?v=0.0.2
+  - url: /local/lovelace/custom_cards/thermostat-card.js?v=0.1.1
     type: module
   - url: /local/lovelace/custom_cards/circle-sensor-card.js?v=1.2.0
     type: module
   - url: /local/kiosk.js?v=1
     type: js
-  - url: /local/lovelace/custom_cards/column-card.js?v=0.0.1
+  - url: /local/lovelace/custom_cards/column-card.js?v=7221e1
     type: js
   - url: /local/lovelace/custom_cards/state-attribute-element.js?v=0.0.4
     type: js
@@ -2103,15 +2133,17 @@ resources:
     type: module
   - url: /local/lovelace/custom_cards/home-setter.js?v=0.0.1
     type: js
-  - url: /local/lovelace/custom_cards/useful-markdown-card.js?v=0.0.1
+  - url: /local/lovelace/custom_cards/useful-markdown-card.js?v=b428b0
     type: js
   - url: /local/lovelace/custom_cards/ext-weblink.js?v=0.3.2
     type: js
-  - url: /local/lovelace/custom_cards/slider-entity-row.js?v=0.0.1
+  - url: /local/lovelace/custom_cards/slider-entity-row.js?v=11fc8d
     type: js
   - url: /local/lovelace/custom_cards/horizontal-scroll-card.js?v=0.0.1
     type: js
   - url: /local/lovelace/custom_cards/aftership-card.js?v=0.0.2
     type: js
   - url: /local/lovelace/custom_cards/list-card.js?v=0.0.6
+    type: js
+  - url: /local/lovelace/custom_cards/horizontal-list-card.js?v=0.0.1
     type: js

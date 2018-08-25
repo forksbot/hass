@@ -29,7 +29,7 @@ class ListCard extends HTMLElement {
               width: 100%;
               padding: 0 32px 0 32px;
             }
-            thead th {
+            th {
               text-align: left;
             }
             tbody tr:nth-child(odd) {
