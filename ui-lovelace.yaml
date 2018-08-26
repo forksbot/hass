@@ -40,16 +40,16 @@ views:
                   show_name: false
                   show_state: false
                   entities:
-                    - entity: script.show_one_column
+                    - entity: input_boolean.show_one_column
                       icon: mdi:numeric-1-box
                       tap_action: toggle
-                    - entity: script.show_two_columns
+                    - entity: input_boolean.show_two_columns
                       icon: mdi:numeric-2-box
                       tap_action: toggle
-                    - entity: script.show_three_columns
+                    - entity: input_boolean.show_three_columns
                       icon: mdi:numeric-3-box
                       tap_action: toggle
-                    - entity: script.show_four_columns
+                    - entity: input_boolean.show_four_columns
                       icon: mdi:numeric-4-box
                       tap_action: toggle
             - &house_glance

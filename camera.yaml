@@ -1,18 +1,20 @@
   - platform: generic
     still_image_url: https://icons.wxug.com/data/weather-maps/radar/united-states/north-platte-nebraska-region-current-radar-animation.gif
     name: Omaha Radar
-  - platform: generic
-    name: ISS
-    still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=4&size=865x512&maptype=mapnik&markers={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }},lightblue
-    limit_refetch_to_url_change: true
   # - platform: mjpeg
   #   mjpeg_url: http://192.168.1.223:82/videostream.cgi
   #   name: Basement
   #   username: !secret username
   #   password: !secret camera_pass
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.223:82/videostream.cgi
+    name: Garage
+    username: !secret username
+    password: !secret camera_pass
   - platform: ffmpeg
     name: Front
     input: !secret camera_front_stream
+    extra_arguments: -pred 1
   - platform: combined
     base_address: http://iantrich.duckdns.org:8123
     entities:

@@ -39,6 +39,7 @@ logger:
 map:
 media_player: !include media_player.yaml
 notify: !include notify.yaml
+openuv: !include openuv.yaml
 panel_iframe: !include iframe.yaml
 # personalcapital: !include personal_captial.yaml
 python_script:
