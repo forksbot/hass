@@ -49,7 +49,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 _CONFIGURING = {}
 _LOGGER = logging.getLogger(__name__)
 
-def request_app_setup(hass, config, trakt, add_devices, discovery_info=None):
+def request_app_setup(hass, config, add_devices, discovery_info=None):
     """Request configuration steps from the user."""
     from requests.compat import urljoin
     from requests_oauthlib import OAuth2Session
@@ -63,9 +63,8 @@ def request_app_setup(hass, config, trakt, add_devices, discovery_info=None):
         _LOGGER.error('trakt_configuration_callback')
         token_url = urljoin(BASE_URL, '/oauth/token')
         oauth.fetch_token(token_url, client_secret=config[CONF_CLIENT_SECRET], code=data.get('pin_code'))
-        trakt.core.OAUTH_TOKEN = oauth.token['access_token']
-        _LOGGER.error(oauth.token['access_token'])
-        continue_setup_platform(hass, config, trakt, add_devices, discovery_info)
+        token = oauth.token['access_token']
+        continue_setup_platform(hass, config, token, add_devices, discovery_info)
 
     if 'trakt' not in _CONFIGURING:
         _LOGGER.error('get oauth url')
@@ -84,27 +83,28 @@ def request_app_setup(hass, config, trakt, add_devices, discovery_info=None):
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Set up the Trakt component."""
-    import trakt
-    trakt.core.CLIENT_ID = config[CONF_CLIENT_ID]
-    trakt.core.CLIENT_SECRET = config[CONF_CLIENT_SECRET]
-    _LOGGER.error('setup_platform')
     # TODO Check if session file already exists and verify that token is still valid
-    request_app_setup(hass, config, trakt, add_devices, discovery_info)
+    request_app_setup(hass, config, add_devices, discovery_info)
 
-def continue_setup_platform(hass, config, trakt, add_devices, discovery_info=None):
+def continue_setup_platform(hass, config, token, add_devices, discovery_info=None):
     """Set up the Trakt component."""
     if "trakt" in _CONFIGURING:
         _LOGGER.error('continue_setup_platform')
         hass.components.configurator.request_done(_CONFIGURING.pop("trakt"))
-        add_devices([TraktMyShowCalendarSensor(hass, config, trakt)], True)
+        add_devices([TraktMyShowCalendarSensor(hass, config, token)], True)
 
 class TraktMyShowCalendarSensor(Entity):
     """Representation of a Trakt My Show Calendar sensor."""
+    import trakt
 
-    def __init__(self, hass, config, trakt):
+    def __init__(self, hass, config, token):
         """Initialize the sensor."""
+        from trakt import Trakt
         self._hass = hass
-        self._trakt = trakt
+        self._trakt = Trakt()
+        self._trakt.core.CLIENT_ID = config[CONF_CLIENT_ID]
+        self._trakt.core.CLIENT_SECRET = config[CONF_CLIENT_SECRET]
+        self._trakt.core.OAUTH_TOKEN = token
         self._days = config[CONF_DAYS]
         self._state = None
         self._hass.data[DATA_UPCOMING] = {}
@@ -112,7 +112,6 @@ class TraktMyShowCalendarSensor(Entity):
 
     def update(self):
         """Get the latest state of the sensor."""
-        import trakt
         from trakt.calendar import MyShowCalendar
         calendar = MyShowCalendar(days=self._days)
 
