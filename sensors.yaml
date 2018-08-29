@@ -305,9 +305,10 @@
   - platform: weatheralerts
     sameid: !secret sameid
   - platform: brewdog
-  # - platform: trakt
-  #   id: !secret trakt_id
-  #   secret: !secret trakt_secret
+  - platform: trakt
+    id: !secret trakt_id
+    secret: !secret trakt_secret
+    username: !secret trakt_username
   - platform: personalcapital
     email: !secret email
     password: !secret personalcapital_password

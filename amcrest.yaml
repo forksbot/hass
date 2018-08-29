@@ -8,3 +8,8 @@
     username: !secret camera_user
     password: !secret camera_pass
     stream_source: rtsp
+  - host: http://192.168.1.225/
+    name: Basement
+    username: !secret camera_user
+    password: !secret camera_pass
+    stream_source: rtsp
