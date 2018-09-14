@@ -31,7 +31,7 @@ shell_command: !include shell_command.yaml
 frontend: !include frontend.yaml
 influxdb: !include influxdb.yaml
 input_boolean: !include input_boolean.yaml
-input_number: !include input_number.yaml
+# input_number: !include input_number.yaml
 input_text: !include input_text.yaml
 # light: !include lights.yaml
 logbook:
@@ -49,6 +49,7 @@ rest_command: !include rest_command.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 shopping_list:
+lists:
 sun:
 telegram_bot: !include telegram_bot.yaml
 tts: !include tts.yaml

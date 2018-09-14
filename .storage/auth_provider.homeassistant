@@ -1,0 +1,13 @@
+{
+    "data": {
+        "salt": "eab934b195f7e2eba0ffa0b8c4bfcdeb419ae00a06ad169252c1d5dc3cc64f16",
+        "users": [
+            {
+                "password": "JDJiJDEyJHZXQmFUVllLWGRwR1JDS0hlWlo1anViaDJHS3NiVGxENm0zY1A2UlN2MDdqUHlva1lQL1R1",
+                "username": "iantrich"
+            }
+        ]
+    },
+    "key": "auth_provider.homeassistant",
+    "version": 1
+}

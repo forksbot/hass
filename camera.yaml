@@ -11,10 +11,10 @@
     name: Garage
     username: !secret username
     password: !secret camera_pass
-  - platform: ffmpeg
-    name: Front
-    input: !secret camera_front_stream
-    extra_arguments: -pred 1
+  # - platform: ffmpeg
+  #   name: Front
+  #   input: !secret camera_front_stream
+  #   extra_arguments: -pred 1
   - platform: combined
     base_address: http://iantrich.duckdns.org:8123
     entities:

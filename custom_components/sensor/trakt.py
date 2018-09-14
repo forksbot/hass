@@ -16,6 +16,7 @@ import logging
 import voluptuous as vol
 import requests
 import json
+import trakt
 from datetime import timedelta
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
@@ -30,7 +31,7 @@ CONF_CLIENT_SECRET = 'secret'
 CONF_USERNAME = 'username'
 CONF_DAYS = 'days'
 
-SESSION_PATH = '.trakt'
+TOKEN_FILE = '.trakt.conf'
 
 DATA_UPCOMING = 'trakt_upcoming'
 
@@ -56,18 +57,16 @@ def request_app_setup(hass, config, add_devices, discovery_info=None):
     configurator = hass.components.configurator
     authorization_base_url = urljoin(BASE_URL, '/oauth/authorize')
     oauth = OAuth2Session(config[CONF_CLIENT_ID], redirect_uri=REDIRECT_URI, state=None)
-    _LOGGER.error('request_app_setup')
 
     def trakt_configuration_callback(data):
         """Run when the configuration callback is called."""
-        _LOGGER.error('trakt_configuration_callback')
         token_url = urljoin(BASE_URL, '/oauth/token')
         oauth.fetch_token(token_url, client_secret=config[CONF_CLIENT_SECRET], code=data.get('pin_code'))
         token = oauth.token['access_token']
+        save_token(hass, token)
         continue_setup_platform(hass, config, token, add_devices, discovery_info)
 
     if 'trakt' not in _CONFIGURING:
-        _LOGGER.error('get oauth url')
         authorization_url, _ = oauth.authorization_url(authorization_base_url, username=config[CONF_USERNAME])
 
     _CONFIGURING['trakt'] = configurator.request_config(
@@ -83,28 +82,50 @@ def request_app_setup(hass, config, add_devices, discovery_info=None):
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Set up the Trakt component."""
-    # TODO Check if session file already exists and verify that token is still valid
-    request_app_setup(hass, config, add_devices, discovery_info)
+    token = load_token(hass)
+    
+    if not token:
+      request_app_setup(hass, config, add_devices, discovery_info)
+    else:
+      continue_setup_platform(hass, config, token, add_devices, discovery_info)
 
 def continue_setup_platform(hass, config, token, add_devices, discovery_info=None):
     """Set up the Trakt component."""
     if "trakt" in _CONFIGURING:
-        _LOGGER.error('continue_setup_platform')
         hass.components.configurator.request_done(_CONFIGURING.pop("trakt"))
-        add_devices([TraktMyShowCalendarSensor(hass, config, token)], True)
+        
+    add_devices([TraktMyShowCalendarSensor(hass, config, token)], True)
+        
+def load_token(hass):
+    try:
+        with open(hass.config.path(TOKEN_FILE)) as data_file:    
+            token = {}
+            try:
+                token = json.load(data_file)
+            except ValueError as err:
+                return {}
+            return token
+    except IOError as err:
+        return {}
+
+def save_token(hass, token):
+    with open(hass.config.path(TOKEN_FILE), 'w') as data_file:
+        data_file.write(json.dumps(token))
+
+def xstr(s):
+    if s is None:
+        return ''
+    return str(s)
 
 class TraktMyShowCalendarSensor(Entity):
     """Representation of a Trakt My Show Calendar sensor."""
-    import trakt
 
     def __init__(self, hass, config, token):
         """Initialize the sensor."""
-        from trakt import Trakt
+        trakt.core.OAUTH_TOKEN = token
+        trakt.core.CLIENT_ID = config[CONF_CLIENT_ID]
+        trakt.core.CLIENT_SECRET = config[CONF_CLIENT_SECRET]
         self._hass = hass
-        self._trakt = Trakt()
-        self._trakt.core.CLIENT_ID = config[CONF_CLIENT_ID]
-        self._trakt.core.CLIENT_SECRET = config[CONF_CLIENT_SECRET]
-        self._trakt.core.OAUTH_TOKEN = token
         self._days = config[CONF_DAYS]
         self._state = None
         self._hass.data[DATA_UPCOMING] = {}
@@ -114,17 +135,28 @@ class TraktMyShowCalendarSensor(Entity):
         """Get the latest state of the sensor."""
         from trakt.calendar import MyShowCalendar
         calendar = MyShowCalendar(days=self._days)
-
+        
         if not calendar:
+            _LOGGER.error("Nothing in calendar")
             return False
+            
+        self._state = len(calendar)
 
         for show in calendar:
-            self.hass.data[DATA_UPCOMING][show['title']] = {
-                "title": show['title'],
-                "description": show.get_description(),
-                "season": show['season'],
-                "episode": show['episode'],
-                "first_aired_date": show['first_aired_date'],
+            if not show:
+                continue
+
+            self._hass.data[DATA_UPCOMING][xstr(show.show) + ' - ' + xstr(show.title)] = {
+                "show": xstr(show.show),
+                "title": xstr(show.title),
+                "season": xstr(show.season),
+                "number": xstr(show.number),
+                "overview": xstr(show.overview),
+                "airs_at": xstr(show.airs_at),
+                "trakt_id": xstr(show.trakt),
+                "tmdb_id": xstr(show.tmdb),
+                "tvdb_id": xstr(show.tvdb),
+                "imdb_id": xstr(show.imdb),
             }
 
     @property
@@ -141,6 +173,11 @@ class TraktMyShowCalendarSensor(Entity):
     def icon(self):
         """Return the icon to use in the frontend."""
         return 'mdi:calendar'
+
+    @property
+    def unit_of_measurement(self):
+        """Return the unit of measurement this sensor expresses itself in."""
+        return 'shows'
 
     @property
     def device_state_attributes(self):

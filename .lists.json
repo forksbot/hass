@@ -1,0 +1,21 @@
+{
+    "0": {
+        "categories": {
+            "0": {
+                "id": "0",
+                "items": {
+                    "676cadc816184081a6e9b3a38e0538c5": {
+                        "category_id": "0",
+                        "complete": false,
+                        "id": "676cadc816184081a6e9b3a38e0538c5",
+                        "list_id": "0",
+                        "name": "test2"
+                    }
+                },
+                "name": "Uncategorized"
+            }
+        },
+        "id": "0",
+        "name": "Inbox"
+    }
+}

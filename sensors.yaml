@@ -30,12 +30,12 @@
   - platform: waze_travel_time
     region: 'US'
     name: Ian's Phone To Home
-    origin: device_tracker.ian_ians_phone
+    origin: device_tracker.ian_iphone
     destination: zone.Home
   - platform: waze_travel_time
     region: 'US'
     name: Ian's Phone To Daycare
-    origin: device_tracker.ian_ians_phone
+    origin: device_tracker.ian_iphone
     destination: zone.Daycare
   #SYSTEM MONITOR
   - platform: systemmonitor
@@ -46,6 +46,8 @@
       - type: processor_use
       - type: since_last_boot
   - platform: pi_hole
+    ssl: true
+    host: 192.168.1.99
     monitored_conditions: 
       - ads_blocked_today
       - ads_percentage_today
@@ -302,8 +304,6 @@
     id: !secret untappd_id
     secret: !secret untappd_secret
     username: !secret username
-  - platform: weatheralerts
-    sameid: !secret sameid
   - platform: brewdog
   - platform: trakt
     id: !secret trakt_id
@@ -317,7 +317,7 @@
   - platform: feedparser
     name: Upcoming Shows
     feed_url: !secret trakt_upcoming_feed
-  - platform: feedparser
+  - platform: traktparser
     name: Up Next
     feed_url: !secret trakt_up_next_feed
   - platform: feedparser

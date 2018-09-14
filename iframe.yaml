@@ -5,35 +5,24 @@
   ide:
     title: 'IDE'
     icon: mdi:code-braces
-    url: 'http://192.168.1.99:8321'
+    url: 'http://iantrich.duckdns.org:8321/ide.html'
   influxdb:
     title: 'InfluxDB'
-    url: 'http://192.168.1.99:8888'
+    icon: mdi:chart-areaspline
+    url: 'http://iantrich.duckdns.org:8888'
   pihole:
     title: 'Pi-hole'
     icon: mdi:block-helper
-    url: 'http://192.168.1.99/admin/index.php'
-  nodered_ui:
-    title: 'Node-RED'
-    icon: mdi:nodejs
-    url: 'http://192.168.1.99:1880'
-  shinobi:
-   title: 'Shinobi'
-   icon: mdi:cctv
-   url: 'http://192.168.1.99:8080'
+    url: 'http://iantrich.duckdns.org/admin/index.php'
   router:
     title: 'Router'
     icon: mdi:router-wireless
     url: 'http://192.168.1.1'
   todoist:
     title: 'Todoist'
-    icon: mdi:cart
+    icon: mdi:reminder
     url: 'https://todoist.com/app?lang=en#project%2F2181651579'
-  capital:
-    title: 'Personal Capital'
-    icon: mdi:currency-usd
-    url: 'https://home.personalcapital.com/page/login/app#/dashboard'
-  mint:
-    title: 'Mint'
-    icon: mdi:leaf
-    url: 'https://mint.intuit.com/overview.event'
+  octobox:
+    title: 'Octobox'
+    icon: mdi:github-circle
+    url: 'http://iantrich.duckdns.org:3333'

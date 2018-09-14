@@ -1,0 +1,16 @@
+{
+    "data": {
+        "entries": [
+            {
+                "data": {},
+                "domain": "cast",
+                "entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "source": "discovery",
+                "title": "Google Cast",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "0.18.7",
+   "version": "0.19.1",
    "local": false,
    "nodes": {
     "sentiment": {
@@ -461,6 +461,24 @@
     }
    }
   },
+  "node-red-contrib-google-home-notify": {
+   "name": "node-red-contrib-google-home-notify",
+   "version": "0.0.6",
+   "local": false,
+   "nodes": {
+    "google-notify": {
+     "name": "google-notify",
+     "types": [
+      "googlehome-config-node",
+      "googlehome-notify"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-google-home-notify",
+     "file": "/opt/node_modules/node-red-contrib-google-home-notify/node-red-google-home-notify.js"
+    }
+   }
+  },
   "node-red-contrib-home-assistant": {
    "name": "node-red-contrib-home-assistant",
    "version": "0.3.2",
@@ -558,6 +576,23 @@
     }
    }
   },
+  "node-red-contrib-http-request": {
+   "name": "node-red-contrib-http-request",
+   "version": "0.1.13",
+   "local": false,
+   "nodes": {
+    "www-request": {
+     "name": "www-request",
+     "types": [
+      "www-request"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-http-request",
+     "file": "/opt/node_modules/node-red-contrib-http-request/www-request.js"
+    }
+   }
+  },
   "node-red-contrib-influxdb": {
    "name": "node-red-contrib-influxdb",
    "version": "0.2.1",
@@ -609,177 +644,6 @@
      "local": false,
      "module": "node-red-contrib-looptimer",
      "file": "/opt/node_modules/node-red-contrib-looptimer/looptimer.js"
-    }
-   }
-  },
-  "node-red-contrib-stoptimer": {
-   "name": "node-red-contrib-stoptimer",
-   "version": "0.0.7",
-   "local": false,
-   "nodes": {
-    "stoptimer": {
-     "name": "stoptimer",
-     "types": [
-      "stoptimer"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-stoptimer",
-     "file": "/opt/node_modules/node-red-contrib-stoptimer/stoptimer.js"
-    }
-   }
-  },
-  "node-red-contrib-sunevents": {
-   "name": "node-red-contrib-sunevents",
-   "version": "0.0.5",
-   "local": false,
-   "nodes": {
-    "node-red-contrib-sunevents": {
-     "name": "node-red-contrib-sunevents",
-     "types": [
-      "sun events"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-sunevents",
-     "file": "/opt/node_modules/node-red-contrib-sunevents/sunevents-node.js"
-    }
-   }
-  },
-  "node-red-contrib-time-range-switch": {
-   "name": "node-red-contrib-time-range-switch",
-   "version": "0.6.0",
-   "local": false,
-   "nodes": {
-    "time-range-switch": {
-     "name": "time-range-switch",
-     "types": [
-      "time-range-switch"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-time-range-switch",
-     "file": "/opt/node_modules/node-red-contrib-time-range-switch/index.js"
-    }
-   }
-  },
-  "node-red-node-base64": {
-   "name": "node-red-node-base64",
-   "version": "0.1.3",
-   "local": false,
-   "nodes": {
-    "base64": {
-     "name": "base64",
-     "types": [
-      "base64"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-base64",
-     "file": "/opt/node_modules/node-red-node-base64/70-base64.js"
-    }
-   }
-  },
-  "node-red-node-msgpack": {
-   "name": "node-red-node-msgpack",
-   "version": "1.1.3",
-   "local": false,
-   "nodes": {
-    "msgpack": {
-     "name": "msgpack",
-     "types": [
-      "msgpack"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-msgpack",
-     "file": "/opt/node_modules/node-red-node-msgpack/70-msgpack.js"
-    }
-   }
-  },
-  "node-red-node-rbe": {
-   "name": "node-red-node-rbe",
-   "version": "0.2.3",
-   "local": false,
-   "nodes": {
-    "rbe": {
-     "name": "rbe",
-     "types": [
-      "rbe"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-rbe",
-     "file": "/opt/node_modules/node-red-node-rbe/rbe.js"
-    }
-   }
-  },
-  "node-red-node-smooth": {
-   "name": "node-red-node-smooth",
-   "version": "0.1.0",
-   "local": false,
-   "nodes": {
-    "smooth": {
-     "name": "smooth",
-     "types": [
-      "smooth"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-smooth",
-     "file": "/opt/node_modules/node-red-node-smooth/17-smooth.js"
-    }
-   }
-  },
-  "node-red-node-suncalc": {
-   "name": "node-red-node-suncalc",
-   "version": "0.0.11",
-   "local": false,
-   "nodes": {
-    "suncalc": {
-     "name": "suncalc",
-     "types": [
-      "sunrise"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-node-suncalc",
-     "file": "/opt/node_modules/node-red-node-suncalc/79-suncalc.js"
-    }
-   }
-  },
-  "node-red-contrib-google-home-notify": {
-   "name": "node-red-contrib-google-home-notify",
-   "version": "0.0.6",
-   "local": false,
-   "nodes": {
-    "google-notify": {
-     "name": "google-notify",
-     "types": [
-      "googlehome-config-node",
-      "googlehome-notify"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-google-home-notify",
-     "file": "/opt/node_modules/node-red-contrib-google-home-notify/node-red-google-home-notify.js"
-    }
-   }
-  },
-  "node-red-contrib-http-request": {
-   "name": "node-red-contrib-http-request",
-   "version": "0.1.13",
-   "local": false,
-   "nodes": {
-    "www-request": {
-     "name": "www-request",
-     "types": [
-      "www-request"
-     ],
-     "enabled": true,
-     "local": false,
-     "module": "node-red-contrib-http-request",
-     "file": "/opt/node_modules/node-red-contrib-http-request/www-request.js"
     }
    }
   },
@@ -844,6 +708,57 @@
     }
    }
   },
+  "node-red-contrib-stoptimer": {
+   "name": "node-red-contrib-stoptimer",
+   "version": "0.0.7",
+   "local": false,
+   "nodes": {
+    "stoptimer": {
+     "name": "stoptimer",
+     "types": [
+      "stoptimer"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-stoptimer",
+     "file": "/opt/node_modules/node-red-contrib-stoptimer/stoptimer.js"
+    }
+   }
+  },
+  "node-red-contrib-sunevents": {
+   "name": "node-red-contrib-sunevents",
+   "version": "0.0.5",
+   "local": false,
+   "nodes": {
+    "node-red-contrib-sunevents": {
+     "name": "node-red-contrib-sunevents",
+     "types": [
+      "sun events"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-sunevents",
+     "file": "/opt/node_modules/node-red-contrib-sunevents/sunevents-node.js"
+    }
+   }
+  },
+  "node-red-contrib-time-range-switch": {
+   "name": "node-red-contrib-time-range-switch",
+   "version": "0.6.1",
+   "local": false,
+   "nodes": {
+    "time-range-switch": {
+     "name": "time-range-switch",
+     "types": [
+      "time-range-switch"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-contrib-time-range-switch",
+     "file": "/opt/node_modules/node-red-contrib-time-range-switch/index.js"
+    }
+   }
+  },
   "node-red-contrib-timecheck": {
    "name": "node-red-contrib-timecheck",
    "version": "1.1.0",
@@ -875,6 +790,23 @@
      "local": false,
      "module": "node-red-contrib-traffic",
      "file": "/opt/node_modules/node-red-contrib-traffic/traffic/traffic.js"
+    }
+   }
+  },
+  "node-red-node-base64": {
+   "name": "node-red-node-base64",
+   "version": "0.1.3",
+   "local": false,
+   "nodes": {
+    "base64": {
+     "name": "base64",
+     "types": [
+      "base64"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-base64",
+     "file": "/opt/node_modules/node-red-node-base64/70-base64.js"
     }
    }
   },
@@ -930,6 +862,23 @@
     }
    }
   },
+  "node-red-node-msgpack": {
+   "name": "node-red-node-msgpack",
+   "version": "1.1.3",
+   "local": false,
+   "nodes": {
+    "msgpack": {
+     "name": "msgpack",
+     "types": [
+      "msgpack"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-msgpack",
+     "file": "/opt/node_modules/node-red-node-msgpack/70-msgpack.js"
+    }
+   }
+  },
   "node-red-node-ping": {
    "name": "node-red-node-ping",
    "version": "0.0.15",
@@ -964,9 +913,60 @@
     }
    }
   },
+  "node-red-node-rbe": {
+   "name": "node-red-node-rbe",
+   "version": "0.2.3",
+   "local": false,
+   "nodes": {
+    "rbe": {
+     "name": "rbe",
+     "types": [
+      "rbe"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-rbe",
+     "file": "/opt/node_modules/node-red-node-rbe/rbe.js"
+    }
+   }
+  },
+  "node-red-node-smooth": {
+   "name": "node-red-node-smooth",
+   "version": "0.1.0",
+   "local": false,
+   "nodes": {
+    "smooth": {
+     "name": "smooth",
+     "types": [
+      "smooth"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-smooth",
+     "file": "/opt/node_modules/node-red-node-smooth/17-smooth.js"
+    }
+   }
+  },
+  "node-red-node-suncalc": {
+   "name": "node-red-node-suncalc",
+   "version": "0.0.11",
+   "local": false,
+   "nodes": {
+    "suncalc": {
+     "name": "suncalc",
+     "types": [
+      "sunrise"
+     ],
+     "enabled": true,
+     "local": false,
+     "module": "node-red-node-suncalc",
+     "file": "/opt/node_modules/node-red-node-suncalc/79-suncalc.js"
+    }
+   }
+  },
   "node-red-node-twitter": {
    "name": "node-red-node-twitter",
-   "version": "1.0.1",
+   "version": "1.1.2",
    "local": false,
    "nodes": {
     "twitter": {
@@ -988,11 +988,9 @@
   "iantrich": {
    "editor": {
     "view": {
-     "view-grid-size": "20",
+     "view-grid-size": 20,
      "view-node-status": true,
-     "view-show-tips": true,
-     "view-snap-grid": false,
-     "view-show-grid": false
+     "view-show-tips": true
     }
    }
   }

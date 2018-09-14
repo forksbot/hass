@@ -21,7 +21,7 @@ CONF_EMAIL = 'email'
 CONF_PASSWORD = 'password'
 CONF_UNIT_OF_MEASUREMENT = 'unit_of_measurement'
 
-SESSION_FILE = '.personal-capital.conf'
+SESSION_FILE = '.pc-session'
 DATA_PERSONAL_CAPITAL = 'personalcapital_cache'
 
 ATTR_NETWORTH = 'networth'
@@ -104,7 +104,6 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     if len(session) > 0:
         pc.set_session(session)
-        _LOGGER.error(pc.get_session())
 
         try:
             pc.login(config.get(CONF_EMAIL), config.get(CONF_PASSWORD))
@@ -120,7 +119,9 @@ def continue_setup_platform(hass, config, pc, add_devices, discovery_info=None):
         hass.components.configurator.request_done(_CONFIGURING.pop("personalcapital"))
 
     uom = config.get(CONF_UNIT_OF_MEASUREMENT)
-    add_devices([PersonalCapitalNetWorthSensor(hass, pc, uom)], True)
+    add_devices([PersonalCapitalNetWorthSensor(pc, uom)], True)
+    add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'BANK', '', 'assets', 'Assets')], True)
+    add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'LIABILITIES', '', 'liabilities', 'Liabilities')], True)
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'INVESTMENT', '', 'investmentAccountsTotal', 'Investments')], True)
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'MORTGAGE', '', 'mortgageAccountsTotal', 'Mortgages')], True)
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'BANK', 'Cash', 'cashAccountsTotal', 'Cash')], True)
@@ -128,18 +129,12 @@ def continue_setup_platform(hass, config, pc, add_devices, discovery_info=None):
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'OTHER_LIABILITIES', '', 'otherLiabilitiesAccountsTotal', 'Other Liabilities')], True)
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'CREDIT_CARD', '', 'creditCardAccountsTotal', 'Credit')], True)
     add_devices([PersonalCapitalCategorySensor(hass, pc, uom, 'LOAN', '', 'loanAccountsTotal', 'Loans')], True)
-    
-def clear_session(hass):
-    _LOGGER.error('Session invalid. Resetting')
-    open(hass.config.path(SESSION_FILE), 'w').close()
-    return False
 
 class PersonalCapitalNetWorthSensor(Entity):
     """Representation of a personalcapital.com net worth sensor."""
 
-    def __init__(self, hass, pc, unit_of_measurement):
+    def __init__(self, pc, unit_of_measurement):
         """Initialize the sensor."""
-        self._hass = hass
         self._pc = pc
         self._unit_of_measurement = unit_of_measurement
         self._state = None
@@ -160,17 +155,9 @@ class PersonalCapitalNetWorthSensor(Entity):
         result = self._pc.fetch('/newaccount/getAccounts')
 
         if not result:
-            return clear_session(self._hass)
+            return False
 
-        json_result = result.json()
-        
-        if not hasattr(json_result, 'spData'):
-            return clear_session(self._hass)
-            
-        spData = json_result['spData']
-        
-        _LOGGER.error(accounts)
-        
+        spData = result.json()['spData']
         self._state = spData.get('networth', 0.0)
         self._networth = spData.get('networth', 0.0)
         self._assets = spData.get('assets', 0.0)
@@ -224,7 +211,7 @@ class PersonalCapitalCategorySensor(Entity):
 
     def __init__(self, hass, pc, unit_of_measurement, productType, accountType, balanceName, friendlyName):
         """Initialize the sensor."""
-        self._hass = hass
+        self.hass = hass
         self._pc = pc
         self._name = f'Personal Capital {friendlyName}'
         self._productType = productType
@@ -239,15 +226,9 @@ class PersonalCapitalCategorySensor(Entity):
         result = self._pc.fetch('/newaccount/getAccounts')
 
         if not result:
-            return clear_session(self._hass)
+            return False
 
-        json_result = result.json()
-        
-        if not hasattr(json_result, 'spData'):
-            return clear_session(self._hass)
-            
-        spData = json_result['spData']
-            
+        spData = result.json()['spData']
         self._state = spData.get(self._balanceName, 0.0)
         accounts = spData.get('accounts')
 

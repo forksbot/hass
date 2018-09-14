@@ -8,7 +8,7 @@ views:
     cards:
       - type: "custom:monster-card"
         card:
-          title: Docker
+          title: Playing
           type: entities
           show_header_toggle: false
         filter:
@@ -2094,7 +2094,12 @@ views:
                     add_link: url
                   - title: Balance
                     field: balance
-          
+  - icon: mdi:format-list-bulleted
+    title: Lists
+    panel: true
+    cards:
+      - type: lists-card
+            
 
 resources:
   - url: /local/lovelace/custom_cards/entity-attributes-card.js?v=0.1.0
@@ -2146,4 +2151,6 @@ resources:
   - url: /local/lovelace/custom_cards/list-card.js?v=0.0.6
     type: js
   - url: /local/lovelace/custom_cards/horizontal-list-card.js?v=0.0.1
+    type: js
+  - url: /local/lovelace/custom_cards/lists-card.js?v=0.0.2
     type: js

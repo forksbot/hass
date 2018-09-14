@@ -1,0 +1,116 @@
+{
+    "data": {
+        "credentials": [
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "iantrich"
+                },
+                "id": "3f76536e607a405c815d71e6f52fac98",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            }
+        ],
+        "refresh_tokens": [
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": null,
+                "created_at": "2018-08-29T23:09:45.165992+00:00",
+                "id": "b01fa7d0c91b46c5a5e2e42d56b685d0",
+                "jwt_key": "d5c683f4a083e41fd77da230d4e048d16a3ebb881e5bd2e5c505dd8da96ee1618e9941822640f530fb5c427f8c77b9e213b155ab6c85517c512e7ac291149e85",
+                "token": "6985379bd48c2df561772b1502f660511127b019ec4dda8bee5613601986a9f809c77cf3c87321380303988fb22ba9df19b61127c95b5010c2c285e6f6f2b02b",
+                "user_id": "227d06258d2d457e895e3ac709ff62c6"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://192.168.1.99:8123/",
+                "created_at": "2018-08-30T22:32:35.820146+00:00",
+                "id": "0e628c7c61bb42de9757de628d141c52",
+                "jwt_key": "c4e28f3a951b36652e6d443255ad71e7c0936ab604895dba066e07d351adb23a4e7adac78842ad0e123ed8976052aeca3a2aa11d92de1674659ea01275a7b15c",
+                "token": "c0a8ad6d8574c2b2e49291bde1b17acd85e07f28299683eead23115edebf8e86d76d0c127ed39150f6c0e8821d86963d51e16b2232027201fde9772ff07c1650",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-08-31T02:01:35.213569+00:00",
+                "id": "01ffa6006d8543489e4d7d58b6659dca",
+                "jwt_key": "e05ddcbb2e73c6e967b4e007354887b4f41da178bdb2de05dc042aa5f3aed14161a633ffc75363a09404a9e082be6789965c4c9c0d737fb102eb7e0bd7b1d174",
+                "token": "23dfea9e09665a1a7ea7c60b38447d83333d397444364d04057d9d44e42d8bb74d6195ca1d3eb486ed5977f39766d005b4ed4fe56ddf1770084f400c260f40d0",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-08-31T04:31:08.616558+00:00",
+                "id": "fac3af7920e1484d86304742b37681aa",
+                "jwt_key": "4935c9d1b46c263573cef1e404e0b28e6609de7638c9e46cf9641ef7090b1ad588046bfbbae16d7faaa35ecc2bc4b126800b18938332300a44d2b23c3b912fdc",
+                "token": "551d40fcdf7c0a5a614b42d52f4f0099db7070524a747df7ddf359d29d28079630a5f836951bac67984e8e55fac33ef23dceebbe98891cadb2df1531899765c4",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-09-01T01:11:26.317102+00:00",
+                "id": "d5e82072c7f245c9ae3ff879efeb00be",
+                "jwt_key": "e934f58f6cba5df533084897bf9c2f2ad642c8663fed9002f7ef1b0526b80b351bd9caba44289269ca8f19fd7835a33c307dc7f85cb4af4510759c399142798a",
+                "token": "cbfa4e78ef86d912bc512c5705061e9d1a64efd80358f41fef6bcb645f772c757b6d403454ecbb8622a0e81f9015d720a02298729dc50ff5be5bfe6843b2d408",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-09-01T02:05:19.788292+00:00",
+                "id": "602a1f8e0e214f07942e997630ff0099",
+                "jwt_key": "db2ed9b80b4547a0fbe8e36422abef77802163051347b4114b858d82c75fa4bbfad416e1dc9d87d3111d32336eea5938ca2410fd1a12d0325063c1ed89d70585",
+                "token": "fa0317b5cf1c0d2871972cd8062b815eb89e0e20a798219740cf3217f0addc1e929155ffe53102844d9d820bee65b506f06425a12398bc7cf4bf3537439c35a7",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://192.168.1.99:8123/",
+                "created_at": "2018-09-02T05:33:59.912949+00:00",
+                "id": "5f3b98b8058b47608ef00732b4c6500c",
+                "jwt_key": "4fe571ea750368b612561c6c152735079ba69de99c9f1f6e45cb469a4c309c32bf2b40987f137f03ce3a83adffd60e809277d6a4af5a7fe2b55d85efed9aac2d",
+                "token": "44c581bfc267286f6e1d83c9e749444ed7de74d1ef0c55852bdb2125270f0f84d9bc31902af9420b58eac634bd054e02353a25d4236bd51d6a2f6740f432ac05",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-09-03T13:58:34.234888+00:00",
+                "id": "0470b2948a644b40855558e2b4448907",
+                "jwt_key": "38e6a1c8b4b23230ab77cae2a9a791e16227821c8816062b2e1f7872e1c513b1caa6923b0a90475b7a1feaf8e5cce8a08613fc34dfd6fbd89fc6195ecf86e491",
+                "token": "be7d5801840d39ec8c5f9d83c83f3e9b1d6f9eda112ff85eccd4b4ba54dd7238238285f2568a707fe2f894d2f1dc9d4606a2e54699dd6710a9a9fb20c1ea85b6",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_id": "https://iantrich.duckdns.org:8123/",
+                "created_at": "2018-09-09T01:16:20.551546+00:00",
+                "id": "40e3cfc4c8264396bc575ca679f93513",
+                "jwt_key": "af35dc7141a0029312d3549ae48a42728d1a97cb1e1baece5161650c51ceccda8958fd8c65d4fa98356d80675b70403b54c14df1d58ac272db70752160f8ea87",
+                "token": "120e39644d423a1db6763c0d151db2ef4aacb7eae9b7a17b9fab5a70ca55b4c4019ad17704eacd816c3bd3be7f6e41ee30c8ae525a5ebeab753930a189476831",
+                "user_id": "63ae80fc2a42401b82fe2e0efa34f529"
+            }
+        ],
+        "users": [
+            {
+                "id": "227d06258d2d457e895e3ac709ff62c6",
+                "is_active": true,
+                "is_owner": false,
+                "name": "Hass.io",
+                "system_generated": true
+            },
+            {
+                "id": "63ae80fc2a42401b82fe2e0efa34f529",
+                "is_active": true,
+                "is_owner": true,
+                "name": "Ian",
+                "system_generated": false
+            }
+        ]
+    },
+    "key": "auth",
+    "version": 1
+}

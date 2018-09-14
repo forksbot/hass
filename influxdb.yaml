@@ -1,2 +1,5 @@
-  username: hass
+  username: homeassistant
   password: !secret influxdb_pwd
+  database: homeassistant
+  default_measurement: state
+  max_retries: 3

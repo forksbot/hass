@@ -1,0 +1,240 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "media_player.basement_roku",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "YN00L1999665"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "media_player.bedroom",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "YH007L453783"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "media_player.roku_yh00e9423945",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "YH00E9423945"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "binary_sensor.protection_window",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_uv_protection_window"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.us_air_pollution_level",
+                "name": null,
+                "platform": "airvisual",
+                "unique_id": "41.273821,-96.002075_us_air_pollution_level"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.us_air_quality_index",
+                "name": null,
+                "platform": "airvisual",
+                "unique_id": "41.273821,-96.002075_us_air_quality_index"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.us_main_pollutant",
+                "name": null,
+                "platform": "airvisual",
+                "unique_id": "41.273821,-96.002075_us_main_pollutant"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_1_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_1"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_2_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_2"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_3_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_3"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.current_ozone_level",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_current_ozone_level"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_4_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_4"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.current_uv_index",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_current_uv_index"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_5_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_5"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.max_uv_index",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_max_uv_index"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.skin_type_6_safe_exposure_time",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_safe_exposure_time_type_6"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.current_uv_level",
+                "name": null,
+                "platform": "openuv",
+                "unique_id": "41.273821_-96.002075_current_uv_level"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.office_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "6f98008f-c328-6415-8996-2ed8effe72e0"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.whole_house",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "ad58e439-5100-4d63-9dc7-13abbd566bf9"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.main_floor",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "c63c2ade-6688-43ee-9011-4f5f8b7eb340"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.girls_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "2fef898c-1337-253e-d799-b4c58e232612"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.kitchen_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "8bc11ad4-1df7-6ade-cd89-bb231c878975"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.master_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "faeca97f-50cd-5530-9dae-56ce8d860215"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.upstairs",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "27700200-c3f0-4366-b387-5f1cffc035db"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.living_room_speakers",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "094af91a-4e03-c735-2e85-867cf3e76f0b"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.living_room_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "c22d9a76-9564-987a-fcb8-90b97dc1b8e3"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.upper_main_floor",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "929bf6bc-461b-44f2-be8f-93a3ef865e53"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.bathroom_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "c3607ef1-83be-e3ae-d1c8-30fe8756700d"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.shop_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "ccf090aa-49ee-d369-0695-6bcd141a1d82"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}
