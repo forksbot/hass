@@ -232,6 +232,30 @@
                 "name": null,
                 "platform": "cast",
                 "unique_id": "ccf090aa-49ee-d369-0695-6bcd141a1d82"
+            },
+            {
+                "config_entry_id": "2f640049e14e40dd9a7452253fd805c4",
+                "device_id": null,
+                "entity_id": "media_player.basement_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "a81e07ec-7d86-4888-31b9-459befc71b5d"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.iphone_battery_state",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "state_iphone"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "entity_id": "sensor.iphone_battery_level",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "level_iphone"
             }
         ]
     },

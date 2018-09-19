@@ -4,7 +4,6 @@
 name: House Swichardson
 views:
   - title: Testing
-    panel: true
     cards:
       - type: "custom:monster-card"
         card:
@@ -15,6 +14,10 @@ views:
           include:
             - domain: media_player
               state: 'playing'
+      - type: history-graph
+        title: test
+        entities:
+        - sensor.brewdog
   - title: Home
     panel: true
     cards:
@@ -2098,7 +2101,7 @@ views:
     title: Lists
     panel: true
     cards:
-      - type: lists-card
+      - type: custom:lists-card
             
 
 resources:
@@ -2152,5 +2155,5 @@ resources:
     type: js
   - url: /local/lovelace/custom_cards/horizontal-list-card.js?v=0.0.1
     type: js
-  - url: /local/lovelace/custom_cards/lists-card.js?v=0.0.2
+  - url: /local/lovelace/custom_cards/lists-card.js?v=0.0.1
     type: js

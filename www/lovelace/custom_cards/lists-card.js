@@ -1,3 +1,4 @@
+
 class ListsCard extends HTMLElement {
 
     constructor() {
@@ -6,10 +7,6 @@ class ListsCard extends HTMLElement {
     }
 
     setConfig(config) {
-      if (!config.entity) {
-        throw new Error('Please define an entity');
-      }
-
       const root = this.shadowRoot;
       if (root.lastChild) root.removeChild(root.lastChild);
 
@@ -60,12 +57,111 @@ class ListsCard extends HTMLElement {
       const config = this._config;
       const root = this.shadowRoot;
       const card = root.lastChild;
+      let card_content = ``;
       this.style.display = 'block';
-      // root.getElementById('container').innerHTML = card_content;
+      this.lists = {};
+      hass.callApi('get', 'lists')
+        .then(function (lists) {
+          // lists.reverse();
+          this.lists = lists;
+          console.log(lists);
+        }.bind(this));
+
+      //   <paper-tabs selected="[[tab]]" scrollable>
+      //   <paper-tab>Inbox</paper-tab>
+      //   <paper-tab>Grocery</paper-tab
+      // </paper-tabs>
+      // <iron-pages selected="[[tab]]">
+      //   <div>Page 1</div>
+      //   <div>Page 2</div>
+      //   <div>Page 3</div>
+      // </iron-pages>
+      card_content += `
+
+      <div>
+        <paper-dropdown-menu label="Lists">
+        <paper-listbox slot="dropdown-content" selected="0">
+            <paper-item>Inbox</paper-item>
+            <paper-item>Grocery</paper-item>
+            <paper-item>Todos</paper-item>
+            <paper-item>Work</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu>
+        <paper-menu-button
+          horizontal-align="right"
+          horizontal-offset="-5"
+          vertical-offset="-5"
+        >
+          <paper-icon-button
+            icon="hass:dots-vertical"
+            slot="dropdown-trigger"
+          ></paper-icon-button>
+          <paper-listbox slot="dropdown-content">
+            <paper-item on-click="_refreshList">
+              <paper-icon-button icon="mdi:refresh"></paper-icon-button>
+              Refresh
+            </paper-item>
+            <paper-item on-click="_clearCompleted">
+              <paper-icon-button icon="mdi:playlist-check"></paper-icon-button>
+              Clear
+            </paper-item>
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
+
+      <div class='content'>
+        <paper-card>
+          <paper-icon-item on-focus='_focusRowInput'>
+            <paper-icon-button
+              slot="item-icon"
+              icon="hass:plus"
+              on-click='_addItem'
+            ></paper-icon-button>
+            <paper-item-body>
+              <paper-input
+                id='addBox'
+                placeholder="Add Item"
+                on-keydown='_addKeyPress'
+                no-label-float
+              ></paper-input>
+            </paper-item-body>
+          </paper-icon-item>
+
+          <template is='dom-repeat' lists='[[lists]]'>
+            <paper-icon-item>
+              <paper-checkbox
+                slot="item-icon"
+                checked='{{item.complete}}'
+                on-click='_itemCompleteTapped'
+                tabindex='0'
+              ></paper-checkbox>
+              <paper-item-body>
+                <paper-input
+                  id='editBox'
+                  no-label-float
+                  value='[[list.name]]'
+                  on-change='_saveEdit'
+                ></paper-input>
+              </paper-item-body>
+            </paper-icon-item>
+          </template>
+        </paper-card>
+      </div>`;
+      root.lastChild.hass = hass;
+      root.getElementById('container').innerHTML = card_content;
     }
 
     getCardSize() {
       return 1;
+    }
+
+    _fetchData() {
+      this.hass.callApi('get', 'lists')
+        .then(function (lists) {
+          lists.reverse();
+          this.lists = lists;
+          console.log(lists);
+        }.bind(this));
     }
   }
 

@@ -53,3 +53,4 @@ deps/lib/python3.6/site-packages/trakt/utils.py
 custom_components/camera/__pycache__/combined.cpython-36.pyc
 secrets.yaml
 *.db
+custom_components/camera/__pycache__/combined.cpython-36.pyc

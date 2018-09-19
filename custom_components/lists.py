@@ -87,7 +87,7 @@ def async_setup(hass, config):
         """Add a category with `name`."""
         data = hass.data[DOMAIN]
         name = call.data.get(ATTR_NAME)
-        list_id = '0' #TODO Terinary on call.data.get(ATTR_LIST_ID)
+        list_id = call.data.get(ATTR_LIST_ID)
         if name is not None:
             data.async_add_category(name, list_id)
 
@@ -96,18 +96,18 @@ def async_setup(hass, config):
         """Add an item with `name`."""
         data = hass.data[DOMAIN]
         name = call.data.get(ATTR_NAME)
-        list_id = '0'  # TODO Terinary on call.data.get(ATTR_LIST_ID)
-        category_id = '0'  # TODO Terinary on call.data.get(ATTR_CATEGORY_ID)
+        list_id = call.data.get(ATTR_LIST_ID)
+        category_id = call.data.get(ATTR_CATEGORY_ID)
         if name is not None:
             data.async_add_item(name, list_id, category_id)
 
     @asyncio.coroutine
-    def complete_item_service(call): #TODO
+    def complete_item_service(call):
         """Mark the item provided via `name` as completed."""
         data = hass.data[DOMAIN]
         item_id = call.data.get(ATTR_ITEM_ID)
-        list_id = '0'  # TODO Terinary on call.data.get(ATTR_LIST_ID)
-        category_id = '0'  # TODO Terinary on call.data.get(ATTR_CATEGORY_ID)
+        list_id = call.data.get(ATTR_LIST_ID)
+        category_id = call.data.get(ATTR_CATEGORY_ID)
         if item_id is None:
             return
 
@@ -138,7 +138,7 @@ def async_setup(hass, config):
         data = hass.data[DOMAIN]
         list_id = call.data.get(ATTR_LIST_ID)
 
-        if list_id is not None:
+        if list_id is not None and list_id is not '0':
             data.async_delete_list(list_id)
 
     @asyncio.coroutine
@@ -148,7 +148,7 @@ def async_setup(hass, config):
         list_id = call.data.get(ATTR_LIST_ID)
         category_id = call.data.get(ATTR_CATEGORY_ID)
 
-        if list_id is not None and category_id is not None:
+        if list_id is not None and category_id is not None and category_id is not '0':
             data.async_delete_category(list_id, category_id)
             
     @asyncio.coroutine
